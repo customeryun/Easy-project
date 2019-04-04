@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/calendar_bg_color">
+         <TextView
+             android:id="@+id/today"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:gravity="center"
+             android:textColor="#ffffff"
+             android:textSize="18dp"
+             android:text="03月30日"/>
+    </LinearLayout>
+    <com.android.easymanager.ui.widget.WeekBarView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/week_bar_height"
+        android:background="@color/calendar_bg_color"
+        app:week_text_color="#ffffff"
+        app:week_text_size="18"/>
+    <com.android.easymanager.ui.widget.week.WeekCalendarView
+        android:id="@+id/wcvCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/week_calendar_height"
+        android:background="@color/week_calendar_bg_color"
+        android:overScrollMode="never"
+        app:week_day_text_size="@integer/calendar_text_size"
+        app:week_holiday_color="@color/holiday_text_color"
+        app:week_selected_circle_color="@color/select_circle_color"
+        app:week_show_holiday_hint="true"
+        app:week_show_lunar="true"
+        app:week_show_task_hint="false"/>
+    <RelativeLayout
+        android:id="@+id/rl_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:background="#F7F7F9">
+        <TextView
+            android:text="今日日程"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/textView" />
+        <TextView
+            android:id="@+id/schedule_num"
+            android:text="1/6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycle_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView" />
+    </RelativeLayout>
+
+</LinearLayout>

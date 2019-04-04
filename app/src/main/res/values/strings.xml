@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name" translatable="false">EasyManager</string>
+    <string name="bottom_navigation_item_home">首页</string>
+    <string name="bottom_navigation_item_schedule">日程</string>
+    <string name="bottom_navigation_item_application">应用</string>
+    <string name="bottom_navigation_item_community">社区</string>
+    <string name="bottom_navigation_item_mine">我的</string>
+
+    <string-array name="calendar_week">
+        <item>日</item>
+        <item>一</item>
+        <item>二</item>
+        <item>三</item>
+        <item>四</item>
+        <item>五</item>
+        <item>六</item>
+    </string-array>
+</resources>
