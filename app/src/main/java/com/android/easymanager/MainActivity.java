@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.android.easymanager.ui.activity.BaseActivity;
 import com.android.easymanager.ui.adapter.ViewPagerAdapter;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     public static final String TAG = "App_main";
 
@@ -25,11 +26,14 @@ public class MainActivity extends AppCompatActivity {
     AHBottomNavigationViewPager view_page;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+    public int getLayout() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void init() {
         initView();
+        setActionbarVisible(false);
     }
 
     public void initView(){

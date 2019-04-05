@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.android.easymanager.R;
+import com.android.easymanager.ui.activity.StudentManagerActivity;
 import com.android.easymanager.ui.adapter.ApplyAdapter;
 import com.android.easymanager.ui.bean.ApplyChildEntry;
 import com.android.easymanager.ui.bean.ExpandGroupEntry;
@@ -76,6 +77,7 @@ public class ApplyFragment extends BaseFragment{
                 Toast.makeText(mContext, "子项：groupPosition = " + groupPosition
                                 + ", childPosition = " + childPosition,
                         Toast.LENGTH_LONG).show();
+                StudentManagerActivity.launchActivity(mContext);
             }
         });
         rv_list.setAdapter(adapter);
