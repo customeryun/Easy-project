@@ -23,6 +23,9 @@
         <activity android:name=".ui.activity.ContactActivity"/>
         <activity android:name=".ui.activity.CollectionActivity"/>
         <activity android:name=".ui.activity.AccountSecuritySettingsActivity"/>
+        <activity android:name=".ui.activity.ApprovalActivity"/>
+        <activity android:name=".ui.activity.MeApprovalActivity"/>
+        <activity android:name=".ui.activity.StudentLeaveActivity"/>
     </application>
 
 </manifest>

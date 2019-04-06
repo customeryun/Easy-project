@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F6F6F6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/activity_title_layout" />
+
+        <TextView
+            android:id="@+id/leave_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:padding="10dp"
+            android:text="这是本月第1次请假"
+            android:textColor="#8B8B8C"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#101010" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_10dp">
+
+            <ImageView
+                android:id="@+id/leave_icon1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_leave_icon" />
+
+            <TextView
+                android:id="@+id/leave_type1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/leave_icon1"
+                android:text="请假类型"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="42dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:gravity="left"
+                android:left="296dp"
+                android:text="请选择"
+                android:textSize="14dp"
+                android:top="155dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#101010" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_10dp">
+
+            <ImageView
+                android:id="@+id/leave_icon2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_leave_icon" />
+
+            <TextView
+                android:id="@+id/leave_start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/leave_icon2"
+                android:text="开始时间"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="42dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:gravity="left"
+                android:left="296dp"
+                android:text="请选择"
+                android:textSize="14dp"
+                android:top="155dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#101010" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_10dp">
+
+            <ImageView
+                android:id="@+id/leave_icon3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_leave_icon" />
+
+            <TextView
+                android:id="@+id/leave_end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/leave_icon3"
+                android:text="结束时间"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="42dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:gravity="left"
+                android:left="296dp"
+                android:text="请选择"
+                android:textSize="14dp"
+                android:top="155dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#101010" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_10dp">
+
+            <ImageView
+                android:id="@+id/leave_icon4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_leave_icon" />
+
+            <TextView
+                android:id="@+id/leave_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/leave_icon4"
+                android:text="时长"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="42dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:gravity="left"
+                android:left="296dp"
+                android:text="请输入时长"
+                android:textSize="14dp"
+                android:top="155dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="20dp"
+            android:background="#101010" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="136dp"
+            android:layout_margin="@dimen/space_10dp">
+
+            <ImageView
+                android:id="@+id/leave_icon5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_leave_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/leave_icon5"
+                android:text="请假事由"
+                android:textColor="#000000" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/leave_icon5"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:hint="请输入请假事由"
+                android:textSize="14dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#101010" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="20dp"
+            android:background="#101010" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_20dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/add_photo_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="上传附件"
+                android:textSize="14dp" />
+
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/add_photo_icon"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_add_photo"
+                android:left="16dp"
+                android:top="526dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:background="#101010" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_20dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/approve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="审批流程"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/approver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/approve"
+                android:text="审批人"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/approve_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/approve"
+                android:text="请选择审批人"
+                android:textSize="14dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/approve_select"
+            android:layout_marginTop="10dp"
+            android:background="#101010" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_20dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/approve_give"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="抄送人"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/approve_giver_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="请选择抄送人"
+                android:textSize="14dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:background="#101010" />
+
+        <Button
+            android:id="@+id/commit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_student_mg_bt"
+            android:gravity="center"
+            android:text="提交" />
+    </LinearLayout>
+</ScrollView>

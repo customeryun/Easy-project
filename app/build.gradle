@@ -33,4 +33,5 @@ dependencies {
     implementation 'com.github.donkingliang:GroupedRecyclerViewAdapter:1.3.2'
     implementation 'com.ruffian.library:RTextView:1.0.11'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 }
