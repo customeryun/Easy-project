@@ -24,10 +24,12 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentH
 
     private Context mContext;
     private ArrayList<StudentManagerEntry> entries;
+    private RvOnItemListener mRvOnItemListener;
 
-    public StudentAdapter(Context context,ArrayList<StudentManagerEntry> entries){
+    public StudentAdapter(Context context,ArrayList<StudentManagerEntry> entries,RvOnItemListener listener ){
         this.mContext = context;
         this.entries =entries;
+        this.mRvOnItemListener=listener;
     }
 
     @Override
@@ -60,6 +62,18 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentH
         public StudentHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(mRvOnItemListener!=null){
+                        mRvOnItemListener.onItemClick(getAdapterPosition(),entries.get(getAdapterPosition()));
+                    }
+                }
+            });
         }
+    }
+
+    public interface RvOnItemListener{
+        void onItemClick(int position,StudentManagerEntry entry);
     }
 }
