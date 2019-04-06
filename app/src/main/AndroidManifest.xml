@@ -17,6 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.StudentManagerActivity"/>
+        <activity android:name=".ui.activity.UserInfoActivity"/>
+        <activity android:name=".ui.activity.UserSettingsActivity"/>
+        <activity android:name=".ui.activity.MessageActivity"/>
+        <activity android:name=".ui.activity.ContactActivity"/>
+        <activity android:name=".ui.activity.CollectionActivity"/>
     </application>
 
 </manifest>

@@ -10,4 +10,5 @@
     <color name="holiday_text_color">#9082BD</color>
     <color name="select_circle_color">#FF8594</color>
     <color name="colorBackground">#F0F1F5</color>
+    <color name="user_bg_color">#4074DF</color>
 </resources>
