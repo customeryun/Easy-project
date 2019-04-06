@@ -22,6 +22,7 @@
         <activity android:name=".ui.activity.MessageActivity"/>
         <activity android:name=".ui.activity.ContactActivity"/>
         <activity android:name=".ui.activity.CollectionActivity"/>
+        <activity android:name=".ui.activity.AccountSecuritySettingsActivity"/>
     </application>
 
 </manifest>

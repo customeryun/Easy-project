@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title_layout"/>
+
+    <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/item_account_phone"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        app:left_text="更换手机号"/>
+    <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/item_account_password"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        app:left_text="更改密码"/>
+
+</LinearLayout>
