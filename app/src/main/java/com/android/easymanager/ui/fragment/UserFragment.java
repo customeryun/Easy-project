@@ -4,17 +4,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 import com.android.easymanager.R;
 import com.android.easymanager.ui.activity.CollectionActivity;
 import com.android.easymanager.ui.activity.ContactActivity;
 import com.android.easymanager.ui.activity.MessageActivity;
 import com.android.easymanager.ui.activity.UserInfoActivity;
 import com.android.easymanager.ui.activity.UserSettingsActivity;
-
 import butterknife.BindView;
+import butterknife.OnClick;
 
-public class UserFragment extends BaseFragment implements View.OnClickListener {
+public class UserFragment extends BaseFragment {
 
     @BindView(R.id.icon_userinfo)
     ImageView img_userInfo;
@@ -41,11 +40,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void init() {
-        layout_message.setOnClickListener(this);
-        layout_contact.setOnClickListener(this);
-        layout_collection.setOnClickListener(this);
-        img_userInfo.setOnClickListener(this);
-        img_settings.setOnClickListener(this);
+
     }
 
     @Override
@@ -59,7 +54,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
     }
 
 
-    @Override
+    @OnClick({R.id.message,R.id.contact,R.id.collection,R.id.icon_userinfo,R.id.icon_settings})
     public void onClick(View view) {
 
         switch (view.getId()){

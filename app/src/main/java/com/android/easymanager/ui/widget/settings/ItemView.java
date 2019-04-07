@@ -8,19 +8,16 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.android.easymanager.R;
 
 public class ItemView extends LinearLayout {
-    boolean isShowBottomLine;
+    boolean isShowTopLine,isShowBottomLine;
     boolean isShowLeftIcon;
     boolean isShowRightArrow;
-//    ImageView leftIcon;
+    ImageView leftIcon;
     TextView leftTitle;
     ImageView rightArrow;
-    View bottomLine;
-
-
+    View topLine,bottomLine;
 
     public ItemView(Context context) {
         this(context, null);
@@ -40,16 +37,21 @@ public class ItemView extends LinearLayout {
 
         LayoutInflater.from(context).inflate(R.layout.user_settings_item_layout,this);
 
+        isShowTopLine = array.getBoolean(R.styleable.ItemView_show_top_line, false);//得到是否显示底部上划线属性
         isShowBottomLine = array.getBoolean(R.styleable.ItemView_show_bottom_line, true);//得到是否显示底部下划线属性
-//        isShowLeftIcon = array.getBoolean(R.styleable.ItemView_show_left_icon, true);//得到是否显示左侧图标属性标识
+        isShowLeftIcon = array.getBoolean(R.styleable.ItemView_show_left_icon, false);//得到是否显示左侧图标属性标识
         isShowRightArrow = array.getBoolean(R.styleable.ItemView_show_right_arrow, true);//得到是否显示右侧图标属性标识
-//        leftIcon.setBackground(array.getDrawable(R.styleable.ItemView_left_icon));//设置左侧图标
+
+        leftIcon = (ImageView)findViewById(R.id.left_icon);
+        leftIcon.setBackground(array.getDrawable(R.styleable.ItemView_left_icon));//设置左侧图标
         leftTitle = (TextView)findViewById(R.id.left_text);
         leftTitle.setText(array.getString(R.styleable.ItemView_left_text));//设置左侧标题文字
-//        leftIcon.setVisibility(isShowLeftIcon ? View.VISIBLE : View.INVISIBLE);//设置左侧箭头图标是否显示
+        leftIcon.setVisibility(isShowLeftIcon ? View.VISIBLE : View.GONE);//设置左侧箭头图标是否显示
 //        rightDesc.setText(ta.getString(R.styleable.ItemView_right_text));//设置右侧文字描述
+        topLine = (View)findViewById(R.id.top_line);
+        topLine.setVisibility(isShowTopLine ? View.VISIBLE : View.GONE);
         bottomLine = (View)findViewById(R.id.bottom_line);
-        bottomLine.setVisibility(isShowBottomLine ? View.VISIBLE : View.INVISIBLE);//设置底部图标是否显示
+        bottomLine.setVisibility(isShowBottomLine ? View.VISIBLE : View.GONE);//设置底部图标是否显示
         rightArrow = (ImageView)findViewById(R.id.right_arrow);
         rightArrow.setVisibility(isShowRightArrow ? View.VISIBLE : View.INVISIBLE);//设置右侧箭头图标是否显示
 

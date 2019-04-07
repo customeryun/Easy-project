@@ -50,12 +50,13 @@
     </declare-styleable>
 
     <declare-styleable name="ItemView">
-        <!--<attr name="left_icon" format="integer"/>//设置左侧图标-->
-        <!--<attr name="show_left_icon" format="boolean"/>//是否显示左侧图标-->
+        <attr name="left_icon" format="integer"/>//设置左侧图标
+        <attr name="show_left_icon" format="boolean"/>//是否显示左侧图标
         <attr name="left_text" format="string"/>//左侧标题文字
         <!--<attr name="right_text" format="string"/>//右侧描述文字-->
         <attr name="show_right_arrow" format="boolean"/>//是否显示右侧小箭头
         <attr name="show_bottom_line" format="boolean"/>//是否显示下划线
+        <attr name="show_top_line" format="boolean"/>//是否显示上划线
     </declare-styleable>
 
 </resources>

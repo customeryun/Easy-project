@@ -5,11 +5,29 @@ import android.content.Intent;
 import android.view.View;
 import com.android.easymanager.R;
 import com.android.easymanager.ui.widget.settings.ItemView;
+import butterknife.BindView;
+import butterknife.OnClick;
 
-public class UserSettingsActivity extends BaseActivity implements View.OnClickListener {
+public class UserSettingsActivity extends BaseActivity {
 
-    ItemView item_account,item_message_notification,item_privacy,item_clean;
-    ItemView item_language,item_about,item_share,item_comment,item_suggestion;
+    @BindView(R.id.item_account)
+    ItemView item_account;
+    @BindView(R.id.item_message_notification)
+    ItemView item_message_notification;
+    @BindView(R.id.item_privacy)
+    ItemView iitem_privacy;
+    @BindView(R.id.item_clean)
+    ItemView item_clean;
+    @BindView(R.id.item_language)
+    ItemView item_language;
+    @BindView(R.id.item_about)
+    ItemView item_about;
+    @BindView(R.id.item_share)
+    ItemView item_share;
+    @BindView(R.id.item_comment)
+    ItemView iitem_comment;
+    @BindView(R.id.item_suggestion)
+    ItemView item_suggestion;
 
     @Override
     public int getLayout() {
@@ -19,25 +37,6 @@ public class UserSettingsActivity extends BaseActivity implements View.OnClickLi
     @Override
     public void init() {
         setTitle("设置");
-        item_account = (ItemView)findViewById(R.id.item_account);
-        item_message_notification = (ItemView)findViewById(R.id.item_message_notification);
-        item_privacy = (ItemView)findViewById(R.id.item_privacy);
-        item_clean = (ItemView)findViewById(R.id.item_clean);
-        item_language = (ItemView)findViewById(R.id.item_language);
-        item_about = (ItemView)findViewById(R.id.item_about );
-        item_share = (ItemView)findViewById(R.id.item_share);
-        item_comment = (ItemView)findViewById(R.id.item_comment);
-        item_suggestion = (ItemView)findViewById(R.id.item_suggestion);
-
-        item_account.setOnClickListener(this);
-        item_message_notification.setOnClickListener(this);
-        item_privacy.setOnClickListener(this);
-        item_clean.setOnClickListener(this);
-        item_language.setOnClickListener(this);
-        item_about.setOnClickListener(this);
-        item_share.setOnClickListener(this);
-        item_comment.setOnClickListener(this);
-        item_suggestion.setOnClickListener(this);
     }
 
     public static void launchActivity(Context context){
@@ -45,7 +44,8 @@ public class UserSettingsActivity extends BaseActivity implements View.OnClickLi
         context.startActivity(intent);
     }
 
-    @Override
+    @OnClick({R.id.item_account,R.id.item_message_notification,R.id.item_privacy,R.id.item_clean,
+            R.id.item_language,R.id.item_about,R.id.item_share,R.id.item_comment,R.id.item_suggestion})
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.item_account:

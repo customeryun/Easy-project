@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F9F9F9"
     android:orientation="vertical">
 
     <include layout="@layout/activity_title_layout"/>
@@ -48,10 +49,10 @@
         android:background="#ffffff"
         android:gravity="center_horizontal"
         android:orientation="vertical">
-        <LinearLayout
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="#DBDADA"/>
         
         <ImageView
             android:layout_width="176dp"

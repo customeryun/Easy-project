@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F9F9F9"
     android:orientation="vertical">
 
     <include layout="@layout/activity_title_layout"/>
@@ -16,6 +17,8 @@
         android:id="@+id/item_message_notification"
         android:layout_width="match_parent"
         android:layout_height="42dp"
+        android:layout_marginTop="8dp"
+        app:show_top_line="true"
         app:left_text="新消息通知"/>
     <com.android.easymanager.ui.widget.settings.ItemView
         android:id="@+id/item_privacy"
@@ -26,6 +29,8 @@
         android:id="@+id/item_clean"
         android:layout_width="match_parent"
         android:layout_height="42dp"
+        android:paddingTop="8dp"
+        app:show_top_line="true"
         app:left_text="清除缓存"/>
     <com.android.easymanager.ui.widget.settings.ItemView
         android:id="@+id/item_language"
@@ -36,6 +41,8 @@
         android:id="@+id/item_about"
         android:layout_width="match_parent"
         android:layout_height="42dp"
+        android:paddingTop="8dp"
+        app:show_top_line="true"
         app:left_text="关于我们"/>
     <com.android.easymanager.ui.widget.settings.ItemView
         android:id="@+id/item_share"
