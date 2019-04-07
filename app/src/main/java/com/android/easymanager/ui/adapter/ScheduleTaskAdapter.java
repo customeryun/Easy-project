@@ -26,10 +26,12 @@ public class ScheduleTaskAdapter extends RecyclerView.Adapter<ScheduleTaskAdapte
 
     private Context mContext;
     private ArrayList<ScheduleItem> scheduleItems;
+    private RvOnItemListener rvOnItemListener;
 
-    public ScheduleTaskAdapter(Context context, ArrayList<ScheduleItem> items){
+    public ScheduleTaskAdapter(Context context, ArrayList<ScheduleItem> items,RvOnItemListener rvOnItemListener){
         this.mContext = context;
         this.scheduleItems = items;
+        this.rvOnItemListener = rvOnItemListener;
     }
 
     @Override
@@ -63,6 +65,18 @@ public class ScheduleTaskAdapter extends RecyclerView.Adapter<ScheduleTaskAdapte
         public ScheduleHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(rvOnItemListener!=null){
+                        rvOnItemListener.onItemClick(getAdapterPosition(),scheduleItems.get(getAdapterPosition()));
+                    }
+                }
+            });
         }
+    }
+
+    public interface RvOnItemListener{
+        void onItemClick(int position,ScheduleItem item);
     }
 }
