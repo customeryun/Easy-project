@@ -29,6 +29,8 @@ public abstract class BaseActivity extends AppCompatActivity{
     TextView iv_title;
     @BindView(R.id.actionbar)
     LinearLayout actionbar;
+    @BindView(R.id.iv_add)
+    ImageView iv_add;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,6 +69,18 @@ public abstract class BaseActivity extends AppCompatActivity{
                 finish();
             }
         });
+    }
+
+    protected void setAddIconRes(int resId){
+        iv_add.setImageResource(resId);
+    }
+
+    protected void setAddIconVisible(boolean visible){
+        iv_add.setVisibility(visible?View.VISIBLE:View.GONE);
+    }
+
+    protected void setAddIconListener(View.OnClickListener listener){
+        iv_add.setOnClickListener(listener);
     }
 
 

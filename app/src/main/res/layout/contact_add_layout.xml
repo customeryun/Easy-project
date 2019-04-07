@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9F9"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title_layout"/>
+
+    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        app:left_text="输入学号搜索"
+        app:show_left_icon="true"
+        app:show_top_line="true"
+        android:showDividers="middle"
+        app:show_right_arrow="false"
+        />
+    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        app:left_text="扫一扫加好友"
+        app:show_left_icon="true"
+        app:show_right_arrow="false"
+        />
+    <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/contact_show_code"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:left_text="我的二维码"
+        app:show_left_icon="true"
+        app:show_right_arrow="false"
+        />
+
+</LinearLayout>

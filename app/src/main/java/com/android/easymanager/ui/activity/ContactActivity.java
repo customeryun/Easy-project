@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.WindowManager;
 import com.android.easymanager.R;
 import com.android.easymanager.ui.adapter.ContactAdapter;
@@ -29,7 +30,10 @@ public class ContactActivity extends BaseActivity {
 
     @Override
     public void init() {
-        setTitle("我的好友");
+        setTitle("校园通讯录");
+        setAddIconVisible(true);
+        setAddIconRes(android.R.drawable.ic_menu_add);
+        setAddIconListener(mAddOnClickListener);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
@@ -60,4 +64,11 @@ public class ContactActivity extends BaseActivity {
         Intent intent = new Intent(context,ContactActivity.class);
         context.startActivity(intent);
     }
+
+    View.OnClickListener mAddOnClickListener = new View.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            ContactAddActivity.launchActivity(mContext);
+        }
+    };
 }

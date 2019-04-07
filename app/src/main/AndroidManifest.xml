@@ -26,6 +26,7 @@
         <activity android:name=".ui.activity.ApprovalActivity"/>
         <activity android:name=".ui.activity.MeApprovalActivity"/>
         <activity android:name=".ui.activity.StudentLeaveActivity"/>
+        <activity android:name=".ui.activity.ContactAddActivity"/>
     </application>
 
 </manifest>
