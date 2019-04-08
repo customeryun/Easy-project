@@ -8,3 +8,4 @@
 8:xiaoming add 1.添加日程管理对话框2.添加日程管理POP界面 20190407
 9.linmei   add 1.我的-设置模块代码优化；2.我的好友模块UI添加-通讯录与字母导航 20190407
 10.linmei  add 1.actionBar 增加add_icon显示；2.通讯录添加好友UI代码提交
+11:xiaoming add 行程日历控件更新
