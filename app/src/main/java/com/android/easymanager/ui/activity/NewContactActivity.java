@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 import com.android.easymanager.R;
-import com.android.easymanager.ui.adapter.MessageGroupAdapter;
-import com.android.easymanager.ui.bean.MessageGroupEntry;
+import com.android.easymanager.ui.adapter.ContactEasyAdapter;
+import com.android.easymanager.ui.bean.Contact;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 
-public class MessageActivity extends BaseActivity implements MessageGroupAdapter.RvOnItemListener{
+public class NewContactActivity extends BaseActivity implements ContactEasyAdapter.RvOnItemListener{
 
     @BindView(R.id.recyclerView)
     RecyclerView recycle_view;
@@ -27,7 +27,7 @@ public class MessageActivity extends BaseActivity implements MessageGroupAdapter
 
     @Override
     public void init() {
-        setTitle("我的消息");
+        setTitle("新的好友");
         setAddIconVisible(true);
         setAddIconRes(android.R.drawable.ic_menu_add);
         setAddIconListener(mAddOnClickListener);
@@ -38,34 +38,36 @@ public class MessageActivity extends BaseActivity implements MessageGroupAdapter
     }
 
     public static void launchActivity(Context context){
-        Intent intent = new Intent(context,MessageActivity.class);
+        Intent intent = new Intent(context,NewContactActivity.class);
         context.startActivity(intent);
     }
 
     public void initRecycleView() {
-        MessageGroupAdapter adapter = new MessageGroupAdapter(mContext, buildItems(),this);
+        ContactEasyAdapter adapter = new ContactEasyAdapter(mContext, buildItems(),this);
+
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         recycle_view.setAdapter(adapter);
     }
 
-    public List<MessageGroupEntry> buildItems() {
-        List<MessageGroupEntry> managerEntries = new ArrayList<>();
-        managerEntries.add(new MessageGroupEntry());
-        managerEntries.add(new MessageGroupEntry());
-
+    public List<Contact> buildItems() {
+        List<Contact> managerEntries = new ArrayList<>();
+        managerEntries.add(new Contact("张三","计算机01班",false));
+        managerEntries.add(new Contact("李四","计算机02班",true));
+        managerEntries.add(new Contact("王五","计算机01班",true));
+        managerEntries.add(new Contact("赵六","计算机01班",true));
         return managerEntries;
     }
 
     View.OnClickListener mAddOnClickListener = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
-
+            ContactAddActivity.launchActivity(mContext);
         }
     };
 
     @Override
-    public void onItemClick(int position, MessageGroupEntry entry) {
+    public void onItemClick(int position, Contact entry) {
         Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
     }
 

@@ -61,16 +61,15 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             String character = (name.charAt(0) + "").toUpperCase(Locale.ENGLISH);
             if (!characterList.contains(character)) {
                 if (character.hashCode() >= "A".hashCode() && character.hashCode() <= "Z".hashCode()) { // 是字母
-                    characterList.add(character); //linmei del
-                    resultList.add(new Contact(character, ITEM_TYPE.ITEM_TYPE_CHARACTER.ordinal()));//linmei del
+                    characterList.add(character);
+                    resultList.add(new Contact(character, ITEM_TYPE.ITEM_TYPE_CHARACTER.ordinal()));
                 } else {
                     if (!characterList.contains("#")) {
-                        characterList.add("#");//linmei del
-                        resultList.add(new Contact("#", ITEM_TYPE.ITEM_TYPE_CHARACTER.ordinal()));//linmei del
+                        characterList.add("#");
+                        resultList.add(new Contact("#", ITEM_TYPE.ITEM_TYPE_CHARACTER.ordinal()));
                     }
                 }
             }
-
             resultList.add(new Contact(map.get(name), ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal()));
         }
     }

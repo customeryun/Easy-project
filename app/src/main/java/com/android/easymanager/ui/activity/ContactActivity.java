@@ -10,7 +10,9 @@ import com.android.easymanager.R;
 import com.android.easymanager.ui.adapter.ContactAdapter;
 import com.android.easymanager.ui.widget.contact.DividerItemDecoration;
 import com.android.easymanager.ui.widget.contact.LetterView;
+import com.android.easymanager.ui.widget.settings.ItemView;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class ContactActivity extends BaseActivity {
 
@@ -18,6 +20,12 @@ public class ContactActivity extends BaseActivity {
     RecyclerView contactList;
     @BindView(R.id.letter_view)
     LetterView letterView;
+    @BindView(R.id.contact_new)
+    ItemView contact_item_new;
+    @BindView(R.id.contact_teacher)
+    ItemView contact_item_teacher;
+    @BindView(R.id.contact_student)
+    ItemView contact_item_student;
 
     private String[] contactNames;
     private LinearLayoutManager layoutManager;
@@ -71,4 +79,17 @@ public class ContactActivity extends BaseActivity {
             ContactAddActivity.launchActivity(mContext);
         }
     };
+
+    @OnClick({R.id.contact_teacher,R.id.contact_new,R.id.contact_student})
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.contact_new:
+                NewContactActivity.launchActivity(mContext);
+                break;
+            case R.id.contact_teacher:
+                break;
+            case R.id.contact_student:
+                break;
+        }
+    }
 }

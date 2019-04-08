@@ -20,6 +20,7 @@
         android:layout_marginEnd="16dp"/>
 
     <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/contact_new"
         android:layout_width="match_parent"
         android:layout_height="46dp"
         app:left_text="新的好友"
@@ -29,6 +30,7 @@
         app:show_right_arrow="false"
         />
     <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/contact_teacher"
         android:layout_width="match_parent"
         android:layout_height="46dp"
         app:left_text="老师通讯录"
@@ -36,6 +38,7 @@
         app:show_right_arrow="false"
         />
     <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/contact_student"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         app:left_text="学生通讯录"
