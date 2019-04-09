@@ -36,9 +36,9 @@
             android:textSize="16dp"/>
         <ImageView
             android:id="@+id/right_arrow"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@android:drawable/ic_input_add"/>
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/icon_next"/>
     </LinearLayout>
 
     <View

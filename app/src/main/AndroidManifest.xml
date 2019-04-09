@@ -31,6 +31,9 @@
         <activity android:name=".ui.activity.ContactAddActivity" />
         <activity android:name=".ui.activity.NewContactActivity" />
         <activity android:name=".ui.activity.StudentContactGroupActivity" />
+        <activity android:name=".ui.activity.TeacherGroupActivity" />
+        <activity android:name=".ui.activity.TeacherChildActivity" />
+        <activity android:name=".ui.activity.StudentChildActivity" />
         <activity android:name=".ui.activity.ApprovalCommitActivity" />
         <activity android:name=".ui.activity.ApprovalHistoryActivity" />
         <activity android:name=".ui.activity.ApprovalLeaveActivity" />

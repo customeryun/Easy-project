@@ -8,17 +8,23 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
+
 import com.android.easymanager.R;
 import com.android.easymanager.ui.adapter.ContactEasyAdapter;
 import com.android.easymanager.ui.bean.Contact;
+import com.android.easymanager.ui.bean.ContactGroupEntry;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
 
-public class NewContactActivity extends BaseActivity implements ContactEasyAdapter.RvOnItemListener{
+public class TeacherChildActivity extends BaseActivity implements ContactEasyAdapter.RvOnItemListener{
 
     @BindView(R.id.recyclerView)
     RecyclerView recycle_view;
+
+    ContactGroupEntry mEntry;
 
     @Override
     public int getLayout() {
@@ -27,23 +33,22 @@ public class NewContactActivity extends BaseActivity implements ContactEasyAdapt
 
     @Override
     public void init() {
-        setTitle("新的好友");
-        setAddIconVisible(true);
-        setAddIconRes(android.R.drawable.ic_menu_add);
-        setAddIconListener(mAddOnClickListener);
+        mEntry = (ContactGroupEntry)getIntent().getSerializableExtra("data");
+        setTitle(mEntry.getName());
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         initRecycleView();
     }
 
-    public static void launchActivity(Context context){
-        Intent intent = new Intent(context,NewContactActivity.class);
+    public static void launchActivity(Context context, ContactGroupEntry entry){
+        Intent intent = new Intent(context,TeacherChildActivity.class);
+        intent.putExtra("data",entry);
         context.startActivity(intent);
     }
 
     public void initRecycleView() {
-        ContactEasyAdapter adapter = new ContactEasyAdapter(mContext, buildItems(),this,true);
+        ContactEasyAdapter adapter = new ContactEasyAdapter(mContext, buildItems(),this,false);
 
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
@@ -52,19 +57,12 @@ public class NewContactActivity extends BaseActivity implements ContactEasyAdapt
 
     public List<Contact> buildItems() {
         List<Contact> managerEntries = new ArrayList<>();
-        managerEntries.add(new Contact("张三","计算机01班",false));
-        managerEntries.add(new Contact("李四","计算机02班",true));
-        managerEntries.add(new Contact("王五","计算机01班",true));
-        managerEntries.add(new Contact("赵六","计算机01班",true));
+        managerEntries.add(new Contact("张三","主任"));
+        managerEntries.add(new Contact("李四","校长"));
+        managerEntries.add(new Contact("王五","助理"));
+        managerEntries.add(new Contact("赵六","副主任"));
         return managerEntries;
     }
-
-    View.OnClickListener mAddOnClickListener = new View.OnClickListener(){
-        @Override
-        public void onClick(View view) {
-            ContactAddActivity.launchActivity(mContext);
-        }
-    };
 
     @Override
     public void onItemClick(int position, Contact entry) {

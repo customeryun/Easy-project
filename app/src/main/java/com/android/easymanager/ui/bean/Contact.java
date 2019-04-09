@@ -13,6 +13,11 @@ public class Contact implements Serializable {
         mType = type;
     }
 
+    public Contact(String name, String className) {
+        mName = name;
+        mClassName = className;
+    }
+
     public Contact(String name, String className,boolean frident) {
         mName = name;
         mClassName = className;

@@ -18,12 +18,14 @@ public class ContactEasyAdapter extends RecyclerView.Adapter<ContactEasyAdapter.
     private Context mContext;
     private List<Contact> mList;
     private RvOnItemListener mRvOnItemListener;
+    private boolean mIsShowRightIcon;
 
-    public ContactEasyAdapter(Context context, List<Contact> list,RvOnItemListener listener) {
+    public ContactEasyAdapter(Context context, List<Contact> list,RvOnItemListener listener,boolean isShowRightIcon) {
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
         this.mRvOnItemListener=listener;
         mList = list;
+        mIsShowRightIcon = isShowRightIcon;
     }
 
     @Override
@@ -41,10 +43,12 @@ public class ContactEasyAdapter extends RecyclerView.Adapter<ContactEasyAdapter.
                 holder.tv_add.setTextColor(Color.parseColor("#101010"));
                 holder.tv_add.setBackgroundColor(Color.parseColor("#00000000"));
             }else{
-                holder.tv_add.setText("添加");
+                holder.tv_add.setText("接受");
                 holder.tv_add.setTextColor(Color.parseColor("#FFFFFF"));
                 holder.tv_add.setBackgroundColor(Color.parseColor("#68C85D"));
             }
+
+        holder.tv_add.setVisibility(mIsShowRightIcon?View.VISIBLE:View.GONE);
     }
 
     @Override
