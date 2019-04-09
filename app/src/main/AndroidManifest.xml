@@ -28,6 +28,7 @@
         <activity android:name=".ui.activity.StudentLeaveActivity"/>
         <activity android:name=".ui.activity.ContactAddActivity"/>
         <activity android:name=".ui.activity.NewContactActivity"/>
+        <activity android:name=".ui.activity.StudentContactGroupActivity"/>
     </application>
 
 </manifest>

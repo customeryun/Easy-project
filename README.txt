@@ -9,4 +9,5 @@
 9.linmei   add 1.我的-设置模块代码优化；2.我的好友模块UI添加-通讯录与字母导航 20190407
 10.linmei  add 1.actionBar 增加add_icon显示；2.通讯录添加好友UI代码提交
 11:xiaoming add 行程日历控件更新
-12.linmei   add 1.通讯录-新的好友UI代码提交；2.我的消息主页UI提交
+12.linmei   add 1.通讯录-新的好友UI代码提交；2.我的消息主页UI提交 20190408
+13.linmei   add 学生通讯录UI代码提交 20190409

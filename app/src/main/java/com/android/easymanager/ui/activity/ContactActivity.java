@@ -87,8 +87,10 @@ public class ContactActivity extends BaseActivity {
                 NewContactActivity.launchActivity(mContext);
                 break;
             case R.id.contact_teacher:
+                StudentContactGroupActivity.launchActivity(mContext);//传递不同参数显示不同书库
                 break;
             case R.id.contact_student:
+                StudentContactGroupActivity.launchActivity(mContext);
                 break;
         }
     }
