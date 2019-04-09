@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
 import com.android.easymanager.R;
+import com.android.easymanager.ui.activity.ApprovalCommitActivity;
 import com.android.easymanager.ui.adapter.MeWillApprovalAdapter;
 import com.android.easymanager.ui.bean.MeApprovalChildEntry;
 
@@ -18,7 +19,7 @@ import butterknife.BindView;
  * Created by PC-xiaoming on 2019/4/6.
  */
 
-public class MeWillApprovalFragment extends BaseFragment{
+public class MeWillApprovalFragment extends BaseFragment implements MeWillApprovalAdapter.RvOnItemListener{
 
     @BindView(R.id.search)
     ImageView search;
@@ -55,7 +56,7 @@ public class MeWillApprovalFragment extends BaseFragment{
     }
 
     public void initRecyclerView(){
-        MeWillApprovalAdapter approvalAdapter = new MeWillApprovalAdapter(mContext,buildItems());
+        MeWillApprovalAdapter approvalAdapter = new MeWillApprovalAdapter(this,mContext,buildItems());
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.addItemDecoration(new DividerItemDecoration(mContext,DividerItemDecoration.HORIZONTAL));
         recycle_view.setAdapter(approvalAdapter);
@@ -67,5 +68,10 @@ public class MeWillApprovalFragment extends BaseFragment{
             childEntries.add(new MeApprovalChildEntry());
         }
         return childEntries;
+    }
+
+    @Override
+    public void onItemClick(int position, String data) {
+        ApprovalCommitActivity.launchActivity(mContext);
     }
 }

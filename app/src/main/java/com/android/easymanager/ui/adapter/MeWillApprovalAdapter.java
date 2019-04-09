@@ -24,10 +24,12 @@ public class MeWillApprovalAdapter extends RecyclerView.Adapter<MeWillApprovalAd
 
     private Context mContext;
     private ArrayList<MeApprovalChildEntry> childEntries;
+    private RvOnItemListener onItemListener;
 
-    public MeWillApprovalAdapter(Context context, ArrayList<MeApprovalChildEntry> childEntries){
+    public MeWillApprovalAdapter(RvOnItemListener listener,Context context, ArrayList<MeApprovalChildEntry> childEntries){
         this.mContext = context;
         this.childEntries = childEntries;
+        this.onItemListener = listener;
     }
 
     @Override
@@ -62,6 +64,18 @@ public class MeWillApprovalAdapter extends RecyclerView.Adapter<MeWillApprovalAd
         public WillApprovalHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(onItemListener!=null){
+                        onItemListener.onItemClick(getAdapterPosition(),"ss" );
+                    }
+                }
+            });
         }
+    }
+
+    public interface RvOnItemListener{
+        void onItemClick(int position,String data);
     }
 }

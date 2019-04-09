@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.easymanager">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,19 +18,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.StudentManagerActivity"/>
-        <activity android:name=".ui.activity.UserInfoActivity"/>
-        <activity android:name=".ui.activity.UserSettingsActivity"/>
-        <activity android:name=".ui.activity.MessageActivity"/>
-        <activity android:name=".ui.activity.ContactActivity"/>
-        <activity android:name=".ui.activity.CollectionActivity"/>
-        <activity android:name=".ui.activity.AccountSecuritySettingsActivity"/>
-        <activity android:name=".ui.activity.ApprovalActivity"/>
-        <activity android:name=".ui.activity.MeApprovalActivity"/>
-        <activity android:name=".ui.activity.StudentLeaveActivity"/>
-        <activity android:name=".ui.activity.ContactAddActivity"/>
-        <activity android:name=".ui.activity.NewContactActivity"/>
-        <activity android:name=".ui.activity.StudentContactGroupActivity"/>
+        <activity android:name=".ui.activity.StudentManagerActivity" />
+        <activity android:name=".ui.activity.UserInfoActivity" />
+        <activity android:name=".ui.activity.UserSettingsActivity" />
+        <activity android:name=".ui.activity.MessageActivity" />
+        <activity android:name=".ui.activity.ContactActivity" />
+        <activity android:name=".ui.activity.CollectionActivity" />
+        <activity android:name=".ui.activity.AccountSecuritySettingsActivity" />
+        <activity android:name=".ui.activity.ApprovalActivity" />
+        <activity android:name=".ui.activity.MeApprovalActivity" />
+        <activity android:name=".ui.activity.StudentLeaveActivity" />
+        <activity android:name=".ui.activity.ContactAddActivity" />
+        <activity android:name=".ui.activity.NewContactActivity" />
+        <activity android:name=".ui.activity.StudentContactGroupActivity" />
+        <activity android:name=".ui.activity.ApprovalCommitActivity" />
+        <activity android:name=".ui.activity.ApprovalHistoryActivity" />
+        <activity android:name=".ui.activity.ApprovalLeaveActivity" />
+
     </application>
 
 </manifest>
