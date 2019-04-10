@@ -39,6 +39,7 @@
         <activity android:name=".ui.activity.ApprovalCommitActivity" />
         <activity android:name=".ui.activity.ApprovalHistoryActivity" />
         <activity android:name=".ui.activity.ApprovalLeaveActivity" />
+        <activity android:name=".ui.activity.PasswordModifyActivity" />
 
     </application>
 

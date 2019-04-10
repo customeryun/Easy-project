@@ -5,10 +5,19 @@ import android.content.Intent;
 import android.view.View;
 import com.android.easymanager.R;
 import com.android.easymanager.ui.widget.settings.ItemView;
+import butterknife.BindView;
+import butterknife.OnClick;
 
 public class AccountSecuritySettingsActivity extends BaseActivity implements View.OnClickListener {
 
-    ItemView item_account_phone,item_account_password;
+    @BindView(R.id.phone_bind)
+    ItemView phone_bind_view;
+    @BindView(R.id.phone_modify)
+    ItemView phone_modify_view;
+    @BindView(R.id.password_modify)
+    ItemView password_modify;
+    @BindView(R.id.password_reset)
+    ItemView password_reset_view;
 
     @Override
     public int getLayout() {
@@ -18,11 +27,6 @@ public class AccountSecuritySettingsActivity extends BaseActivity implements Vie
     @Override
     public void init() {
         setTitle("账号与安全");
-        item_account_phone = (ItemView)findViewById(R.id.item_account_phone);
-        item_account_password = (ItemView)findViewById(R.id.item_account_password);
-
-        item_account_phone.setOnClickListener(this);
-        item_account_password.setOnClickListener(this);
     }
 
     public static void launchActivity(Context context){
@@ -30,12 +34,17 @@ public class AccountSecuritySettingsActivity extends BaseActivity implements Vie
         context.startActivity(intent);
     }
 
-    @Override
+    @OnClick({R.id.phone_bind,R.id.phone_modify,R.id.password_modify,R.id.password_reset})
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.item_account_phone:
+            case R.id.phone_bind:
                 break;
-            case R.id.item_account_password:
+            case R.id.phone_modify:
+                break;
+            case R.id.password_modify:
+                PasswordModifyActivity.launchActivity(mContext);
+                break;
+            case R.id.password_reset:
                 break;
         }
     }

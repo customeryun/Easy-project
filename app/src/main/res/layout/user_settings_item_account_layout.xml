@@ -8,14 +8,24 @@
     <include layout="@layout/activity_title_layout"/>
 
     <com.android.easymanager.ui.widget.settings.ItemView
-        android:id="@+id/item_account_phone"
+        android:id="@+id/phone_bind"
         android:layout_width="match_parent"
         android:layout_height="42dp"
-        app:left_text="更换手机号"/>
+        app:left_text="绑定手机号"/>
     <com.android.easymanager.ui.widget.settings.ItemView
-        android:id="@+id/item_account_password"
+        android:id="@+id/phone_modify"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        app:left_text="更改手机号"/>
+    <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/password_modify"
         android:layout_width="match_parent"
         android:layout_height="42dp"
         app:left_text="更改密码"/>
+    <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/password_reset"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        app:left_text="重置密码"/>
 
 </LinearLayout>

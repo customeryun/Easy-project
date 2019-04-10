@@ -32,7 +32,8 @@ public class MeDetailActivity extends BaseActivity implements ContactDetailAdapt
 
     @Override
     public void init() {
-        setActionbarVisible(false);
+        setActionbarVisible(true);
+        setTitle("我的信息");
         layout_head.setVisibility(View.GONE);
 //        layout_bottom.setVisibility(View.GONE);
         initRecycleView();
