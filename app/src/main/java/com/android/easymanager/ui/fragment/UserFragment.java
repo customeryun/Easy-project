@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import com.android.easymanager.R;
 import com.android.easymanager.ui.activity.CollectionActivity;
 import com.android.easymanager.ui.activity.ContactActivity;
+import com.android.easymanager.ui.activity.ContactDetailActivity;
+import com.android.easymanager.ui.activity.MeDetailActivity;
 import com.android.easymanager.ui.activity.MessageActivity;
 import com.android.easymanager.ui.activity.UserInfoActivity;
 import com.android.easymanager.ui.activity.UserSettingsActivity;
@@ -25,6 +28,8 @@ public class UserFragment extends BaseFragment {
     LinearLayout layout_contact;
     @BindView(R.id.collection)
     LinearLayout layout_collection;
+    @BindView(R.id.layout_me)
+    RelativeLayout meLayout;
 
     public static UserFragment getInstance(){
         UserFragment fragment = new UserFragment();
@@ -54,7 +59,7 @@ public class UserFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.message,R.id.contact,R.id.collection,R.id.icon_userinfo,R.id.icon_settings})
+    @OnClick({R.id.message,R.id.contact,R.id.collection,R.id.icon_userinfo,R.id.icon_settings,R.id.layout_me})
     public void onClick(View view) {
 
         switch (view.getId()){
@@ -72,6 +77,9 @@ public class UserFragment extends BaseFragment {
                 break;
             case R.id.icon_settings:
                 UserSettingsActivity.launchActivity(mContext);
+                break;
+            case R.id.layout_me:
+                MeDetailActivity.launchActivity(mContext);
                 break;
         }
 

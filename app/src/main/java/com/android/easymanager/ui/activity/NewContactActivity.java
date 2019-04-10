@@ -69,6 +69,7 @@ public class NewContactActivity extends BaseActivity implements ContactEasyAdapt
     @Override
     public void onItemClick(int position, Contact entry) {
         Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
+        ContactDetailActivity.launchActivity(mContext);
     }
 
 }

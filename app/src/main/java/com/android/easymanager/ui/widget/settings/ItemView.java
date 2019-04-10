@@ -15,7 +15,7 @@ public class ItemView extends LinearLayout {
     boolean isShowLeftIcon;
     boolean isShowRightArrow;
     ImageView leftIcon;
-    TextView leftTitle;
+    TextView leftTitle,rightDesc;
     ImageView rightArrow;
     View topLine,bottomLine;
 
@@ -47,7 +47,8 @@ public class ItemView extends LinearLayout {
         leftTitle = (TextView)findViewById(R.id.left_text);
         leftTitle.setText(array.getString(R.styleable.ItemView_left_text));//设置左侧标题文字
         leftIcon.setVisibility(isShowLeftIcon ? View.VISIBLE : View.GONE);//设置左侧箭头图标是否显示
-//        rightDesc.setText(ta.getString(R.styleable.ItemView_right_text));//设置右侧文字描述
+        rightDesc = (TextView)findViewById(R.id.right_text);
+        rightDesc.setText(array.getString(R.styleable.ItemView_right_text));//设置右侧文字描述
         topLine = (View)findViewById(R.id.top_line);
         topLine.setVisibility(isShowTopLine ? View.VISIBLE : View.GONE);
         bottomLine = (View)findViewById(R.id.bottom_line);

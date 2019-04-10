@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title_layout"/>
+
+    <RelativeLayout
+        android:id="@+id/layout_head"
+        android:background="@color/user_bg_color"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_back"/>
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:scaleType="fitXY"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:src="@drawable/home_top_01"/>
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="6dp"
+            android:layout_below="@+id/icon"
+            android:textColor="#FFFFFF"
+            android:text="AAAAAA"/>
+    </RelativeLayout>
+
+    <!--<com.android.easymanager.ui.widget.settings.ItemView-->
+        <!--android:id="@+id/item_name"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="48dp"-->
+        <!--/>-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/layout_bottom"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:layout_height="150dp">-->
+        <!--<Button-->
+            <!--android:id="@+id/btn_add"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="#68C85D"-->
+            <!--android:textColor="#FFFFFF"-->
+            <!--android:text="加为好友"/>-->
+    <!--</LinearLayout>-->
+</LinearLayout>

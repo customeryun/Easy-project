@@ -70,6 +70,7 @@ public class StudentChildActivity extends BaseActivity implements StudentItemAda
     @Override
     public void onItemClick(int position, StudentItem entry) {
         Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
+        ContactDetailActivity.launchActivity(mContext);
     }
 
 }

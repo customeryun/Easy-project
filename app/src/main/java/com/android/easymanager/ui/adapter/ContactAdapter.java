@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.android.easymanager.R;
+import com.android.easymanager.ui.activity.ContactDetailActivity;
 import com.android.easymanager.ui.bean.Contact;
 import com.android.easymanager.ui.widget.contact.ContactComparator;
 import com.android.easymanager.ui.widget.contact.Utils;
@@ -121,6 +121,12 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
             mTextView = (TextView) view.findViewById(R.id.contact_name);
             mTextView_class = (TextView) view.findViewById(R.id.contact_class);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ContactDetailActivity.launchActivity(mContext);
+                }
+            });
         }
     }
 
