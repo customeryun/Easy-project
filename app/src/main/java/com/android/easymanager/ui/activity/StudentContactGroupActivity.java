@@ -5,19 +5,15 @@ import android.content.Intent;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.WindowManager;
 import android.widget.Toast;
 import com.android.easymanager.R;
+import com.android.easymanager.ui.adapter.BaseRecyclerAdapter;
 import com.android.easymanager.ui.adapter.StudentGroupAdapter;
 import com.android.easymanager.ui.bean.ContactGroupEntry;
-import com.android.easymanager.ui.bean.StudentItem;
-
 import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 
-public class StudentContactGroupActivity extends BaseActivity implements StudentGroupAdapter.RvOnItemListener{
+public class StudentContactGroupActivity extends BaseActivity implements BaseRecyclerAdapter.OnItemClickListener{
 
     @BindView(R.id.recyclerView)
     RecyclerView recycle_view;
@@ -39,15 +35,17 @@ public class StudentContactGroupActivity extends BaseActivity implements Student
     }
 
     public void initRecycleView() {
-        StudentGroupAdapter adapter = new StudentGroupAdapter(mContext, buildItems(),this);
+        StudentGroupAdapter adapter = new StudentGroupAdapter();
+        adapter.setOnItemClickListener(this);
+        adapter.addDatas(buildItems());
 
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         recycle_view.setAdapter(adapter);
     }
 
-    public List<ContactGroupEntry> buildItems() {
-        List<ContactGroupEntry> managerEntries = new ArrayList<>();
+    public ArrayList<ContactGroupEntry> buildItems() {
+        ArrayList<ContactGroupEntry> managerEntries = new ArrayList<>();
         managerEntries.add(new ContactGroupEntry(0,"汉语进修生1班",40));
         managerEntries.add(new ContactGroupEntry(1,"汉语进修生2班",2));
         managerEntries.add(new ContactGroupEntry(2,"石油工程学院 石油工程专业2019班",5));
@@ -55,9 +53,9 @@ public class StudentContactGroupActivity extends BaseActivity implements Student
     }
 
     @Override
-    public void onItemClick(int position, ContactGroupEntry entry) {
+    public void onItemClick(int position, Object entry) {
         Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
         //进入学生child列表页面
-        StudentChildActivity.launchActivity(mContext,entry);
+        StudentChildActivity.launchActivity(mContext,(ContactGroupEntry)entry);
     }
 }

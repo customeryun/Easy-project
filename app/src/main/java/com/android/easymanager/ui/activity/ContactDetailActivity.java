@@ -5,20 +5,29 @@ import android.content.Intent;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.android.easymanager.R;
+import com.android.easymanager.ui.adapter.BaseRecyclerAdapter;
 import com.android.easymanager.ui.adapter.ContactDetailAdapter;
 import com.android.easymanager.ui.bean.ListItemEntry;
 import java.util.ArrayList;
-import java.util.List;
 import butterknife.BindView;
+import butterknife.OnClick;
 
-public class ContactDetailActivity extends BaseActivity implements ContactDetailAdapter.RvOnItemListener{
+public class ContactDetailActivity extends BaseActivity implements BaseRecyclerAdapter.OnItemClickListener{
 
     @BindView(R.id.recyclerView)
     RecyclerView recycle_view;
+    @BindView(R.id.layout_bottom)
+    LinearLayout layout_bottom;
+    @BindView(R.id.btn_add)
+    Button btn_add;
 
-    boolean isMe = false;
+    boolean isFrident = true;
 
     @Override
     public int getLayout() {
@@ -29,6 +38,9 @@ public class ContactDetailActivity extends BaseActivity implements ContactDetail
     public void init() {
         setActionbarVisible(false);
         initRecycleView();
+        isFrident = getIntent().getBooleanExtra("isfrident",true);
+        layout_bottom.setVisibility(isFrident? View.GONE:View.VISIBLE);
+
     }
 
     public static void launchActivity(Context context){
@@ -36,15 +48,23 @@ public class ContactDetailActivity extends BaseActivity implements ContactDetail
         context.startActivity(intent);
     }
 
+    public static void launchActivity(Context context,boolean isFrident){
+        Intent intent = new Intent(context,ContactDetailActivity.class);
+        intent.putExtra("isfrident",isFrident);
+        context.startActivity(intent);
+    }
+
     public void initRecycleView() {
-        ContactDetailAdapter adapter = new ContactDetailAdapter(mContext, buildItems(),this);
+        ContactDetailAdapter adapter = new ContactDetailAdapter();
+        adapter.addDatas(buildItems());
+        adapter.setOnItemClickListener(this);
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         recycle_view.setAdapter(adapter);
     }
 
-    public List<ListItemEntry> buildItems() {
-        List<ListItemEntry> managerEntries = new ArrayList<>();
+    public ArrayList<ListItemEntry> buildItems() {
+        ArrayList<ListItemEntry> managerEntries = new ArrayList<>();
         managerEntries.add(new ListItemEntry("英文姓名:AAAAAAA",""));
         managerEntries.add(new ListItemEntry("国籍：中国",""));
         managerEntries.add(new ListItemEntry("班级：112",""));
@@ -54,7 +74,16 @@ public class ContactDetailActivity extends BaseActivity implements ContactDetail
     }
 
     @Override
-    public void onItemClick(int position, ListItemEntry entry) {
-        Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
+    public void onItemClick(int position, Object data) {
+        ListItemEntry item = (ListItemEntry)data;
+        Toast.makeText(mContext,"**position=="+position+"***"+item.getTitle(),Toast.LENGTH_LONG).show();
+    }
+
+    @OnClick({R.id.btn_add})
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn_add:
+                RequestFriendActivity.launchActivity(mContext);
+        }
     }
 }

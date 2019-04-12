@@ -6,17 +6,16 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.android.easymanager.R;
+import com.android.easymanager.ui.adapter.BaseRecyclerAdapter;
 import com.android.easymanager.ui.adapter.ContactDetailAdapter;
 import com.android.easymanager.ui.bean.ListItemEntry;
 import java.util.ArrayList;
-import java.util.List;
 import butterknife.BindView;
 
-public class MeDetailActivity extends BaseActivity implements ContactDetailAdapter.RvOnItemListener{
+public class MeDetailActivity extends BaseActivity implements BaseRecyclerAdapter.OnItemClickListener{
 
     @BindView(R.id.recyclerView)
     RecyclerView recycle_view;
@@ -45,14 +44,16 @@ public class MeDetailActivity extends BaseActivity implements ContactDetailAdapt
     }
 
     public void initRecycleView() {
-        ContactDetailAdapter adapter = new ContactDetailAdapter(mContext, buildItems(),this);
+        ContactDetailAdapter adapter = new ContactDetailAdapter();
+        adapter.addDatas(buildItems());
+        adapter.setOnItemClickListener(this);
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         recycle_view.setAdapter(adapter);
     }
 
-    public List<ListItemEntry> buildItems() {
-        List<ListItemEntry> managerEntries = new ArrayList<>();
+    public ArrayList<ListItemEntry> buildItems() {
+        ArrayList<ListItemEntry> managerEntries = new ArrayList<>();
         managerEntries.add(new ListItemEntry("英文姓名:","林xianya"));
         managerEntries.add(new ListItemEntry("国籍：","中国"));
         managerEntries.add(new ListItemEntry("班级：","112"));
@@ -62,7 +63,8 @@ public class MeDetailActivity extends BaseActivity implements ContactDetailAdapt
     }
 
     @Override
-    public void onItemClick(int position, ListItemEntry entry) {
-        Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
+    public void onItemClick(int position, Object entry) {
+        ListItemEntry item = (ListItemEntry)entry;
+        Toast.makeText(mContext,"**position=="+position+"***"+item.getTitle(),Toast.LENGTH_LONG).show();
     }
 }

@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 import com.android.easymanager.R;
+import com.android.easymanager.ui.adapter.BaseRecyclerAdapter;
 import com.android.easymanager.ui.adapter.ContactEasyAdapter;
 import com.android.easymanager.ui.bean.Contact;
 import java.util.ArrayList;
-import java.util.List;
 import butterknife.BindView;
 
-public class NewContactActivity extends BaseActivity implements ContactEasyAdapter.RvOnItemListener{
+public class NewContactActivity extends BaseActivity implements BaseRecyclerAdapter.OnItemClickListener{
 
     @BindView(R.id.recyclerView)
     RecyclerView recycle_view;
@@ -43,15 +43,17 @@ public class NewContactActivity extends BaseActivity implements ContactEasyAdapt
     }
 
     public void initRecycleView() {
-        ContactEasyAdapter adapter = new ContactEasyAdapter(mContext, buildItems(),this,true);
+        ContactEasyAdapter adapter = new ContactEasyAdapter(true);
+        adapter.addDatas(buildItems());
+        adapter.setOnItemClickListener(this);
 
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         recycle_view.setAdapter(adapter);
     }
 
-    public List<Contact> buildItems() {
-        List<Contact> managerEntries = new ArrayList<>();
+    public ArrayList<Contact> buildItems() {
+        ArrayList<Contact> managerEntries = new ArrayList<>();
         managerEntries.add(new Contact("张三","计算机01班",false));
         managerEntries.add(new Contact("李四","计算机02班",true));
         managerEntries.add(new Contact("王五","计算机01班",true));
@@ -67,7 +69,7 @@ public class NewContactActivity extends BaseActivity implements ContactEasyAdapt
     };
 
     @Override
-    public void onItemClick(int position, Contact entry) {
+    public void onItemClick(int position, Object entry) {
         Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
         ContactDetailActivity.launchActivity(mContext);
     }

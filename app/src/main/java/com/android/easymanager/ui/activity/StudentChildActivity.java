@@ -7,20 +7,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.WindowManager;
 import android.widget.Toast;
-
 import com.android.easymanager.R;
-import com.android.easymanager.ui.adapter.ContactEasyAdapter;
+import com.android.easymanager.ui.adapter.BaseRecyclerAdapter;
 import com.android.easymanager.ui.adapter.StudentItemAdapter;
-import com.android.easymanager.ui.bean.Contact;
 import com.android.easymanager.ui.bean.ContactGroupEntry;
 import com.android.easymanager.ui.bean.StudentItem;
-
 import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 
-public class StudentChildActivity extends BaseActivity implements StudentItemAdapter.RvOnItemListener{
+public class StudentChildActivity extends BaseActivity implements BaseRecyclerAdapter.OnItemClickListener{
 
     @BindView(R.id.recyclerView)
     RecyclerView recycle_view;
@@ -49,15 +44,17 @@ public class StudentChildActivity extends BaseActivity implements StudentItemAda
     }
 
     public void initRecycleView() {
-        StudentItemAdapter adapter = new StudentItemAdapter(mContext, buildItems(),this);
+        StudentItemAdapter adapter = new StudentItemAdapter();
+        adapter.addDatas(buildItems());
+        adapter.setOnItemClickListener(this);
 
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         recycle_view.setAdapter(adapter);
     }
 
-    public List<StudentItem> buildItems() {
-        List<StudentItem> managerEntries = new ArrayList<>();
+    public ArrayList<StudentItem> buildItems() {
+        ArrayList<StudentItem> managerEntries = new ArrayList<>();
         managerEntries.add(new StudentItem(0,"张三","男","中国", "20190409001"));
         managerEntries.add(new StudentItem(0,"李四","男","美国", "20190409021"));
         managerEntries.add(new StudentItem(0,"王五","女","中国", "20190409001"));
@@ -68,9 +65,9 @@ public class StudentChildActivity extends BaseActivity implements StudentItemAda
     }
 
     @Override
-    public void onItemClick(int position, StudentItem entry) {
+    public void onItemClick(int position, Object entry) {
         Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
-        ContactDetailActivity.launchActivity(mContext);
+        ContactDetailActivity.launchActivity(mContext,false);
     }
 
 }

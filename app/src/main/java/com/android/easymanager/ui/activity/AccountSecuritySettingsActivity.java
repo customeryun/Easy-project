@@ -38,8 +38,10 @@ public class AccountSecuritySettingsActivity extends BaseActivity implements Vie
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.phone_bind:
+                PhoneNumberModifyActivity.launchActivity(mContext);
                 break;
             case R.id.phone_modify:
+                PhoneNumberModifyActivity.launchActivity(mContext);
                 break;
             case R.id.password_modify:
                 PasswordModifyActivity.launchActivity(mContext);

@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 import com.android.easymanager.R;
+import com.android.easymanager.ui.adapter.BaseRecyclerAdapter;
 import com.android.easymanager.ui.adapter.MessageGroupAdapter;
 import com.android.easymanager.ui.bean.MessageGroupEntry;
 import java.util.ArrayList;
-import java.util.List;
 import butterknife.BindView;
 
-public class MessageActivity extends BaseActivity implements MessageGroupAdapter.RvOnItemListener{
+public class MessageActivity extends BaseActivity implements BaseRecyclerAdapter.OnItemClickListener{
 
     @BindView(R.id.recyclerView)
     RecyclerView recycle_view;
@@ -43,17 +43,18 @@ public class MessageActivity extends BaseActivity implements MessageGroupAdapter
     }
 
     public void initRecycleView() {
-        MessageGroupAdapter adapter = new MessageGroupAdapter(mContext, buildItems(),this);
+        MessageGroupAdapter adapter = new MessageGroupAdapter();
+        adapter.setOnItemClickListener(this);
+        adapter.addDatas(buildItems());
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         recycle_view.setAdapter(adapter);
     }
 
-    public List<MessageGroupEntry> buildItems() {
-        List<MessageGroupEntry> managerEntries = new ArrayList<>();
+    public ArrayList<MessageGroupEntry> buildItems() {
+        ArrayList<MessageGroupEntry> managerEntries = new ArrayList<>();
         managerEntries.add(new MessageGroupEntry());
         managerEntries.add(new MessageGroupEntry());
-
         return managerEntries;
     }
 
@@ -65,7 +66,7 @@ public class MessageActivity extends BaseActivity implements MessageGroupAdapter
     };
 
     @Override
-    public void onItemClick(int position, MessageGroupEntry entry) {
+    public void onItemClick(int position, Object entry) {
         Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
     }
 

@@ -52,18 +52,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <!--<LinearLayout-->
-        <!--android:id="@+id/layout_bottom"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:gravity="center_horizontal"-->
-        <!--android:layout_marginTop="16dp"-->
-        <!--android:layout_height="150dp">-->
-        <!--<Button-->
-            <!--android:id="@+id/btn_add"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="#68C85D"-->
-            <!--android:textColor="#FFFFFF"-->
-            <!--android:text="加为好友"/>-->
-    <!--</LinearLayout>-->
+    <LinearLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        android:layout_height="150dp">
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="80dp"
+            android:layout_height="36dp"
+            android:background="#68C85D"
+            android:textColor="#FFFFFF"
+            android:text="加为好友"/>
+    </LinearLayout>
 </LinearLayout>

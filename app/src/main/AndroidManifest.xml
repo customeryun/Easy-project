@@ -40,6 +40,8 @@
         <activity android:name=".ui.activity.ApprovalHistoryActivity" />
         <activity android:name=".ui.activity.ApprovalLeaveActivity" />
         <activity android:name=".ui.activity.PasswordModifyActivity" />
+        <activity android:name=".ui.activity.PhoneNumberModifyActivity" />
+        <activity android:name=".ui.activity.RequestFriendActivity" />
 
     </application>
 

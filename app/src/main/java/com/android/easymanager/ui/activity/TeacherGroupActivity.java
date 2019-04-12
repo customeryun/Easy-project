@@ -6,17 +6,14 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
-
 import com.android.easymanager.R;
+import com.android.easymanager.ui.adapter.BaseRecyclerAdapter;
 import com.android.easymanager.ui.adapter.StudentGroupAdapter;
 import com.android.easymanager.ui.bean.ContactGroupEntry;
-
 import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 
-public class TeacherGroupActivity extends BaseActivity implements StudentGroupAdapter.RvOnItemListener{
+public class TeacherGroupActivity extends BaseActivity implements BaseRecyclerAdapter.OnItemClickListener{
 
     @BindView(R.id.recyclerView)
     RecyclerView recycle_view;
@@ -38,15 +35,17 @@ public class TeacherGroupActivity extends BaseActivity implements StudentGroupAd
     }
 
     public void initRecycleView() {
-        StudentGroupAdapter adapter = new StudentGroupAdapter(mContext, buildItems(),this);
+        StudentGroupAdapter adapter = new StudentGroupAdapter();
+        adapter.setOnItemClickListener(this);
+        adapter.addDatas(buildItems());
 
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         recycle_view.setAdapter(adapter);
     }
 
-    public List<ContactGroupEntry> buildItems() {
-        List<ContactGroupEntry> managerEntries = new ArrayList<>();
+    public ArrayList<ContactGroupEntry> buildItems() {
+        ArrayList<ContactGroupEntry> managerEntries = new ArrayList<>();
         managerEntries.add(new ContactGroupEntry(0,"国际教育中心",3));
         managerEntries.add(new ContactGroupEntry(1,"招生办公室",2));
         managerEntries.add(new ContactGroupEntry(2,"综合办公室",5));
@@ -54,12 +53,10 @@ public class TeacherGroupActivity extends BaseActivity implements StudentGroupAd
     }
 
     @Override
-    public void onItemClick(int position, ContactGroupEntry entry) {
+    public void onItemClick(int position, Object entry) {
         Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
         //进入child列表页面
-
-        TeacherChildActivity.launchActivity(mContext,entry);
-
+        TeacherChildActivity.launchActivity(mContext,(ContactGroupEntry)entry);
     }
 
 }
