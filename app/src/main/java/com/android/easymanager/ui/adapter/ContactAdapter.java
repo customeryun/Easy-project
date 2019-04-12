@@ -8,18 +8,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.android.easymanager.R;
 import com.android.easymanager.ui.activity.ContactDetailActivity;
+import com.android.easymanager.ui.activity.NewContactActivity;
+import com.android.easymanager.ui.activity.StudentContactGroupActivity;
+import com.android.easymanager.ui.activity.TeacherGroupActivity;
 import com.android.easymanager.ui.bean.Contact;
 import com.android.easymanager.ui.widget.contact.ContactComparator;
 import com.android.easymanager.ui.widget.contact.Utils;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private LayoutInflater mLayoutInflater;
@@ -30,6 +33,7 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private List<String> characterList; // 字母List
 
     public enum ITEM_TYPE {
+        ITEM_TYPE_HEAD,
         ITEM_TYPE_CHARACTER,
         ITEM_TYPE_CONTACT
     }
@@ -56,6 +60,8 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         resultList = new ArrayList<>();
         characterList = new ArrayList<>();
 
+        resultList.add(new Contact("", ITEM_TYPE.ITEM_TYPE_HEAD.ordinal()));
+
         for (int i = 0; i < mContactList.size(); i++) {
             String name = mContactList.get(i);
             String character = (name.charAt(0) + "").toUpperCase(Locale.ENGLISH);
@@ -76,6 +82,9 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if(viewType == ITEM_TYPE.ITEM_TYPE_HEAD.ordinal()){
+            return new HeadHolder(mLayoutInflater.inflate(R.layout.contact_manager_head_layout, parent, false));
+        }else
         if (viewType == ITEM_TYPE.ITEM_TYPE_CHARACTER.ordinal()) {
             return new CharacterHolder(mLayoutInflater.inflate(R.layout.contact_character_item, parent, false));
         } else {
@@ -103,25 +112,48 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         return resultList == null ? 0 : resultList.size();
     }
 
+    public class HeadHolder extends RecyclerView.ViewHolder {
+        @OnClick({R.id.contact_teacher,R.id.contact_new,R.id.contact_student})
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.contact_new:
+                    NewContactActivity.launchActivity(mContext);
+                    break;
+                case R.id.contact_teacher:
+                    TeacherGroupActivity.launchActivity(mContext);
+                    break;
+                case R.id.contact_student:
+                    StudentContactGroupActivity.launchActivity(mContext);
+                    break;
+            }
+        }
+
+        HeadHolder(View view) {
+            super(view);
+            ButterKnife.bind(this, itemView);
+        }
+    }
+
     public class CharacterHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.character)
         TextView mTextView;
 
         CharacterHolder(View view) {
             super(view);
-
-            mTextView = (TextView) view.findViewById(R.id.character);
+            ButterKnife.bind(this, itemView);
         }
     }
 
     public class ContactHolder extends RecyclerView.ViewHolder {
-        TextView mTextView,mTextView_class;
+        @BindView(R.id.contact_name)
+        TextView mTextView;
+        @BindView(R.id.contact_class)
+        TextView mTextView_class;
 
         ContactHolder(View view) {
             super(view);
-
-            mTextView = (TextView) view.findViewById(R.id.contact_name);
-            mTextView_class = (TextView) view.findViewById(R.id.contact_class);
-            view.setOnClickListener(new View.OnClickListener() {
+            ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     ContactDetailActivity.launchActivity(mContext);
@@ -138,7 +170,6 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 }
             }
         }
-
         return -1; // -1不会滑动
     }
 }

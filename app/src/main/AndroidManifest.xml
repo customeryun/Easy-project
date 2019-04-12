@@ -74,6 +74,8 @@
         <activity android:name=".ui.activity.ApprovalLeaveActivity" />
         <activity android:name=".ui.activity.PasswordModifyActivity" />
 	<activity android:name=".ui.activity.PhoneNumberModifyActivity" />
+        <activity android:name=".ui.activity.RequestFriendActivity"/>
+
         <!-- Required SDK 核心功能-->
         <!-- 可配置android:process参数将PushService放在其他进程中 -->
         <service

@@ -15,6 +15,7 @@
 15.linmei   add 通讯录-老师/学生通讯录界面UI 20190409
 16.linmei   add 个人+好友详情界面提交  20190410
 17.linmei   add 更改密码界面UI添加  20190410
-18.linmei   add 1.更改手机界面+好友申请验证界面UI添加; 2.BaseRecyclerAdapter添加，adapter代码优化
-19:xiaoming add 集成极光IM即时通讯
-19.linmei   add 登录界面UI添加
+18.linmei   add 1.更改手机界面+好友申请验证界面UI添加; 2.BaseRecyclerAdapter添加，adapter代码优化 20190412
+19:xiaoming add 集成极光IM即时通讯  20190412
+19.linmei   add 登录界面UI添加     20190412
+20.linmei   add 校园通讯录UI优化   20190412

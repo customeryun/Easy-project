@@ -20,12 +20,12 @@ public class ContactActivity extends BaseActivity {
     RecyclerView contactList;
     @BindView(R.id.letter_view)
     LetterView letterView;
-    @BindView(R.id.contact_new)
-    ItemView contact_item_new;
-    @BindView(R.id.contact_teacher)
-    ItemView contact_item_teacher;
-    @BindView(R.id.contact_student)
-    ItemView contact_item_student;
+//    @BindView(R.id.contact_new)
+//    ItemView contact_item_new;
+//    @BindView(R.id.contact_teacher)
+//    ItemView contact_item_teacher;
+//    @BindView(R.id.contact_student)
+//    ItemView contact_item_student;
 
     private String[] contactNames;
     private LinearLayoutManager layoutManager;
@@ -80,18 +80,18 @@ public class ContactActivity extends BaseActivity {
         }
     };
 
-    @OnClick({R.id.contact_teacher,R.id.contact_new,R.id.contact_student})
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.contact_new:
-                NewContactActivity.launchActivity(mContext);
-                break;
-            case R.id.contact_teacher:
-                TeacherGroupActivity.launchActivity(mContext);
-                break;
-            case R.id.contact_student:
-                StudentContactGroupActivity.launchActivity(mContext);
-                break;
-        }
-    }
+//    @OnClick({R.id.contact_teacher,R.id.contact_new,R.id.contact_student})
+//    public void onClick(View view) {
+//        switch (view.getId()){
+//            case R.id.contact_new:
+//                NewContactActivity.launchActivity(mContext);
+//                break;
+//            case R.id.contact_teacher:
+//                TeacherGroupActivity.launchActivity(mContext);
+//                break;
+//            case R.id.contact_student:
+//                StudentContactGroupActivity.launchActivity(mContext);
+//                break;
+//        }
+//    }
 }
