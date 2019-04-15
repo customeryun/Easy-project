@@ -39,6 +39,17 @@
         android:supportsRtl="true"
         android:name=".IxiaApplication"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="jchat.db"/>
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="com.android.easymanager.database.UserEntry"/>
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="4"/>
+
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -75,6 +86,7 @@
         <activity android:name=".ui.activity.PasswordModifyActivity" />
 	<activity android:name=".ui.activity.PhoneNumberModifyActivity" />
         <activity android:name=".ui.activity.RequestFriendActivity"/>
+        <activity android:name=".ui.activity.FinishRegisterActivity"/>
 
         <!-- Required SDK 核心功能-->
         <!-- 可配置android:process参数将PushService放在其他进程中 -->

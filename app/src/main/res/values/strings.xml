@@ -15,4 +15,7 @@
         <item>五</item>
         <item>六</item>
     </string-array>
+
+    <string name="login_hint">登录中</string>
+    <string name="jmui_loading">正在加载</string>
 </resources>

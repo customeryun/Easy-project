@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="60dp"
+        android:gravity="center"
+        android:text="注册成功，\n补充注册侧信息界面,\n点击完成返回登录界面登录"/>
+
+    <Button
+        android:id="@+id/finish_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="30dip"
+        android:text="完成,去登录"
+        android:textSize="16sp"/>
+
+</LinearLayout>

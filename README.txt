@@ -19,3 +19,4 @@
 19:xiaoming add 集成极光IM即时通讯  20190412
 19.linmei   add 登录界面UI添加     20190412
 20.linmei   add 校园通讯录UI优化   20190412
+21.linmei   add 极光IM即时通讯-登录注册简易实现 20190415

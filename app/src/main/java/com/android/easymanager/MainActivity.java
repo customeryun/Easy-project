@@ -1,18 +1,14 @@
 package com.android.easymanager;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-
 import com.android.easymanager.ui.activity.BaseActivity;
 import com.android.easymanager.ui.adapter.ViewPagerAdapter;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
-
 import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -39,6 +35,11 @@ public class MainActivity extends BaseActivity {
     public void initView(){
         initBottomNavigation();
         initViewPage();
+    }
+
+    public static void launchActivity(Context context){
+        Intent intent = new Intent(context,MainActivity.class);
+        context.startActivity(intent);
     }
 
     public void initBottomNavigation(){

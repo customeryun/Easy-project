@@ -5,7 +5,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.android.easymanager.R;
+import com.android.easymanager.database.UserEntry;
 import com.android.easymanager.ui.activity.CollectionActivity;
 import com.android.easymanager.ui.activity.ContactActivity;
 import com.android.easymanager.ui.activity.ContactDetailActivity;
@@ -15,6 +17,8 @@ import com.android.easymanager.ui.activity.UserInfoActivity;
 import com.android.easymanager.ui.activity.UserSettingsActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.model.UserInfo;
 
 public class UserFragment extends BaseFragment {
 
@@ -31,6 +35,9 @@ public class UserFragment extends BaseFragment {
     @BindView(R.id.layout_me)
     RelativeLayout meLayout;
 
+    @BindView(R.id.me_name)
+    TextView tv_name;
+
     public static UserFragment getInstance(){
         UserFragment fragment = new UserFragment();
         Bundle args = new Bundle();
@@ -45,7 +52,7 @@ public class UserFragment extends BaseFragment {
 
     @Override
     public void init() {
-
+        initHeadView();
     }
 
     @Override
@@ -83,5 +90,10 @@ public class UserFragment extends BaseFragment {
                 break;
         }
 
+    }
+
+    private void initHeadView(){
+        UserInfo myInfo = JMessageClient.getMyInfo();
+        tv_name.setText(myInfo.getUserName());
     }
 }
