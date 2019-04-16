@@ -33,9 +33,9 @@ public class UserEntry extends Model {
 //    public List<FriendRecommendEntry> getRecommends() {
 //        return getMany(FriendRecommendEntry.class, "User");
 //    }
-//
-//    public List<FriendEntry> getFriends() {
-//        return getMany(FriendEntry.class, "User");
-//    }
+
+    public List<FriendEntry> getFriends() {
+        return getMany(FriendEntry.class, "User");
+    }
 
 }

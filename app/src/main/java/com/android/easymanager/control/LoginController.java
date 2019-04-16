@@ -90,7 +90,7 @@ public class LoginController implements View.OnClickListener {
                                 ToastUtil.shortToast(mContext, "注册成功");
                             } else {
                                 //HandleResponseCode.onHandle(mContext, i, false);
-                                ToastUtil.shortToast(mContext, "注册失败");
+                                ToastUtil.shortToast(mContext, "注册失败:"+s);
                             }
                         }
                     });

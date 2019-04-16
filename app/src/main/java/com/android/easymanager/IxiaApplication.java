@@ -1,15 +1,24 @@
 package com.android.easymanager;
 
 import android.content.Context;
+import com.android.easymanager.database.UserEntry;
 import com.android.easymanager.ui.receiver.NotificationClickEventReceiver;
 import com.android.easymanager.utils.SharePreferenceManager;
 import cn.jpush.im.android.api.JMessageClient;
 
 public class IxiaApplication extends com.activeandroid.app.Application{
+    public static final String CONV_TITLE = "conv_title";
 
     public static Context context;
     public static long registerOrLogin = 1;
     private static final String JCHAT_CONFIGS = "JChat_configs";
+
+    public static final int RESULT_CODE_FRIEND_INFO = 17;
+    public static final int RESULT_CODE_EDIT_NOTENAME = 29;
+    public static final String NOTENAME = "notename";
+    public static final String GROUP_ID = "groupId";
+    public static final String TARGET_ID = "targetId";
+    public static final String TARGET_APP_KEY = "targetAppKey";
 
     @Override
     public void onCreate() {
@@ -25,5 +34,8 @@ public class IxiaApplication extends com.activeandroid.app.Application{
         //new NotificationClickEventReceiver(getApplicationContext());
     }
 
+    public static UserEntry getUserEntry() {
+        return UserEntry.getUser(JMessageClient.getMyInfo().getUserName(), JMessageClient.getMyInfo().getAppKey());
+    }
 
 }

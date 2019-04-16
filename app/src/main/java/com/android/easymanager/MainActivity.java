@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity {
     public void initViewPage(){
         view_page.setOffscreenPageLimit(5);
         view_page.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
-
+        view_page.setCurrentItem(4);
     }
 
     public ArrayList<AHBottomNavigationItem> buildItem(){

@@ -12,6 +12,8 @@ public class ContactAddActivity extends BaseActivity{
 
     @BindView(R.id.contact_show_code)
     ItemView item_show_code;
+    @BindView(R.id.search_for_add_friend)
+    ItemView search_for_add_friend;
 
     @Override
     public int getLayout() {
@@ -28,8 +30,16 @@ public class ContactAddActivity extends BaseActivity{
         context.startActivity(intent);
     }
 
-    @OnClick({R.id.contact_show_code})
+    @OnClick({R.id.contact_show_code,R.id.search_for_add_friend})
     public void onClick(View view) {
-        UserInfoActivity.launchActivity(mContext);
+        switch(view.getId()){
+            case R.id.contact_show_code:
+                UserInfoActivity.launchActivity(mContext);
+                break;
+            case R.id.search_for_add_friend:
+                SearchForAddFriendActivity.launchActivity(mContext);
+                break;
+        }
+
     }
 }

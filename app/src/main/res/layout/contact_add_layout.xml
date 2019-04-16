@@ -9,14 +9,15 @@
     <include layout="@layout/activity_title_layout"/>
 
     <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/search_for_add_friend"
         android:layout_width="match_parent"
         android:layout_height="46dp"
-        app:left_text="输入学号搜索"
+        app:left_text="输入用户名搜索"
         app:show_left_icon="true"
         app:show_top_line="true"
         android:showDividers="middle"
         app:show_right_arrow="false"
-        />
+        /><!--app:left_text="输入学号搜索"-->
     <com.android.easymanager.ui.widget.settings.ItemView
         android:layout_width="match_parent"
         android:layout_height="46dp"
