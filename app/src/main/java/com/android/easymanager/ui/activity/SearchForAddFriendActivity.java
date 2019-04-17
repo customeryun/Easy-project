@@ -113,25 +113,25 @@ public class SearchForAddFriendActivity extends BaseActivity implements View.OnC
                 }
                 break;
             case R.id.search_result://详细资料
-//                if (InfoModel.getInstance().isFriend()) {//已经是好友
+                if (InfoModel.getInstance().isFriend()) {//已经是好友
                     intent.setClass(SearchForAddFriendActivity.this, FriendInfoActivity.class);
                     intent.putExtra("addFriend", true);
                     intent.putExtra("targetId", InfoModel.getInstance().friendInfo.getUserName());
-//                } else if (getIntent().getFlags() == 2){//直接发起单聊
+                } else if (getIntent().getFlags() == 2){//直接发起单聊
 //                    intent.setClass(SearchForAddFriendActivity.this, GroupNotFriendActivity.class);
 //                    intent.putExtra(JGApplication.TARGET_ID, InfoModel.getInstance().friendInfo.getUserName());
 //                    intent.putExtra(JGApplication.TARGET_APP_KEY, InfoModel.getInstance().friendInfo.getAppKey());
 //                    startActivity(intent);
-//                }else {//添加好友
-//                    intent.setClass(SearchForAddFriendActivity.this, SearchFriendInfoActivity.class);
-//                    startActivity(intent);
-//                }
+                }else {//添加好友
+                    intent.setClass(SearchForAddFriendActivity.this, SearchFriendInfoActivity.class);
+                    startActivity(intent);
+                }
                 startActivity(intent);
                 break;
             case R.id.search_addBtn:
-//                //添加申请
-//                intent.setClass(SearchForAddFriendActivity.this, VerificationActivity.class);
-//                startActivity(intent);
+                //添加申请
+                intent.setClass(SearchForAddFriendActivity.this, VerificationActivity.class);
+                startActivity(intent);
                 break;
             case R.id.iv_clear:
                 mEt_searchUser.setText("");

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.easymanager.view.FriendInfoView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/friend_info_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <!--<include layout="@layout/activity_title_layout"/>-->
+
+    <RelativeLayout
+        android:id="@+id/layout_head"
+        android:background="@color/user_bg_color"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp">
+        <ImageView
+            android:id="@+id/return_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_back"/>
+        <ImageView
+            android:id="@+id/iv_friendPhoto"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="26.67dp"
+            android:src="@drawable/rc_default_portrait"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:id="@+id/tv_userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="6dp"
+            android:layout_below="@+id/iv_friendPhoto"
+            android:textColor="#FFFFFF"
+            android:text="AAAAAA"/>
+        <ImageView
+            android:id="@+id/jmui_commit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15.67dp"
+            android:background="@drawable/more_doc"/>
+    </RelativeLayout>
+
+    <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/item_english_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:show_right_arrow="false"
+        app:left_text="英文名字："
+        />
+    <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/item_country"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:show_right_arrow="false"
+        app:left_text="国籍：" />
+    <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/item_class"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:show_right_arrow="false"
+        app:left_text="班级：" />
+    <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/item_major"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:show_right_arrow="false"
+        app:left_text="专业：" />
+    <com.android.easymanager.ui.widget.settings.ItemView
+        android:id="@+id/item_college"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:show_right_arrow="false"
+        app:left_text="院系：" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E8EDF3">
+
+        <Button
+            android:id="@+id/btn_addFriend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="加好友"
+            android:textSize="16sp"/>
+        <!--android:background="@drawable/blue_btn_selector"-->
+        <!--style="?android:attr/borderlessButtonStyle"-->
+        <!--android:textColor="@drawable/blue_text_selector"-->
+    </LinearLayout>
+</com.android.easymanager.view.FriendInfoView>
