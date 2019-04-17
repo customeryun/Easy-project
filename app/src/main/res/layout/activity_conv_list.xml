@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/conv_fragment_view"
-              xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="#ffffff"
-              android:orientation="vertical">
-    <include
-        layout="@layout/activity_title_layout"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/conv_fragment_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title_layout" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:text="暂无会话"
             android:textColor="#999999"
             android:textSize="16sp"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <ListView
             android:id="@+id/conv_list_view"
@@ -31,7 +31,7 @@
             android:layout_marginTop="0dp"
             android:divider="@drawable/main_list_divider_line"
             android:dividerHeight="0.3dp"
-            android:headerDividersEnabled="false"/>
+            android:headerDividersEnabled="false" />
 
     </FrameLayout>
 </LinearLayout>

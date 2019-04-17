@@ -3,6 +3,7 @@ package com.android.easymanager.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.HandlerThread;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -15,7 +16,7 @@ import butterknife.BindView;
 public class ConversationListActivity extends BaseActivity{
 
     @BindView(R.id.conv_fragment_view)
-    RelativeLayout conv_fragment_view;
+    LinearLayout conv_fragment_view;
 
     private ConversationListView mConvListView;
     private ConversationController mConvListController;

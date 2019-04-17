@@ -85,13 +85,14 @@
         <activity android:name=".ui.activity.ApprovalHistoryActivity" />
         <activity android:name=".ui.activity.ApprovalLeaveActivity" />
         <activity android:name=".ui.activity.PasswordModifyActivity" />
-	<activity android:name=".ui.activity.PhoneNumberModifyActivity" />
+	    <activity android:name=".ui.activity.PhoneNumberModifyActivity" />
         <activity android:name=".ui.activity.RequestFriendActivity"/>
         <activity android:name=".ui.activity.FinishRegisterActivity"/>
         <activity android:name=".ui.activity.SearchForAddFriendActivity"/>
         <activity android:name=".ui.activity.FriendInfoActivity"/>
         <activity android:name=".ui.activity.SearchFriendInfoActivity"/>
         <activity android:name=".ui.activity.VerificationActivity"/>
+        <activity android:name=".ui.activity.ConversationListActivity"/>
 
         <!-- Required SDK 核心功能-->
         <!-- 可配置android:process参数将PushService放在其他进程中 -->
