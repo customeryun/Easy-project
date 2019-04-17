@@ -11,6 +11,7 @@ import com.android.easymanager.database.UserEntry;
 import com.android.easymanager.ui.activity.CollectionActivity;
 import com.android.easymanager.ui.activity.ContactActivity;
 import com.android.easymanager.ui.activity.ContactDetailActivity;
+import com.android.easymanager.ui.activity.ConversationListActivity;
 import com.android.easymanager.ui.activity.MeDetailActivity;
 import com.android.easymanager.ui.activity.MessageActivity;
 import com.android.easymanager.ui.activity.UserInfoActivity;
@@ -71,7 +72,8 @@ public class UserFragment extends BaseFragment {
 
         switch (view.getId()){
             case R.id.message:
-                MessageActivity.launchActivity(mContext);
+               // MessageActivity.launchActivity(mContext);
+                ConversationListActivity.launchActivity(mContext);
                 break;
             case R.id.contact:
                 ContactActivity.launchActivity(mContext);

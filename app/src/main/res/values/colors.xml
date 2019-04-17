@@ -11,4 +11,7 @@
     <color name="select_circle_color">#FF8594</color>
     <color name="colorBackground">#F0F1F5</color>
     <color name="user_bg_color">#4074DF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="item_click_bg_color">#E9EDED</color>
+    <color name="conv_list_background">#f2f2f4</color>
 </resources>

@@ -89,6 +89,7 @@
         <activity android:name=".ui.activity.FinishRegisterActivity"/>
         <activity android:name=".ui.activity.SearchForAddFriendActivity"/>
         <activity android:name=".ui.activity.FriendInfoActivity"/>
+        <activity android:name=".ui.activity.ConversationListActivity"/>
 
         <!-- Required SDK 核心功能-->
         <!-- 可配置android:process参数将PushService放在其他进程中 -->
