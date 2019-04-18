@@ -55,7 +55,7 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             map.put(pinyin, mContactNames[i]);
             mContactList.add(pinyin);
         }
-        Collections.sort(mContactList, new ContactComparator());
+//        Collections.sort(mContactList, new ContactComparator());
 
         resultList = new ArrayList<>();
         characterList = new ArrayList<>();

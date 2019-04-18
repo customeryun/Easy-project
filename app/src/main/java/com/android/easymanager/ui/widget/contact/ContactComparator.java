@@ -1,16 +1,17 @@
 package com.android.easymanager.ui.widget.contact;
 
+import com.android.easymanager.database.FriendEntry;
 import java.util.Comparator;
 
 /**
  * 按照字母进行排序
  */
-public class ContactComparator implements Comparator<String> {
+public class ContactComparator implements Comparator<FriendEntry> {
 
     @Override
-    public int compare(String o1, String o2) {
-        int c1 = (o1.charAt(0) + "").toUpperCase().hashCode();
-        int c2 = (o2.charAt(0) + "").toUpperCase().hashCode();
+    public int compare(FriendEntry o1, FriendEntry o2) {
+        int c1 = (o1.letter.charAt(0) + "").toUpperCase().hashCode();
+        int c2 = (o2.letter.charAt(0) + "").toUpperCase().hashCode();
 
         boolean c1Flag = (c1 < "A".hashCode() || c1 > "Z".hashCode()); // 不是字母
         boolean c2Flag = (c2 < "A".hashCode() || c2 > "Z".hashCode()); // 不是字母
