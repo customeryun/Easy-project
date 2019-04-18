@@ -124,7 +124,6 @@ public class SearchForAddFriendActivity extends BaseActivity implements View.OnC
 //                    startActivity(intent);
                 }else {//添加好友
                     intent.setClass(SearchForAddFriendActivity.this, SearchFriendInfoActivity.class);
-                    startActivity(intent);
                 }
                 startActivity(intent);
                 break;

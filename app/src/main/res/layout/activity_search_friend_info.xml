@@ -8,7 +8,7 @@
     android:background="#fff"
     android:orientation="vertical">
 
-    <!--<include layout="@layout/activity_title_layout"/>-->
+    <include layout="@layout/activity_title_layout"/>
 
     <RelativeLayout
         android:id="@+id/layout_head"

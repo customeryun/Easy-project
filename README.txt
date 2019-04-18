@@ -23,3 +23,4 @@
 22.linmei   add 通讯录模块：搜索用户名添加好友及好友详情，功能实现
 23.xiaoming add 对话模块提交
 24.xiaoming add 好友对话列表修复报错
+25.linmei   add 添加好友申请验证模块补充提交+save()异常处理 20190418

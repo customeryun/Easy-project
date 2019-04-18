@@ -30,9 +30,9 @@ public class UserEntry extends Model {
                 .where("AppKey = ?", appKey).executeSingle();
     }
 
-//    public List<FriendRecommendEntry> getRecommends() {
-//        return getMany(FriendRecommendEntry.class, "User");
-//    }
+    public List<FriendRecommendEntry> getRecommends() {
+        return getMany(FriendRecommendEntry.class, "User");
+    }
 
     public List<FriendEntry> getFriends() {
         return getMany(FriendEntry.class, "User");
