@@ -6,13 +6,14 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public static final int TYPE_HEADER = 0;
     public static final int TYPE_NORMAL = 1;
 
-    private ArrayList<T> mDatas = new ArrayList<>();
+    private List<T> mDatas = new ArrayList<>();
 
     private View mHeaderView;
     private OnItemClickListener mListener;
@@ -30,7 +31,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
         return mHeaderView;
     }
 
-    public void addDatas(ArrayList<T> datas) {//刷新数据
+    public void addDatas(List<T> datas) {//刷新数据
         mDatas.addAll(datas);
         notifyDataSetChanged();
     }

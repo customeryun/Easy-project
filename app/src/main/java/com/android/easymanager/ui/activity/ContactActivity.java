@@ -4,21 +4,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
 import com.android.easymanager.IxiaApplication;
 import com.android.easymanager.R;
 import com.android.easymanager.control.ContactsController;
-import com.android.easymanager.database.FriendEntry;
-import com.android.easymanager.ui.adapter.BaseRecyclerAdapter;
-import com.android.easymanager.ui.adapter.ContactAdapter;
-import com.android.easymanager.ui.bean.ListItemEntry;
+import com.android.easymanager.database.FriendInvitation;
+import com.android.easymanager.database.FriendRecommendEntry;
+import com.android.easymanager.database.UserEntry;
 import com.android.easymanager.ui.widget.contact.DividerItemDecoration;
 import com.android.easymanager.ui.widget.contact.LetterView;
-import com.android.easymanager.ui.widget.settings.ItemView;
 import butterknife.BindView;
-import butterknife.OnClick;
+import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.callback.GetUserInfoCallback;
+import cn.jpush.im.android.api.event.ContactNotifyEvent;
+import cn.jpush.im.android.api.model.UserInfo;
 
 public class ContactActivity extends BaseActivity {
 
@@ -27,9 +29,8 @@ public class ContactActivity extends BaseActivity {
     @BindView(R.id.letter_view)
     LetterView letterView;
 
-    private String[] contactNames;
     private LinearLayoutManager layoutManager;
-    private ContactAdapter adapter;
+    private ContactsController mContactsController;
 
     @Override
     public int getLayout() {
@@ -42,19 +43,16 @@ public class ContactActivity extends BaseActivity {
         setAddIconVisible(true);
         setAddIconRes(android.R.drawable.ic_menu_add);
         setAddIconListener(mAddOnClickListener);
+        JMessageClient.registerEventReceiver(this);//注册sdk的event用于接收各种event事件
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-//        contactNames = new String[] {"张三丰", "郭靖", "黄蓉", "黄老邪", "赵敏", "123", "天山童姥", "任我行", "于万亭", "陈家洛", "韦小宝", "$6", "穆人清", "陈圆圆", "郭芙", "郭襄", "穆念慈", "东方不败", "梅超风", "林平之", "林远图", "灭绝师太", "段誉", "鸠摩智"};
         layoutManager = new LinearLayoutManager(this);
-//        adapter = new ContactAdapter(this, contactNames);
         contactList.setLayoutManager(layoutManager);
         contactList.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
-//        contactList.setAdapter(adapter);
 
-        ContactsController mControl = new ContactsController(contactList,mContext);
-        mControl.initContacts();
-
+        mContactsController = new ContactsController(contactList,mContext);
+        mContactsController.initContacts();
 
 //        letterView.setCharacterListener(new LetterView.CharacterClickListener() {
 //            @Override
@@ -68,7 +66,6 @@ public class ContactActivity extends BaseActivity {
 //                layoutManager.scrollToPositionWithOffset(0, 0);
 //            }
 //        });
-
     }
 
     public static void launchActivity(Context context){
@@ -83,5 +80,68 @@ public class ContactActivity extends BaseActivity {
         }
     };
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mContactsController.refreshContact();
+    }
+
+    @Override
+    public void onDestroy() {
+        JMessageClient.unRegisterEventReceiver(this);//注销消息接收
+        super.onDestroy();
+    }
+
+    public void onEvent(ContactNotifyEvent event) {
+        Log.i("linmei","***ContactNotifyEvent**event.getType()=="+event.getType());
+        final UserEntry user = IxiaApplication.getUserEntry();
+        final String reason = event.getReason();
+        final String username = event.getFromUsername();
+        final String appKey = event.getfromUserAppKey();
+        if (event.getType() == ContactNotifyEvent.Type.invite_received) {
+            //如果同一个人申请多次,则只会出现一次;当点击进验证消息界面后,同一个人再次申请则可以收到
+            if (IxiaApplication.forAddFriend.size() > 0) {
+                for (String forAdd : IxiaApplication.forAddFriend) {
+                    if (forAdd.equals(username)) {
+                        return;
+                    } else {
+                        IxiaApplication.forAddFriend.add(username);
+                    }
+                }
+            } else {
+                IxiaApplication.forAddFriend.add(username);
+            }
+            JMessageClient.getUserInfo(username, appKey, new GetUserInfoCallback() {
+                @Override
+                public void gotResult(int status, String desc, UserInfo userInfo) {
+                    if (status == 0) {
+                        String name = userInfo.getNickname();
+                        if (TextUtils.isEmpty(name)) {
+                            name = userInfo.getUserName();
+                        }
+                        FriendRecommendEntry entry = FriendRecommendEntry.getEntry(user, username, appKey);
+                        if (null == entry) {
+                            if (null != userInfo.getAvatar()) {
+                                String path = userInfo.getAvatarFile().getPath();
+                                entry = new FriendRecommendEntry(userInfo.getUserID(), username, userInfo.getNotename(), userInfo.getNickname(), appKey, path,
+                                        name, reason, FriendInvitation.INVITED.getValue(), user, 0);
+                            } else {
+                                entry = new FriendRecommendEntry(userInfo.getUserID(), username, userInfo.getNotename(), userInfo.getNickname(), appKey, null,
+                                        username, reason, FriendInvitation.INVITED.getValue(), user, 0);
+                            }
+                        } else {
+                            entry.state = FriendInvitation.INVITED.getValue();
+                            entry.reason = reason;
+                        }
+                        entry.save();
+                        //收到好友请求数字 +1
+                        //int showNum = SharePreferenceManager.getCachedNewFriendNum() + 1;
+                        //mContactsView.showNewFriends(showNum);
+                        //SharePreferenceManager.setCachedNewFriendNum(showNum);
+                    }
+                }
+            });
+        }
+    }
 
 }

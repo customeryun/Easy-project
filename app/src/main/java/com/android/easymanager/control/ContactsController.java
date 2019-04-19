@@ -13,7 +13,7 @@ import com.android.easymanager.IxiaApplication;
 import com.android.easymanager.R;
 import com.android.easymanager.database.FriendEntry;
 import com.android.easymanager.database.UserEntry;
-import com.android.easymanager.ui.activity.NewContactActivity;
+import com.android.easymanager.ui.activity.FriendRecommendActivity;
 import com.android.easymanager.ui.activity.StudentContactGroupActivity;
 import com.android.easymanager.ui.activity.TeacherGroupActivity;
 import com.android.easymanager.ui.adapter.ContactListAdapter;
@@ -30,7 +30,7 @@ import cn.jpush.im.android.api.model.UserInfo;
 
 public class ContactsController implements View.OnClickListener{
 
-    private ArrayList<FriendEntry> mList = new ArrayList<>();
+    private List<FriendEntry> mList = new ArrayList<>();
     private ContactListAdapter mAdapter;
     private List<FriendEntry> forDelete = new ArrayList<>();
     RecyclerView mContactsView;
@@ -49,7 +49,7 @@ public class ContactsController implements View.OnClickListener{
 //                mContext.startActivity(intent);
                 break;
             case R.id.contact_new:
-                NewContactActivity.launchActivity(mContext);
+                FriendRecommendActivity.launchActivity(mContext);
                 break;
             case R.id.contact_teacher:
                 TeacherGroupActivity.launchActivity(mContext);
@@ -134,5 +134,23 @@ public class ContactsController implements View.OnClickListener{
                 }
             }
         });
+    }
+
+    public void refreshContact() {
+        final UserEntry user = UserEntry.getUser(JMessageClient.getMyInfo().getUserName(),
+                JMessageClient.getMyInfo().getAppKey());
+        mList = user.getFriends();
+        Collections.sort(mList, new ContactComparator());
+        mAdapter = new ContactListAdapter(mContext);
+        mAdapter.addDatas(mList);
+        View layout = LayoutInflater.from(mContext).inflate(R.layout.contact_manager_head_layout,null);
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        ((EditText)layout.findViewById(R.id.search_view)).setOnClickListener(ContactsController.this);
+        ((ItemView)layout.findViewById(R.id.contact_new)).setOnClickListener(ContactsController.this);
+        ((ItemView)layout.findViewById(R.id.contact_teacher)).setOnClickListener(ContactsController.this);
+        ((ItemView)layout.findViewById(R.id.contact_student)).setOnClickListener(ContactsController.this);
+        layout.setLayoutParams(params);
+        mAdapter.setHeaderView(layout);
+        mContactsView.setAdapter(mAdapter);
     }
 }

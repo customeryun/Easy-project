@@ -4,7 +4,10 @@ import android.content.Context;
 import com.android.easymanager.database.UserEntry;
 import com.android.easymanager.ui.receiver.NotificationClickEventReceiver;
 import com.android.easymanager.utils.SharePreferenceManager;
+import java.util.ArrayList;
+import java.util.List;
 import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.model.UserInfo;
 
 public class IxiaApplication extends com.activeandroid.app.Application{
     public static final String CONV_TITLE = "conv_title";
@@ -12,6 +15,9 @@ public class IxiaApplication extends com.activeandroid.app.Application{
     public static Context context;
     public static long registerOrLogin = 1;
     private static final String JCHAT_CONFIGS = "JChat_configs";
+
+    public static List<UserInfo> mFriendInfoList = new ArrayList<>();
+    public static List<String> forAddFriend = new ArrayList<>();
 
     public static final int RESULT_CODE_FRIEND_INFO = 17;
     public static final int RESULT_CODE_EDIT_NOTENAME = 29;
