@@ -24,7 +24,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class FriendRecommendActivity extends BaseActivity implements BaseRecyclerAdapter.OnItemClickListener{
+public class FriendRecommendActivity extends BaseActivity /*implements BaseRecyclerAdapter.OnItemClickListener*/{
 
     @BindView(R.id.recyclerView)
     RecyclerView recycle_view;
@@ -57,7 +57,7 @@ public class FriendRecommendActivity extends BaseActivity implements BaseRecycle
     public void initRecycleView() {
         adapter = new FriendRecommendAdapter(this);
         adapter.addDatas(buildItems());
-        adapter.setOnItemClickListener(this);
+        //adapter.setOnItemClickListener(this);
 
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
@@ -84,11 +84,11 @@ public class FriendRecommendActivity extends BaseActivity implements BaseRecycle
         }
     };
 
-    @Override
+    /*@Override
     public void onItemClick(int position, Object entry) {
         Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
-        ContactDetailActivity.launchActivity(mContext);
+        //ContactDetailActivity.launchActivity(mContext);
         //待处理：根据状态不同跳转不同详情页面......
-    }
+    }*/
 
 }

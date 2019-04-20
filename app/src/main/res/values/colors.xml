@@ -14,4 +14,16 @@
     <color name="white">#FFFFFF</color>
     <color name="item_click_bg_color">#E9EDED</color>
     <color name="conv_list_background">#f2f2f4</color>
+
+
+    <color name="contacts_pinner_txt">#858585</color>
+    <color name="refuse_btn_default">#ea6e76</color>
+    <color name="wait_inviting">#2DD09C</color>
+
+    <color name="blue_btn_cannot_pressed">#6CDEDD</color>
+    <color name="blue_btn_normal">#2DD0CF</color>
+    <color name="blue_btn_pressed">#02BDBC</color>
+
+    <color name="blue_btn_text_70">#E0F8F8</color>
+    <color name="blue_btn_text_press">#99E4E4</color>
 </resources>

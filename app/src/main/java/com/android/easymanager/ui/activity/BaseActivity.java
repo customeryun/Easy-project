@@ -14,6 +14,8 @@ import com.android.easymanager.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.event.LoginStateChangeEvent;
 
 /**
  * Created by PC-xiaoming on 2019/4/5.
@@ -40,6 +42,7 @@ public abstract class BaseActivity extends AppCompatActivity{
         mContext = this;
         init();
         setBackListener();
+        JMessageClient.registerEventReceiver(this);
     }
 
     public abstract int getLayout();
@@ -83,5 +86,8 @@ public abstract class BaseActivity extends AppCompatActivity{
         iv_add.setOnClickListener(listener);
     }
 
+    public void onEventMainThread(LoginStateChangeEvent event) {
+
+    }
 
 }

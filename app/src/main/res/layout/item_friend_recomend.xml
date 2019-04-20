@@ -98,6 +98,8 @@
                 android:layout_height="26.67dp"
                 android:layout_marginRight="14.33dp"
                 android:gravity="center"
+                android:background="@drawable/blue_btn_selector"
+                android:textColor="@drawable/blue_text_selector"
                 android:text="@string/accept"
                 android:textSize="14sp"/>
 

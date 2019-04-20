@@ -43,7 +43,6 @@ public class ContactActivity extends BaseActivity {
         setAddIconVisible(true);
         setAddIconRes(android.R.drawable.ic_menu_add);
         setAddIconListener(mAddOnClickListener);
-        JMessageClient.registerEventReceiver(this);//注册sdk的event用于接收各种event事件
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 

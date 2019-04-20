@@ -92,19 +92,20 @@ public class FriendInfoActivity extends /*Base*/Activity {
                 if (responseCode == 0) {
                     //拉取好友信息时候要更新数据库中的nickName.因为如果对方修改了nickName我们是无法感知的.如果不在拉取信息
                     //时候更新数据库的话会影响到搜索好友的nickName, 注意要在没有备注名并且有昵称时候去更新.因为备注名优先级更高
-                    new Update(FriendEntry.class).set("DisplayName=?", info.getDisplayName()).where("Username=?", mTargetId).execute();
-                    new Update(FriendEntry.class).set("NickName=?", info.getNickname()).where("Username=?", mTargetId).execute();
-                    new Update(FriendEntry.class).set("NoteName=?", info.getNotename()).where("Username=?", mTargetId).execute();
+//                    new Update(FriendEntry.class).set("DisplayName=?", info.getDisplayName()).where("Username=?", mTargetId).execute();
+//                    new Update(FriendEntry.class).set("NickName=?", info.getNickname()).where("Username=?", mTargetId).execute();
+//                    new Update(FriendEntry.class).set("NoteName=?", info.getNotename()).where("Username=?", mTargetId).execute();
 
                     if (info.getAvatarFile() != null) {
                         new Update(FriendEntry.class).set("Avatar=?", info.getAvatarFile().getAbsolutePath()).where("Username=?", mTargetId).execute();
                     }
                     mUserInfo = info;
                     mFriendInfoController.setFriendInfo(info);
-                    mTitle = info.getNotename();
-                    if (TextUtils.isEmpty(mTitle)) {
-                        mTitle = info.getNickname();
-                    }
+//                    mTitle = info.getNotename();
+//                    if (TextUtils.isEmpty(mTitle)) {
+//                        mTitle = info.getNickname();
+//                    }
+                    mTitle = info.getUserName();
                     mFriendInfoView.initInfo(info);
                 } else {
                    // HandleResponseCode.onHandle(FriendInfoActivity.this, responseCode, false);
