@@ -25,7 +25,7 @@ public class LetterView extends LinearLayout {
     }
 
     private void initView() {
-        //addView(buildImageLayout());
+        addView(buildImageLayout());
 
         for (char i = 'A'; i <= 'Z'; i++) {
             final String character = i + "";
@@ -58,25 +58,25 @@ public class LetterView extends LinearLayout {
         return tv;
     }
 
-//    private ImageView buildImageLayout() {
-//        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
-//                LayoutParams.MATCH_PARENT, 1);
-//
-//        ImageView iv = new ImageView(mContext);
-//        iv.setLayoutParams(layoutParams);
-//
-//        iv.setBackgroundResource(R.mipmap.arrow);
-//
-//        iv.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (mListener != null) {
-//                    mListener.clickArrow();
-//                }
-//            }
-//        });
-//        return iv;
-//    }
+    private ImageView buildImageLayout() {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
+                LayoutParams.MATCH_PARENT, 1);
+
+        ImageView iv = new ImageView(mContext);
+        iv.setLayoutParams(layoutParams);
+
+        iv.setBackgroundResource(R.drawable.arrow);
+
+        iv.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.clickArrow();
+                }
+            }
+        });
+        return iv;
+    }
 
     public void setCharacterListener(CharacterClickListener listener) {
         mListener = listener;

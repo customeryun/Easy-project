@@ -16,6 +16,8 @@ public class IxiaApplication extends com.activeandroid.app.Application{
     public static long registerOrLogin = 1;
     private static final String JCHAT_CONFIGS = "JChat_configs";
 
+    public static final int RESULT_BUTTON = 2;
+
     public static List<UserInfo> mFriendInfoList = new ArrayList<>();
     public static List<String> forAddFriend = new ArrayList<>();
 

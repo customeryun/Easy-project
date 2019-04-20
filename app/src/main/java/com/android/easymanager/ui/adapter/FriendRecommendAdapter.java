@@ -16,6 +16,7 @@ import com.android.easymanager.database.FriendEntry;
 import com.android.easymanager.database.FriendInvitation;
 import com.android.easymanager.database.FriendRecommendEntry;
 import com.android.easymanager.ui.activity.FriendInfoActivity;
+import com.android.easymanager.ui.activity.SearchFriendDetailActivity;
 import com.android.easymanager.utils.DialogCreator;
 import com.android.easymanager.view.SwipeLayout;
 import butterknife.BindView;
@@ -130,12 +131,12 @@ public class FriendRecommendAdapter extends BaseRecyclerAdapter<FriendRecommendE
                     final Intent intent;
                     if (entry.state.equals(FriendInvitation.INVITED.getValue())) {
                         //1.没同意也没拒绝时--> 是否同意界面
-//                        intent = new Intent(mContext, SearchFriendDetailActivity.class);
-//                        intent.putExtra("reason", item.reason);
-//                        intent.putExtra("position", position);
-//                        intent.putExtra(JGApplication.TARGET_ID, entry.username);
-//                        intent.putExtra(JGApplication.TARGET_APP_KEY, entry.appKey);
-//                        mContext.startActivityForResult(intent, 0);
+                        intent = new Intent(mContext, SearchFriendDetailActivity.class);
+                        intent.putExtra("reason", item.reason);
+                        intent.putExtra("position", getRealPosition(holder));
+                        intent.putExtra(IxiaApplication.TARGET_ID, entry.username);
+                        intent.putExtra(IxiaApplication.TARGET_APP_KEY, entry.appKey);
+                        mContext.startActivityForResult(intent, 0);
                     } else if (entry.state.equals(FriendInvitation.ACCEPTED.getValue())) {//2.已经添加的 --> 好友详情
                         JMessageClient.getUserInfo(item.username, new GetUserInfoCallback() {
                             @Override

@@ -53,18 +53,19 @@ public class ContactActivity extends BaseActivity {
         mContactsController = new ContactsController(contactList,mContext);
         mContactsController.initContacts();
 
-//        letterView.setCharacterListener(new LetterView.CharacterClickListener() {
-//            @Override
-//            public void clickCharacter(String character) {
-//
-//                layoutManager.scrollToPositionWithOffset(adapter.getScrollPosition(character), 0);
-//            }
-//
-//            @Override
-//            public void clickArrow() {
-//                layoutManager.scrollToPositionWithOffset(0, 0);
-//            }
-//        });
+        letterView.setCharacterListener(new LetterView.CharacterClickListener() {
+            @Override
+            public void clickCharacter(String character) {
+                int position = mContactsController.getScrollPosition(character);
+                Log.i("linmei","***scroll**character=="+character+"***position=="+position);
+                layoutManager.scrollToPositionWithOffset(position, 0);
+            }
+
+            @Override
+            public void clickArrow() {
+                layoutManager.scrollToPositionWithOffset(0, 0);
+            }
+        });
     }
 
     public static void launchActivity(Context context){
@@ -114,10 +115,7 @@ public class ContactActivity extends BaseActivity {
                 @Override
                 public void gotResult(int status, String desc, UserInfo userInfo) {
                     if (status == 0) {
-                        String name = userInfo.getNickname();
-                        if (TextUtils.isEmpty(name)) {
-                            name = userInfo.getUserName();
-                        }
+                        String name = userInfo.getUserName();
                         FriendRecommendEntry entry = FriendRecommendEntry.getEntry(user, username, appKey);
                         if (null == entry) {
                             if (null != userInfo.getAvatar()) {

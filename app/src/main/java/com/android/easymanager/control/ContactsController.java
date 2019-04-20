@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +71,7 @@ public class ContactsController implements View.OnClickListener{
             @Override
             public void gotResult(int responseCode, String responseMessage, List<UserInfo> userInfoList) {
 //                mContactsView.dismissLoadingHeader();
+                Log.i("linmei","****responseCode=="+responseCode+"**responseMessage=="+responseMessage);
                 if (responseCode == 0) {
                     if (userInfoList.size() != 0) {
 //                        mContactsView.dismissLine();
@@ -79,7 +81,7 @@ public class ContactsController implements View.OnClickListener{
                                 String userName = userInfo.getUserName();
                                 String letter;
                                 if (!TextUtils.isEmpty(userName.trim())) {
-                                    String sortString = Utils.getPingYin(userName);
+                                    String sortString = Utils.getPingYin(userName).substring(0,1).toUpperCase();
                                     if (sortString.matches("[A-Z]")) {
                                         letter = sortString.toUpperCase();
                                     } else {
@@ -152,5 +154,11 @@ public class ContactsController implements View.OnClickListener{
         layout.setLayoutParams(params);
         mAdapter.setHeaderView(layout);
         mContactsView.setAdapter(mAdapter);
+    }
+
+    public int getScrollPosition(String letter){
+        View mHeadView = mAdapter.getHeaderView();
+        int position = mAdapter.getScrollPosition(letter);
+        return (mHeadView == null || position == -1) ? position : position+1;
     }
 }

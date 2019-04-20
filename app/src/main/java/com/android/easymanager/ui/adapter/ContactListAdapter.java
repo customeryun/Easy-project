@@ -11,13 +11,28 @@ import com.android.easymanager.IxiaApplication;
 import com.android.easymanager.R;
 import com.android.easymanager.database.FriendEntry;
 import com.android.easymanager.ui.activity.FriendInfoActivity;
+import java.util.ArrayList;
+import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ContactListAdapter extends BaseRecyclerAdapter<FriendEntry> {
     private Context mContext;
+    private int[] mSectionIndices;
+    private String[] mSectionLetters;
+    List<FriendEntry> mData;
+
     public ContactListAdapter(Context context){
         mContext = context;
+
+    }
+
+    @Override
+    public void addDatas(List<FriendEntry> datas) {
+        super.addDatas(datas);
+        mData = datas;
+        mSectionIndices = getSectionIndices();
+        mSectionLetters = getSectionLetters();
     }
 
     @Override
@@ -55,6 +70,59 @@ public class ContactListAdapter extends BaseRecyclerAdapter<FriendEntry> {
             super(view);
             ButterKnife.bind(this, itemView);
         }
+    }
+
+    private int[] getSectionIndices() {
+        ArrayList<Integer> sectionIndices = new ArrayList<Integer>();
+        if (mData.size() > 0) {
+            char lastFirstChar = mData.get(0).letter.charAt(0);
+            sectionIndices.add(0);
+            for (int i = 1; i < mData.size(); i++) {
+                if (mData.get(i).letter.charAt(0) != lastFirstChar) {
+                    lastFirstChar = mData.get(i).letter.charAt(0);
+                    sectionIndices.add(i);
+                }
+            }
+            int[] sections = new int[sectionIndices.size()];
+            for (int i = 0; i < sectionIndices.size(); i++) {
+                sections[i] = sectionIndices.get(i);
+            }
+            return sections;
+        }
+        return null;
+    }
+
+    public int getSectionForLetter(String letter) {
+        if (null != mSectionIndices) {
+            for (int i = 0; i < mSectionIndices.length; i++) {
+                if (mSectionLetters[i].equals(letter)) {
+                    return mSectionIndices[i] + 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    private String[] getSectionLetters() {
+        if (null != mSectionIndices) {
+            String[] letters = new String[mSectionIndices.length];
+            for (int i = 0; i < mSectionIndices.length; i++) {
+                letters[i] = mData.get(mSectionIndices[i]).letter;
+            }
+            return letters;
+        }
+        return null;
+    }
+
+    public int getScrollPosition(String letter) {
+        if(getSectionForLetter(letter)!=-1){
+            for (int i = 0; i < mData.size(); i++) {
+                if (mData.get(i).letter.equals(letter)) {
+                    return i;
+                }
+            }
+        }
+        return -1; // -1不会滑动
     }
 }
 
