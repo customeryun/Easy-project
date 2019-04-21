@@ -57,7 +57,7 @@ public class ContactActivity extends BaseActivity {
             @Override
             public void clickCharacter(String character) {
                 int position = mContactsController.getScrollPosition(character);
-                Log.i("linmei","***scroll**character=="+character+"***position=="+position);
+//                Log.i("linmei","***scroll**character=="+character+"***position=="+position);
                 layoutManager.scrollToPositionWithOffset(position, 0);
             }
 

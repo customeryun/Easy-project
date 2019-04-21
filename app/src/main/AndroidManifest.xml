@@ -94,6 +94,7 @@
         <activity android:name=".ui.activity.VerificationActivity"/>
         <activity android:name=".ui.activity.ConversationListActivity"/>
         <activity android:name=".ui.activity.SearchFriendDetailActivity"/>
+        <activity android:name=".ui.activity.FriendSettingActivity"/>
 
         <provider
             android:name="com.activeandroid.content.ContentProvider"

@@ -127,7 +127,15 @@
     <string name="accept">同意</string>
     <string name="refused">已拒绝</string>
     <string name="added">已添加</string>
+    <string name="processing">正在处理</string>
     <string name="friend_inviting">等待验证</string>
     <string name="decline_friend_invitation">对方已拒绝</string>
+
+    <string name="delete_friend_dialog_title">确定删除好友？</string>
+    <string name="friend_already_deleted_hint">已移除好友</string>
+
+    <string name="jmui_resend_commit">重发</string>
+    <string name="jmui_cancel">取消</string>
+    <string name="jmui_confirm">确定</string>
 
 </resources>

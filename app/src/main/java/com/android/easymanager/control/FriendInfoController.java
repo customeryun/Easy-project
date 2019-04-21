@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import com.android.easymanager.R;
 import com.android.easymanager.ui.activity.FriendInfoActivity;
+import com.android.easymanager.ui.activity.FriendSettingActivity;
 import com.android.easymanager.view.FriendInfoView;
 import cn.jpush.im.android.api.model.UserInfo;
 
@@ -25,10 +26,10 @@ public class FriendInfoController implements View.OnClickListener {
 //                mContext.startBrowserAvatar();
                 break;
             case R.id.jmui_commit_btn:
-//                Intent intent = new Intent(mContext, FriendSettingActivity.class);
-//                intent.putExtra("userName", friendInfo.getUserName());
-//                intent.putExtra("noteName", friendInfo.getNotename());
-//                mContext.startActivity(intent);
+                Intent intent = new Intent(mContext, FriendSettingActivity.class);
+                intent.putExtra("userName", friendInfo.getUserName());
+                intent.putExtra("noteName", friendInfo.getNotename());
+                mContext.startActivity(intent);
                 break;
             case R.id.return_btn:
                 mContext.finish();
