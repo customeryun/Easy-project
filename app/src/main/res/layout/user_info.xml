@@ -26,6 +26,7 @@
             android:layout_marginStart="16dp"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/tv_userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
@@ -56,9 +57,11 @@
             android:background="#DBDADA"/>
         
         <ImageView
+            android:id="@+id/iv_erWeiMa"
             android:layout_width="176dp"
             android:layout_height="176dp"
-            android:src="@drawable/icon_code"/>
+            />
+        <!--android:src="@drawable/icon_code"-->
 
         <TextView
             android:layout_width="wrap_content"
