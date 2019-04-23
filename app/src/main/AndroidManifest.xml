@@ -95,6 +95,7 @@
         <activity android:name=".ui.activity.ConversationListActivity"/>
         <activity android:name=".ui.activity.SearchFriendDetailActivity"/>
         <activity android:name=".ui.activity.FriendSettingActivity"/>
+        <activity android:name=".ui.activity.ChatActivity"/>
 
         <provider
             android:name="com.activeandroid.content.ContentProvider"

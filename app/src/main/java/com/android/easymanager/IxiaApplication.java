@@ -6,6 +6,9 @@ import com.android.easymanager.ui.receiver.NotificationClickEventReceiver;
 import com.android.easymanager.utils.SharePreferenceManager;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import cn.jpush.im.android.api.model.Message;
 import cn.jpush.im.android.api.JMessageClient;
 import cn.jpush.im.android.api.model.UserInfo;
 
@@ -27,6 +30,11 @@ public class IxiaApplication extends com.activeandroid.app.Application{
     public static final String GROUP_ID = "groupId";
     public static final String TARGET_ID = "targetId";
     public static final String TARGET_APP_KEY = "targetAppKey";
+    public static final String DRAFT = "draft";
+
+    public static Map<Long, Boolean> isAtMe = new HashMap<>();
+    public static Map<Long, Boolean> isAtall = new HashMap<>();
+    public static List<Message> ids = new ArrayList<>();
 
     @Override
     public void onCreate() {

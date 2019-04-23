@@ -20,7 +20,7 @@ public class FriendInfoController implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_goToChat:
-//                mContext.startChatActivity();
+                mContext.startChatActivity();
                 break;
             case R.id.iv_friendPhoto:
 //                mContext.startBrowserAvatar();

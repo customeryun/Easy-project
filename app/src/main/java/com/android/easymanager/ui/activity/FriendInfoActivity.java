@@ -5,16 +5,17 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-
 import com.activeandroid.query.Update;
 import com.android.easymanager.IxiaApplication;
 import com.android.easymanager.R;
 import com.android.easymanager.control.FriendInfoController;
 import com.android.easymanager.database.FriendEntry;
+import com.android.easymanager.ui.bean.Event;
+import cn.jpush.im.android.eventbus.EventBus;
+import com.android.easymanager.ui.bean.EventType;
 import com.android.easymanager.utils.DialogCreator;
 import com.android.easymanager.utils.ToastUtil;
 import com.android.easymanager.view.FriendInfoView;
-
 import butterknife.BindView;
 import cn.jpush.im.android.api.JMessageClient;
 import cn.jpush.im.android.api.callback.GetUserInfoCallback;
@@ -151,6 +152,48 @@ public class FriendInfoActivity extends /*Base*/Activity {
 //        setResult(IxiaApplication.RESULT_CODE_FRIEND_INFO, intent);
         finish();
         super.onBackPressed();
+    }
+
+    public void startChatActivity() {
+        if (mIsFromContact || mIsAddFriend || mIsFromSearch || mFromGroup) {
+            Intent intent = new Intent(this, ChatActivity.class);
+            String title = mUserInfo.getNotename();
+            if (TextUtils.isEmpty(title)) {
+                title = mUserInfo.getNickname();
+                if (TextUtils.isEmpty(title)) {
+                    title = mUserInfo.getUserName();
+                }
+            }
+            intent.putExtra(IxiaApplication.CONV_TITLE, title);
+            intent.putExtra(IxiaApplication.TARGET_ID, mUserInfo.getUserName());
+            intent.putExtra(IxiaApplication.TARGET_APP_KEY, mUserInfo.getAppKey());
+            startActivity(intent);
+        } else {
+            if (mGroupId != 0) {
+                Intent intent = new Intent();
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(IxiaApplication.TARGET_ID, mTargetId);
+                intent.putExtra(IxiaApplication.TARGET_APP_KEY, mTargetAppKey);
+                intent.setClass(this, ChatActivity.class);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent();
+                intent.putExtra("returnChatActivity", true);
+                intent.putExtra(IxiaApplication.CONV_TITLE, mTitle);
+                setResult(IxiaApplication.RESULT_CODE_FRIEND_INFO, intent);
+            }
+        }
+        Conversation conv = JMessageClient.getSingleConversation(mTargetId, mTargetAppKey);
+        //如果会话为空，使用EventBus通知会话列表添加新会话
+        if (conv == null) {
+            conv = Conversation.createSingleConversation(mTargetId, mTargetAppKey);
+            EventBus.getDefault().post(new Event.Builder()
+                    .setType(EventType.createConversation)
+                    .setConversation(conv)
+                    .build());
+        }
+        finish();
+
     }
 
 }
