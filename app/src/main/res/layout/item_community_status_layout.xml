@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/space_10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/com_status_img"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/com_status_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/com_status_img"
+            android:gravity="left"
+            android:text="林贤雅"
+            android:textColor="#D3000000"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="14dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#54000000"
+            android:textSize="12dp"
+            android:gravity="left"
+            android:text="石油工程学院"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@id/com_status_name"
+            android:layout_toRightOf="@id/com_status_img"
+            />
+        <TextView
+            android:id="@+id/com_status_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="#54000000"
+            android:textSize="12dp"
+            android:gravity="left"
+            android:text="1分钟前"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vlog Vlog can't be cut out, it can't be cut out in this life, but there are some video screenshots."/>
+    <com.android.easymanager.ui.widget.CommunityGridLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout_nine_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:sapcing="4dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_com_dianzhan"
+            android:text="赞"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_com_pinlun"
+            android:layout_gravity="center"
+            android:text="评论"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_com_share"
+            android:layout_gravity="center"
+            android:text="分享"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_com_more"
+            android:layout_gravity="center"
+           />
+    </LinearLayout>
+</LinearLayout>

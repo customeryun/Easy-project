@@ -78,9 +78,11 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.0.0'
     implementation 'io.reactivex:rxandroid:1.2.1'
     implementation 'com.contrarywind:Android-PickerView:3.2.4'
-    implementation 'cn.jiguang.sdk:jmessage:2.7.0'  // 此处以JMessage 2.7.0 版本为例。
-    implementation 'cn.jiguang.sdk:jcore:1.2.3'  // 此处以JCore 1.2.3 版本为例。
+    implementation 'cn.jiguang.sdk:jmessage:2.7.0'
+    // 此处以JMessage 2.7.0 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:1.2.3'
+    // 此处以JCore 1.2.3 版本为例。
     implementation 'com.haibin:calendarview:3.5.9'
     implementation 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
-
+    implementation files('libs/universal-image-loader-1.9.4-with-sources.jar')
 }
