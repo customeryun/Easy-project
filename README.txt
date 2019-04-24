@@ -34,3 +34,4 @@
 33.linmei   add 二维码自动生成 2019.04.23
 34.xiaoming add 添加社区界面 2019.04.23
 35.xiaoming add 添加校园公告 2019.04.24
+36.xiaoming add 社团首次添加
