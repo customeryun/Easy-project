@@ -2,43 +2,106 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F2F2"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:drawableTop="@mipmap/ic_launcher"
-        android:gravity="center"
-        android:text="校园公告" />
+        android:orientation="horizontal">
 
+        <FrameLayout
+            android:id="@+id/school_announcement"
+            android:layout_width="0dp"
+            android:layout_height="92dp"
+            android:layout_weight="1">
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:drawableTop="@mipmap/ic_launcher"
-        android:gravity="center"
-        android:text="校园活动" />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_launcher" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="校园公告"
+                android:textColor="#000000" />
+        </FrameLayout>
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:drawableTop="@mipmap/ic_launcher"
-        android:gravity="center"
-        android:text="社团" />
+        <FrameLayout
+            android:id="@+id/school_activity"
+            android:layout_width="0dp"
+            android:layout_height="92dp"
+            android:layout_weight="1">
 
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_launcher" />
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:drawableTop="@mipmap/ic_launcher"
-        android:gravity="center"
-        android:text="学习互助" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="校园活动"
+                android:textColor="#000000" />
+        </FrameLayout>
 
+        <FrameLayout
+            android:id="@+id/school_society"
+            android:layout_width="0dp"
+            android:layout_height="92dp"
+            android:layout_weight="1">
 
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="社团"
+                android:textColor="#000000" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/school_learn_help"
+            android:layout_width="0dp"
+            android:layout_height="92dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="学习互助"
+                android:textColor="#000000" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/black" />
 </LinearLayout>

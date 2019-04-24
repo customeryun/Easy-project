@@ -96,6 +96,7 @@
         <activity android:name=".ui.activity.SearchFriendDetailActivity"/>
         <activity android:name=".ui.activity.FriendSettingActivity"/>
         <activity android:name=".ui.activity.ChatActivity"/>
+        <activity android:name=".ui.activity.SchoolAnnouncementActivity"/>
 
         <provider
             android:name="com.activeandroid.content.ContentProvider"
