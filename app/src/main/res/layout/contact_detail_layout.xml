@@ -6,6 +6,29 @@
 
     <include layout="@layout/activity_title_layout"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:text="头像"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/home_top_01"/>
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/icon_next"/>
+    </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/layout_head"
         android:background="@color/user_bg_color"

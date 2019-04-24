@@ -36,7 +36,7 @@ public class ContactDetailAdapter extends BaseRecyclerAdapter<ListItemEntry> {
         public MyHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,48*2);
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,55*2);
             itemView.setLayoutParams(layoutParams);
         }
     }

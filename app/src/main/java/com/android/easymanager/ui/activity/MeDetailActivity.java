@@ -32,7 +32,7 @@ public class MeDetailActivity extends BaseActivity implements BaseRecyclerAdapte
     @Override
     public void init() {
         setActionbarVisible(true);
-        setTitle("我的信息");
+        setTitle("个人信息");
         layout_head.setVisibility(View.GONE);
 //        layout_bottom.setVisibility(View.GONE);
         initRecycleView();
@@ -54,7 +54,9 @@ public class MeDetailActivity extends BaseActivity implements BaseRecyclerAdapte
 
     public ArrayList<ListItemEntry> buildItems() {
         ArrayList<ListItemEntry> managerEntries = new ArrayList<>();
-        managerEntries.add(new ListItemEntry("英文姓名:","林xianya"));
+        managerEntries.add(new ListItemEntry("中文姓名:","林"));
+        managerEntries.add(new ListItemEntry("英文姓名:","xianya"));
+        managerEntries.add(new ListItemEntry("性别:","未知"));
         managerEntries.add(new ListItemEntry("国籍：","中国"));
         managerEntries.add(new ListItemEntry("班级：","112"));
         managerEntries.add(new ListItemEntry("专业：","计算机"));

@@ -61,7 +61,7 @@ public class ConversationListActivity extends BaseActivity{
 
     @Override
     public void init() {
-        setTitle("对话列表");
+        setTitle("我的消息");
         //init handler
         initHandler();
         initReceiver();
