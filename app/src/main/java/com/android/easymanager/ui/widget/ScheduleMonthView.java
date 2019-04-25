@@ -66,7 +66,7 @@ public class ScheduleMonthView extends MonthView {
         mTextPaint.setFakeBoldText(true);
 
 
-        mSolarTermTextPaint.setColor(0xff489dff);
+        mSolarTermTextPaint.setColor(0xffcccccc);
         mSolarTermTextPaint.setAntiAlias(true);
         mSolarTermTextPaint.setTextAlign(Paint.Align.CENTER);
 
@@ -79,7 +79,7 @@ public class ScheduleMonthView extends MonthView {
 
         mCurrentDayPaint.setAntiAlias(true);
         mCurrentDayPaint.setStyle(Paint.Style.FILL);
-        mCurrentDayPaint.setColor(0xFFeaeaea);
+        mCurrentDayPaint.setColor(0xffcccccc);
 
         mPointPaint.setAntiAlias(true);
         mPointPaint.setStyle(Paint.Style.FILL);
@@ -94,6 +94,7 @@ public class ScheduleMonthView extends MonthView {
 
         Paint.FontMetrics metrics = mSchemeBasicPaint.getFontMetrics();
         mSchemeBaseLine = mCircleRadius - metrics.descent + (metrics.bottom - metrics.top) / 2 + dipToPx(getContext(), 1);
+
 
         //兼容硬件加速无效的代码
         //setLayerType(View.LAYER_TYPE_SOFTWARE, mSelectedPaint);
@@ -130,13 +131,14 @@ public class ScheduleMonthView extends MonthView {
 
     @Override
     protected void onDrawText(Canvas canvas, Calendar calendar, int x, int y, boolean hasScheme, boolean isSelected) {
-        canvas.drawRect(x, y, x + mItemWidth, y + mItemHeight, mRectPaint);
+        //去除绘制的线条
+        //canvas.drawRect(x, y, x + mItemWidth, y + mItemHeight, mRectPaint);
         int cx = x + mItemWidth / 2;
         int cy = y + mItemHeight / 2;
         int top = y - mItemHeight / 6;
 
         if (calendar.isCurrentDay() && !isSelected) {
-            canvas.drawCircle(cx, cy, mRadius, mCurrentDayPaint);
+           canvas.drawCircle(cx, cy, mRadius, mCurrentDayPaint);
         }
 
         if (hasScheme) {

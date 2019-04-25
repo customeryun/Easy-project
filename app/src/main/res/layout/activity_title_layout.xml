@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="60dp"
     android:id="@+id/actionbar"
-    android:background="#3A6EE5">
+    android:background="#ffffffff">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp">

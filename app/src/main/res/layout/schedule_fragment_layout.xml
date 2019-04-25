@@ -1,125 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff0f0f0"
     android:orientation="vertical">
-    <LinearLayout
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/calendar_bg_color">
-         <TextView
-             android:id="@+id/today"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_gravity="center"
-             android:gravity="center"
-             android:textColor="#ffffff"
-             android:textSize="18dp"
-             android:text="03月30日"/>
-    </LinearLayout>
- <!--   <com.android.easymanager.ui.widget.WeekBarView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/week_bar_height"
-        android:background="@color/calendar_bg_color"
-        app:week_text_color="#ffffff"
-        app:week_c_text_size="18"/>
-    <com.android.easymanager.ui.widget.week.WeekCalendarView
-        android:id="@+id/wcvCalendar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/week_calendar_height"
-        android:background="@color/week_calendar_bg_color"
-        android:overScrollMode="never"
-        app:week_day_text_size="@integer/calendar_text_size"
-        app:week_holiday_color="@color/holiday_text_color"
-        app:week_selected_circle_color="@color/select_circle_color"
-        app:week_show_holiday_hint="true"
-        app:week_show_lunar="true"
-        app:week_show_task_hint="false"/>-->
-    <com.haibin.calendarview.CalendarLayout
-        android:id="@+id/calendarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#F3F3F3"
-        android:orientation="vertical"
-        app:default_status="shrink"
-        app:calendar_content_view_id="@+id/rl_schedule">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+       <LinearLayout
+           android:id="@+id/title"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+           android:layout_gravity="top"
+           android:background="@color/calendar_bg_color">
+           <TextView
+               android:id="@+id/today"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:gravity="center"
+               android:textColor="#FF333333"
+               android:textSize="18sp"
+               android:text="03月30日"/>
+       </LinearLayout>
+       <com.haibin.calendarview.CalendarLayout
+           android:id="@+id/calendarLayout"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           app:default_status="shrink"
+           app:calendar_content_view_id="@+id/rl_schedule">
 
-        <com.haibin.calendarview.CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#F3F3F3"
-            app:calendar_padding="0dp"
-            app:current_month_lunar_text_color="#CFCFCF"
-            app:current_month_text_color="#333333"
-            app:current_day_lunar_text_color="#4074Df"
-            app:current_day_text_color="#4074Df"
-            app:max_year="2020"
-            app:min_year="2004"
-            app:month_view="com.android.easymanager.ui.widget.ScheduleMonthView"
-            app:month_view_show_mode="mode_fix"
-            app:other_month_lunar_text_color="#e1e1e1"
-            app:other_month_text_color="#e1e1e1"
-            app:scheme_text="假"
-            app:scheme_text_color="#333"
-            app:scheme_theme_color="#128c4b"
-            app:selected_lunar_text_color="#4074Df"
-            app:selected_text_color="#4074Df"
-            app:selected_theme_color="#FFFFFF"
-            app:week_background="#4074Df"
-            app:week_start_with="mon"
-            app:week_text_color="#FFFFFF"
-            app:week_text_size="16dp"
-            app:week_view="com.android.easymanager.ui.widget.ScheduleWeekView"
-            app:year_view_day_text_color="#333333"
-            app:year_view_day_text_size="7sp"
-            app:year_view_month_text_color="#4074Df"
-            app:year_view_month_text_size="20sp"
-            app:year_view_scheme_color="#f17706"
-            app:year_view_select_text_color="#fff"
-            app:year_view_week_height="12dp"
-            app:year_view_week_text_color="#e1e1e1"
-            app:year_view_week_text_size="6sp" />
+           <com.haibin.calendarview.CalendarView
+               android:id="@+id/calendarView"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="#ffffffff"
+               app:calendar_padding="0dp"
+               app:current_month_lunar_text_color="#CFCFCF"
+               app:current_month_text_color="#333333"
+               app:current_day_lunar_text_color="#FF333333"
+               app:current_day_text_color="#FF333333"
+               app:max_year="2020"
+               app:min_year="2004"
+               app:month_view="com.android.easymanager.ui.widget.ScheduleMonthView"
+               app:month_view_show_mode="mode_fix"
+               app:other_month_lunar_text_color="#FF999999"
+               app:other_month_text_color="#FF999999"
+               app:selected_theme_color="#ffcccccc"
+               app:scheme_text="假"
+               app:week_background="#ffffffff"
+               app:week_start_with="mon"
+               app:week_text_color="#FF999999"
+               app:week_text_size="16dp"
+               app:week_view="com.android.easymanager.ui.widget.ScheduleWeekView" />
+           <RelativeLayout
+               android:id="@+id/rl_schedule"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:background="#ffffffff">
+               <View
+                   android:id="@+id/bg"
+                   android:layout_width="match_parent"
+                   android:layout_height="15dp"
+                   android:background="#fff0f0f0"/>
+               <TextView
+                   android:text="今日日程"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentLeft="true"
+                   android:layout_marginTop="15dp"
+                   android:layout_marginLeft="15dp"
+                   android:textColor="#333333"
+                   android:layout_below="@id/bg"
+                   android:id="@+id/textView" />
 
-        <RelativeLayout
-            android:id="@+id/rl_schedule"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:background="#F7F7F9">
-            <TextView
-                android:text="今日日程"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:id="@+id/textView" />
-            <TextView
-                android:id="@+id/schedule_num"
-                android:text="1/6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycle_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView" />
-            <FrameLayout
-                android:id="@+id/schedule_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/ic_schedule_add">
-
-            </FrameLayout>
-        </RelativeLayout>
-    </com.haibin.calendarview.CalendarLayout>
-
-</LinearLayout>
+               <android.support.v7.widget.RecyclerView
+                   android:id="@+id/recycle_view"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_marginTop="10dp"
+                   android:layout_marginLeft="15dp"
+                   android:layout_alignParentStart="true"
+                   android:layout_below="@+id/textView"
+                   />
+           </RelativeLayout>
+       </com.haibin.calendarview.CalendarLayout>
+   </LinearLayout>
+    <FrameLayout
+        android:id="@+id/schedule_add"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="right|bottom"
+        android:background="@drawable/ic_schedule_add">
+    </FrameLayout>
+</FrameLayout>

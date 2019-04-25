@@ -86,7 +86,7 @@ public class ScheduleWeekView extends WeekView {
 
         mCurrentDayPaint.setAntiAlias(true);
         mCurrentDayPaint.setStyle(Paint.Style.FILL);
-        mCurrentDayPaint.setColor(0xFFeaeaea);
+        mCurrentDayPaint.setColor(0xffcccccc);
 
 
         mCircleRadius = dipToPx(getContext(), 7);
@@ -97,6 +97,8 @@ public class ScheduleWeekView extends WeekView {
 
         Paint.FontMetrics metrics = mSchemeBasicPaint.getFontMetrics();
         mSchemeBaseLine = mCircleRadius - metrics.descent + (metrics.bottom - metrics.top) / 2 + dipToPx(getContext(), 1);
+
+        mSelectedPaint.setColor(0xffcccccc);
 
      /*   //兼容硬件加速无效的代码
         setLayerType(View.LAYER_TYPE_SOFTWARE, mSelectedPaint);
@@ -132,7 +134,8 @@ public class ScheduleWeekView extends WeekView {
 
     @Override
     protected void onDrawText(Canvas canvas, Calendar calendar, int x, boolean hasScheme, boolean isSelected) {
-        canvas.drawRect(x, 0, x + mItemWidth, 0 + mItemHeight, mRectPaint);
+        //去除绘制的线条
+        //canvas.drawRect(x, 0, x + mItemWidth, 0 + mItemHeight, mRectPaint);
 
         int cx = x + mItemWidth / 2;
         int cy = mItemHeight / 2;

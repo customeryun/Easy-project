@@ -37,3 +37,4 @@
 36.xiaoming add 社团首次添加
 37.linmei   add 我的模块，新UI调整 2019.04.25
 38.linmei   add 我的模块+我的好友，新UI调整 2019.04.25
+39.xiaoming add 日程日历界面调整

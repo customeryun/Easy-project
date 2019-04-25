@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3A6EEF</color>
-    <color name="colorPrimaryDark">#3A6EEF</color>
+    <color name="colorPrimaryDark">#ffffffff</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorBottomNavigationActiveColored">#FFFFFF</color>
-    <color name="calendar_bg_color">#4074DF</color>
+    <color name="calendar_bg_color">#ffffffff</color>
     <color name="apply_bg_color">#4074DF</color>
     <color name="week_calendar_bg_color">#FFFFFF</color>
     <color name="holiday_text_color">#9082BD</color>

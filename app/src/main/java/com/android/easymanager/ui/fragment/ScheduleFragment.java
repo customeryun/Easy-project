@@ -68,12 +68,12 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
 
     public ArrayList<ScheduleItem> buildItems(){
         ArrayList<ScheduleItem> items = new ArrayList<>();
-        items.add(new ScheduleItem(R.drawable.ic_schedule_lession,"汉语言课程","8:10 - 12:10"));
-        items.add(new ScheduleItem(R.drawable.ic_schedule_lession,"体育活动课程","8:10 - 12:10"));
-        items.add(new ScheduleItem(R.drawable.ic_schedule_lession,"材料力学课程","8:10 - 12:10"));
-        items.add(new ScheduleItem(R.drawable.ic_schedule_lession,"社团活动","8:10 - 12:10"));
-        items.add(new ScheduleItem(R.drawable.ic_schedule_lession,"看电影","8:10 - 12:10"));
-        items.add(new ScheduleItem(R.drawable.ic_schedule_lession,"翻译实践课程","8:10 - 12:10"));
+        items.add(new ScheduleItem(R.drawable.ic_course_done,"汉语言课程","8:10 - 12:10"));
+        items.add(new ScheduleItem(R.drawable.ic_social_activity,"体育活动课程","8:10 - 12:10"));
+        items.add(new ScheduleItem(R.drawable.ic_course_done,"材料力学课程","8:10 - 12:10"));
+        items.add(new ScheduleItem(R.drawable.ic_social_activity,"社团活动","8:10 - 12:10"));
+        items.add(new ScheduleItem(R.drawable.ic_course_done,"看电影","8:10 - 12:10"));
+        items.add(new ScheduleItem(R.drawable.ic_social_activity,"翻译实践课程","8:10 - 12:10"));
         return items;
     }
 
