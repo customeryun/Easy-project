@@ -3,7 +3,7 @@
     <item android:state_pressed="true">
         <shape>
             <corners android:radius="2dp"/>
-            <solid android:color="@color/blue_btn_pressed"/>
+            <solid android:color="@color/colorAccent"/><!--blue_btn_pressed-->
         </shape>
     </item>
 
@@ -11,7 +11,7 @@
     <item android:state_enabled="true">
         <shape>
             <corners android:radius="2dp"/>
-            <solid android:color="@color/blue_btn_normal"/>
+            <solid android:color="@color/colorAccent"/><!--blue_btn_normal-->
         </shape>
     </item>
 
@@ -19,7 +19,7 @@
     <item android:state_enabled="false">
         <shape>
             <corners android:radius="2dp"/>
-            <solid android:color="@color/blue_btn_cannot_pressed"/>
+            <solid android:color="@color/colorAccent"/><!--blue_btn_cannot_pressed-->
         </shape>
     </item>
 </selector>

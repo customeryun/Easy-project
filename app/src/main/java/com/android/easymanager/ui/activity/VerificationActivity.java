@@ -39,7 +39,7 @@ public class VerificationActivity extends BaseActivity {
 
     @Override
     public void init() {
-        setTitle("验证");
+        setTitle("添加好友");
 
         mEt_reason.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override

@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:background="#FFFFFF"
     android:descendantFocusability="blocksDescendants"
     android:orientation="vertical">
 
@@ -12,6 +13,7 @@
         android:id="@+id/swp_layout"
         android:layout_width="match_parent"
         android:layout_height="64dp"
+        android:background="#FFFFFF"
         app:drag_edge="right">
 
         <LinearLayout
@@ -29,7 +31,7 @@
                 android:singleLine="true"
                 android:text="删除"
                 android:textColor="@color/white"
-                android:textSize="18sp"/>
+                android:textSize="16sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -49,7 +51,7 @@
                     android:id="@+id/item_head_icon"
                     android:layout_width="47.33dp"
                     android:layout_height="47.33dp"
-                    android:src="@drawable/rc_default_portrait"/>
+                    android:src="@drawable/home_top_01"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -69,27 +71,17 @@
 
                     <TextView
                         android:id="@+id/item_name"
-                        android:layout_width="0dp"
-                        android:layout_height="22.33dp"
-                        android:layout_weight="1"
-                        android:maxLines="1"
-                        android:text="申请人"
-                        android:textColor="#2C2C2C"
-                        android:textSize="16sp"/>
+                        style="@style/friend_recomend_title_style"
+                        android:text="申请人" />
 
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/item_reason"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/friend_recomend_reason_style"
                     android:layout_below="@+id/title_layout"
-                    android:layout_marginTop="1.33dp"
                     android:ems="10"
-                    android:maxLines="1"
-                    android:text="验证信息"
-                    android:textColor="#999999"
-                    android:textSize="14sp"/>
+                    android:text="验证信息" />
             </RelativeLayout>
 
             <TextView
@@ -101,7 +93,7 @@
                 android:background="@drawable/blue_btn_selector"
                 android:textColor="@drawable/blue_text_selector"
                 android:text="@string/accept"
-                android:textSize="14sp"/>
+                android:textSize="15sp"/>
 
             <TextView
                 android:layout_marginRight="14.33dp"
