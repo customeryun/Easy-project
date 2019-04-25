@@ -41,7 +41,7 @@ public class ContactActivity extends BaseActivity {
     public void init() {
         setTitle("校园通讯录");
         setAddIconVisible(true);
-        setAddIconRes(android.R.drawable.ic_menu_add);
+        setAddIconRes(R.drawable.ic_meau_add_friend);
         setAddIconListener(mAddOnClickListener);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);

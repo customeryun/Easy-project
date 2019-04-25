@@ -18,8 +18,9 @@
     <com.android.easymanager.ui.widget.settings.ItemView
         android:id="@+id/contact_new"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="55dp"
         app:left_text="新的好友"
+        app:left_icon="@drawable/ic_contact_group_new"
         app:show_left_icon="true"
         app:show_top_line="true"
         android:showDividers="middle"
@@ -28,16 +29,18 @@
     <com.android.easymanager.ui.widget.settings.ItemView
         android:id="@+id/contact_teacher"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="55dp"
         app:left_text="老师通讯录"
+        app:left_icon="@drawable/ic_contact_group_teacher"
         app:show_left_icon="true"
         app:show_right_arrow="false"
         />
     <com.android.easymanager.ui.widget.settings.ItemView
         android:id="@+id/contact_student"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="55dp"
         app:left_text="学生通讯录"
+        app:left_icon="@drawable/ic_contact_group_student"
         app:show_left_icon="true"
         app:show_right_arrow="false"
         />

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/layout_me"
@@ -25,21 +26,22 @@
                 android:text="华中示范大学"/>
             <ImageView
                 android:id="@+id/icon_userinfo"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:layout_centerInParent="true"
+                android:scaleType="fitXY"
                 android:layout_toStartOf="@+id/icon_settings"
                 android:src="@drawable/icon_code"/>
             <ImageView
                 android:id="@+id/icon_settings"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="6dp"
                 android:scaleType="fitXY"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:src="@drawable/ic_settings_24dp"/>
+                android:src="@drawable/icon_settings"/>
         </RelativeLayout>
 
         <LinearLayout
@@ -94,17 +96,17 @@
     <LinearLayout
         android:id="@+id/message"
         android:background="#ffffff"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="52dp">
+        android:layout_height="50dp">
         <ImageView
-            android:layout_width="52dp"
-            android:layout_height="match_parent"
-            android:padding="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:scaleType="fitCenter"
-            android:src="@drawable/home_top_01"/>
+            android:src="@drawable/icon_message"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -124,25 +126,29 @@
             android:text=" 8 " />
         <ImageView
             android:id="@+id/right_arrow_1"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_gravity="center"
             android:src="@drawable/icon_next"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0F0F0"/>
 
     <LinearLayout
         android:id="@+id/contact"
         android:background="#ffffff"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="52dp">
+        android:layout_height="50dp">
         <ImageView
-            android:layout_width="53dp"
-            android:layout_height="match_parent"
-            android:padding="6dp"
-            android:src="@drawable/home_top_01"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_friends"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -162,12 +168,16 @@
             android:text=" 6 " />
         <ImageView
             android:id="@+id/right_arrow_2"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_gravity="center"
             android:src="@drawable/icon_next"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0F0F0"/>
 
     <LinearLayout
         android:id="@+id/collection"

@@ -2,6 +2,7 @@ package com.android.easymanager.ui.widget.contact;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -45,6 +46,7 @@ public class LetterView extends LinearLayout {
         tv.setGravity(Gravity.CENTER);
         tv.setClickable(true);
         tv.setTextSize(14);
+        tv.setTextColor(Color.parseColor("#007AFF"));
         tv.setText(character);
 
         tv.setOnClickListener(new OnClickListener() {
