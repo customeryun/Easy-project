@@ -39,3 +39,4 @@
 38.linmei   add 我的模块+我的好友，新UI调整 2019.04.25
 39.xiaoming add 日程日历界面调整 20190425
 40.linmei   add 我的 新UI调整 20190425
+41.linmei   add 1.statusBar和actionBar显示白色背景问题处理;2.view_page底部UI调整

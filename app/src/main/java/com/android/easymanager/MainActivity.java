@@ -46,9 +46,9 @@ public class MainActivity extends BaseActivity {
 
         bottom_navigation.addItems(buildItem());
         bottom_navigation.setForceTitlesDisplay(true);
-        bottom_navigation.setDefaultBackgroundColor(Color.parseColor("#FEFEFE"));
-        bottom_navigation.setAccentColor(Color.parseColor("#1DA1F2"));
-        bottom_navigation.setInactiveColor(Color.parseColor("#949494"));
+        bottom_navigation.setDefaultBackgroundColor(Color.parseColor("#FFFFFF"));
+        bottom_navigation.setAccentColor(Color.parseColor("#4189FF"));
+        bottom_navigation.setInactiveColor(Color.parseColor("#333333"));
 
         bottom_navigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
@@ -62,17 +62,17 @@ public class MainActivity extends BaseActivity {
     public void initViewPage(){
         view_page.setOffscreenPageLimit(5);
         view_page.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
-        view_page.setCurrentItem(4);
+        view_page.setCurrentItem(0);
     }
 
     public ArrayList<AHBottomNavigationItem> buildItem(){
         ArrayList<AHBottomNavigationItem> items = new ArrayList<>();
 
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.bottom_navigation_item_home,R.drawable.navtab_home,R.color.colorBottomNavigationActiveColored);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.bottom_navigation_item_schedule, R.drawable.navtab_we, R.color.colorBottomNavigationActiveColored);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.bottom_navigation_item_application, R.drawable.navtab_help, R.color.colorBottomNavigationActiveColored);
-        AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.bottom_navigation_item_community, R.drawable.navtab_cart, R.color.colorBottomNavigationActiveColored);
-        AHBottomNavigationItem item5 = new AHBottomNavigationItem(R.string.bottom_navigation_item_mine, R.drawable.navtab_user, R.color.colorBottomNavigationActiveColored);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.bottom_navigation_item_home,R.drawable.ic_navtab_home,R.color.colorBottomNavigationActiveColored);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.bottom_navigation_item_schedule, R.drawable.ic_navtab_we, R.color.colorBottomNavigationActiveColored);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.bottom_navigation_item_application, R.drawable.ic_navtab_help, R.color.colorBottomNavigationActiveColored);
+        AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.bottom_navigation_item_community, R.drawable.ic_navtab_cart, R.color.colorBottomNavigationActiveColored);
+        AHBottomNavigationItem item5 = new AHBottomNavigationItem(R.string.bottom_navigation_item_mine, R.drawable.ic_navtab_user, R.color.colorBottomNavigationActiveColored);
 
         items.add(item1);
         items.add(item2);
