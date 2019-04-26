@@ -36,7 +36,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_toRightOf="@id/jmui_return_btn"
                     android:orientation="horizontal">
 
                     <TextView
@@ -54,6 +53,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
+                        android:visibility="gone"
                         android:textColor="#333333"
                         android:textSize="20sp"/>
 

@@ -79,7 +79,9 @@
         <activity android:name=".ui.activity.TeacherGroupActivity" />
         <activity android:name=".ui.activity.TeacherChildActivity" />
         <activity android:name=".ui.activity.StudentChildActivity" />
-        <activity android:name=".ui.activity.ContactDetailActivity" />
+        <activity
+            android:name=".ui.activity.ContactDetailActivity"
+            android:theme="@style/AppTheme_BlueStatusBar"/>
         <activity android:name=".ui.activity.MeDetailActivity" />
         <activity android:name=".ui.activity.ApprovalCommitActivity" />
         <activity android:name=".ui.activity.ApprovalHistoryActivity" />
@@ -89,8 +91,12 @@
         <activity android:name=".ui.activity.RequestFriendActivity"/>
         <activity android:name=".ui.activity.FinishRegisterActivity"/>
         <activity android:name=".ui.activity.SearchForAddFriendActivity"/>
-        <activity android:name=".ui.activity.FriendInfoActivity"/>
-        <activity android:name=".ui.activity.SearchFriendInfoActivity"/>
+        <activity
+            android:name=".ui.activity.FriendInfoActivity"
+            android:theme="@style/AppTheme_BlueStatusBar"/>
+        <activity
+            android:name=".ui.activity.SearchFriendInfoActivity"
+            android:theme="@style/AppTheme_BlueStatusBar"/>
         <activity android:name=".ui.activity.VerificationActivity"/>
         <activity android:name=".ui.activity.ConversationListActivity"/>
         <activity android:name=".ui.activity.SearchFriendDetailActivity"/>

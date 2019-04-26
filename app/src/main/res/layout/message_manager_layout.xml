@@ -16,9 +16,21 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <com.android.easymanager.ui.widget.contact.LetterView
+            android:id="@+id/view_letter"
+            android:background="#f9f9f9"
+            android:layout_width="28dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            />
+    </RelativeLayout>
+
 
 </LinearLayout>

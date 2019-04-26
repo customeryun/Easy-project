@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 import com.android.easymanager.R;
@@ -12,6 +13,8 @@ import com.android.easymanager.ui.adapter.BaseRecyclerAdapter;
 import com.android.easymanager.ui.adapter.ContactEasyAdapter;
 import com.android.easymanager.ui.bean.Contact;
 import com.android.easymanager.ui.bean.ContactGroupEntry;
+import com.android.easymanager.ui.widget.contact.LetterView;
+
 import java.util.ArrayList;
 import butterknife.BindView;
 
@@ -19,6 +22,8 @@ public class TeacherChildActivity extends BaseActivity implements BaseRecyclerAd
 
     @BindView(R.id.recyclerView)
     RecyclerView recycle_view;
+    @BindView(R.id.view_letter)
+    LetterView view_letter;
 
     ContactGroupEntry mEntry;
 
@@ -34,6 +39,7 @@ public class TeacherChildActivity extends BaseActivity implements BaseRecyclerAd
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        view_letter.setVisibility(View.GONE);
         initRecycleView();
     }
 

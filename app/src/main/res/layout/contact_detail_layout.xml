@@ -7,15 +7,19 @@
     <include layout="@layout/activity_title_layout"/>
 
     <LinearLayout
+        android:id="@+id/itemlayout_icon"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:visibility="gone"
+        android:background="#FFFFFF"
         android:gravity="center_vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:textSize="15sp"
+            android:textColor="#333333"
             android:text="头像"/>
         <ImageView
             android:layout_width="20dp"

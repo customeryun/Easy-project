@@ -6,6 +6,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.android.easymanager.R;
@@ -21,8 +22,8 @@ public class MeDetailActivity extends BaseActivity implements BaseRecyclerAdapte
     RecyclerView recycle_view;
     @BindView(R.id.layout_head)
     RelativeLayout layout_head;
-//    @BindView(R.id.layout_bottom)
-//    LinearLayout layout_bottom;
+    @BindView(R.id.itemlayout_icon)
+    LinearLayout layout_icon;
 
     @Override
     public int getLayout() {
@@ -34,7 +35,7 @@ public class MeDetailActivity extends BaseActivity implements BaseRecyclerAdapte
         setActionbarVisible(true);
         setTitle("个人信息");
         layout_head.setVisibility(View.GONE);
-//        layout_bottom.setVisibility(View.GONE);
+        layout_icon.setVisibility(View.VISIBLE);
         initRecycleView();
     }
 

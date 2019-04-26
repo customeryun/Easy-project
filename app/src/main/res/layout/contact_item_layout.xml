@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="56dp"
-    android:padding="6dp"
+    android:layout_height="74dp"
+    android:background="#FFFFFF"
     android:gravity="center_vertical">
 
     <ImageView
-        android:layout_width="42dp"
-        android:layout_height="42dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:scaleType="fitXY"
+        android:layout_marginStart="15dp"
         android:background="@drawable/home_top_01"/>
 
     <LinearLayout
@@ -21,17 +22,17 @@
             android:id="@+id/contact_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:padding="0dp"
+            android:textSize="18sp"
+            android:textColor="#333333"
             android:layout_weight="1"/>
         <TextView
             android:id="@+id/contact_class"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14dp"
-            android:padding="0dp"
+            android:textSize="14sp"
+            android:textColor="#999999"
             android:layout_weight="1"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
 
     <TextView

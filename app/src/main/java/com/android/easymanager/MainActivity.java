@@ -3,6 +3,8 @@ package com.android.easymanager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.view.Window;
+import android.view.WindowManager;
 import com.android.easymanager.ui.activity.BaseActivity;
 import com.android.easymanager.ui.adapter.ViewPagerAdapter;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
@@ -54,6 +56,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public boolean onTabSelected(int position, boolean wasSelected) {
                 view_page.setCurrentItem(position,false);
+                Window mWindow = getWindow();
+                mWindow.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                if(position==4){
+                    mWindow.setStatusBarColor(getResources().getColor(R.color.colorAccent));
+                }else {
+                    mWindow.setStatusBarColor(getResources().getColor(R.color.white));
+                }
                 return true;
             }
         });
