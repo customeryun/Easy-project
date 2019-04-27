@@ -1,6 +1,8 @@
 package com.android.easymanager.ui.fragment;
 
 import android.app.AlertDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,14 +12,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.easymanager.R;
 import com.android.easymanager.ui.adapter.SchedulePopAdapter;
 import com.android.easymanager.ui.adapter.ScheduleTaskAdapter;
 import com.android.easymanager.ui.bean.ScheduleItem;
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.CustomListener;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.example.zhouwei.library.CustomPopWindow;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.ViewHolder;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -82,7 +95,7 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
         if(position%2 == 0){
             buildS1Dialog();
         }else{
-            buildS2Dialog();
+            buildS1Dialog();
         }
     }
 
@@ -96,40 +109,119 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
     }
 
     public void buildS1Dialog(){
-        View view = LayoutInflater.from(mActivity).inflate(R.layout.schedule_dialog_s1_layout,null,false);
-        final AlertDialog dialog = new AlertDialog.Builder(mActivity).setView(view).create();
-        dialog.show();
+       View view = LayoutInflater.from(mActivity).inflate(R.layout.schedule_dialog_s1_layout,null,false);
+       final AlertDialog dialog = new AlertDialog.Builder(mActivity).setView(view).create();
+       dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+       dialog.show();
     }
 
     public void buildS2Dialog(){
         View view = LayoutInflater.from(mActivity).inflate(R.layout.schedule_dialog_s2_layout,null,false);
         final AlertDialog dialog = new AlertDialog.Builder(mActivity).setView(view).create();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
     }
 
     public void showPopWindow(){
         View contentView = LayoutInflater.from(mActivity).inflate(R.layout.schedule_pop_add_layout,null);
         //处理popWindow 显示内容
-        buildPopWindow(contentView);
+        final LinearLayout rvParent = contentView.findViewById(R.id.rv_schedule_pop_add);
+        final FrameLayout rv_input = contentView.findViewById(R.id.rv_input);
+        final ImageView imageView = contentView.findViewById(R.id.img_schedule_set_time);
+        rv_input.setVisibility(View.VISIBLE);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rv_input.setVisibility(View.GONE);
+                initCustomTimePicker(rvParent);
+            }
+        });
         //创建并显示popWindow
-        CustomPopWindow mListPopWindow= new CustomPopWindow.PopupWindowBuilder(mActivity)
+        new CustomPopWindow.PopupWindowBuilder(mActivity)
                 .setView(contentView)
                 .size(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT)//显示大小
                 .create()
                 .showAtLocation(contentView, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
-                //.showAsDropDown(schedule_add,0,0);
+
     }
 
-    public void buildPopWindow(View contentView){
-        RecyclerView recyclerView = (RecyclerView) contentView.findViewById(R.id.pop_recycle_view);
-        LinearLayoutManager manager = new LinearLayoutManager(mContext);
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(manager);
-        SchedulePopAdapter adapter = new SchedulePopAdapter(mContext,buildPopItems());
-        recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-    }
+    private void initCustomTimePicker(View parent) {
 
+        /**
+         * @description
+         *
+         * 注意事项：
+         * 1.自定义布局中，id为 optionspicker 或者 timepicker 的布局以及其子控件必须要有，否则会报空指针.
+         * 具体可参考demo 里面的两个自定义layout布局。
+         * 2.因为系统Calendar的月份是从0-11的,所以如果是调用Calendar的set方法来设置时间,月份的范围也要是从0-11
+         * setRangDate方法控制起始终止时间(如果不设置范围，则使用默认时间1900-2100年，此段代码可注释)
+         */
+        Calendar selectedDate = Calendar.getInstance();//系统当前时间
+        Calendar startDate = Calendar.getInstance();
+        startDate.set(2014, 1, 23);
+        Calendar endDate = Calendar.getInstance();
+        endDate.set(2027, 2, 28);
+        //时间选择器 ，自定义布局
+        TimePickerView pvCustomTime = new TimePickerBuilder(mActivity, new OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date, View v) {//选中事件回调
+               // btn_CustomTime.setText(getTime(date));
+            }
+        })
+                /*.setType(TimePickerView.Type.ALL)//default is all
+                .setCancelText("Cancel")
+                .setSubmitText("Sure")
+                .setContentTextSize(18)
+                .setTitleSize(20)
+                .setTitleText("Title")
+                .setTitleColor(Color.BLACK)
+               /*.setDividerColor(Color.WHITE)//设置分割线的颜色
+                .setTextColorCenter(Color.LTGRAY)//设置选中项的颜色
+                .setLineSpacingMultiplier(1.6f)//设置两横线之间的间隔倍数
+                .setTitleBgColor(Color.DKGRAY)//标题背景颜色 Night mode
+                .setBgColor(Color.BLACK)//滚轮背景颜色 Night mode
+                .setSubmitColor(Color.WHITE)
+                .setCancelColor(Color.WHITE)*/
+               /*.animGravity(Gravity.RIGHT)// default is center*/
+                .setDate(selectedDate)
+                .setRangDate(startDate, endDate)
+                .isDialog(true)
+                .setDividerColor(Color.WHITE)
+                .setLineSpacingMultiplier(1.6f)//设置两横线之间的间隔倍数
+                .setLayoutRes(R.layout.schedule_pick_time, new CustomListener() {
+
+                    @Override
+                    public void customLayout(View v) {
+                        final TextView tvSubmit = (TextView) v.findViewById(R.id.tv_finish);
+                        TextView ivCancel = (TextView) v.findViewById(R.id.iv_cancel);
+                        tvSubmit.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //pvCustomTime.returnData();
+                                //pvCustomTime.dismiss();
+                            }
+                        });
+                        ivCancel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //pvCustomTime.dismiss();
+                            }
+                        });
+                    }
+                })
+                .setContentTextSize(18)
+                .setType(new boolean[]{false, false, true, true, true, false})
+                .setLabel("年", "月", "日", "时", "分", "秒")
+                .setLineSpacingMultiplier(1.2f)
+                .setTextXOffset(0, 0, 0, 40, 0, -40)
+                .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
+                .setDividerColor(0xFF24AD9D)
+                .setDecorView((ViewGroup) parent)
+                .isDialog(false)
+                .build();
+                pvCustomTime.show();
+
+    }
     public ArrayList<String> buildPopItems(){
         ArrayList<String> data = new ArrayList<>();
         data.add("ss");

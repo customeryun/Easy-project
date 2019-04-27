@@ -1,45 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@drawable/schedule_dialog_s1">
 
     <LinearLayout
-        android:layout_width="357dp"
-        android:layout_height="177dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:layout_marginBottom="23dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8dp"
+            android:layout_marginBottom="@dimen/space_8dp"
+            android:text="课程"
+            android:textColor="#ff333333"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/space_14dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#88D03A"/>
         <TextView
             android:id="@+id/course_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:text="请准时参加：汉语言课程"
-            android:textColor="#FFFFFFFF"
-            android:textSize="16dp" />
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:text="课程名称：汉语言"
+            android:textColor="#ff030303"
+            android:textSize="15sp"
+            android:layout_marginLeft="@dimen/space_14dp"/>
 
         <TextView
             android:id="@+id/course_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="2019年3月27: 8：00－12：00"
-            android:textColor="#FFFFFFFF"
-            android:textSize="16dp" />
-
+            android:gravity="left"
+            android:text="上课时间：2019/03/01-2019/7/01"
+            android:textColor="#ff030303"
+            android:textSize="15sp"
+            android:layout_marginLeft="@dimen/space_14dp"/>
         <TextView
-            android:id="@+id/course_commit"
-            android:layout_width="wrap_content"
+            android:id="@+id/course_teacher"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/ic_schedule_dialog_bt"
-            android:gravity="center"
-            android:text="好的"
-            android:textColor="#FF61B43B"
-            android:textSize="14dp" />
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:text="上课老师：李老师"
+            android:textColor="#ff030303"
+            android:textSize="15sp"
+            android:layout_marginLeft="@dimen/space_14dp"
+            />
+        <TextView
+            android:id="@+id/course_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:text="上课地点：中国上海市中山北路3663号华东师范大学物理楼253室"
+            android:textColor="#ff030303"
+            android:textSize="15sp"
+            android:layout_marginLeft="@dimen/space_14dp"/>
     </LinearLayout>
 </RelativeLayout>

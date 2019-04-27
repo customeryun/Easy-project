@@ -84,7 +84,6 @@
                    android:layout_height="match_parent"
                    android:layout_marginTop="10dp"
                    android:layout_marginLeft="15dp"
-                   android:layout_alignParentStart="true"
                    android:layout_below="@+id/textView"
                    />
            </RelativeLayout>
@@ -95,6 +94,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="right|bottom"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/ic_schedule_add">
     </FrameLayout>
 </FrameLayout>

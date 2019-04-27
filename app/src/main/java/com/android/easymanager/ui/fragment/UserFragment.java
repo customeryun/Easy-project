@@ -96,6 +96,8 @@ public class UserFragment extends BaseFragment {
 
     private void initHeadView(){
         UserInfo myInfo = JMessageClient.getMyInfo();
-        tv_name.setText(myInfo.getUserName());
+        if(myInfo!=null){
+            tv_name.setText(myInfo.getUserName());
+        }
     }
 }

@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowLightStatusBar">true</item><!--statusBar �׵׺�������-->
+        <item name="android:windowLightStatusBar">true</item><!--statusBar �׵׺�������-->
     </style>
 
     <style name="AppTheme_BlueStatusBar" parent="AppTheme">
@@ -138,6 +138,14 @@
         <item name="android:maxLines">1</item>
     </style>
 
-
+    <!--对话框样式-->
+    <style name="MyDialog" parent="Theme.AppCompat.Dialog">
+        <!--背景透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--没有标题-->
+        <item name="android:windowNoTitle">true</item>
+        <!--背景昏暗-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
 
 </resources>

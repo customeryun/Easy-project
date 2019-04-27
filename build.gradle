@@ -3,6 +3,10 @@
 buildscript {
     
     repositories {
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
         google()
         jcenter()
     }
@@ -22,6 +26,10 @@ allprojects {
             url "https://oss.sonatype.org/content/repositories/snapshots/"
         }
         maven { url 'https://jitpack.io' }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
         google()
         jcenter()
     }
