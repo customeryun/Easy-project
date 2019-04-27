@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="最新动态"
+            android:textColor="#ff333333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="更多动态"
+            android:textColor="#ff999999"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/space_30dp"
+            android:background="#F0F0F0" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dongtai_img"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/dongtai_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@id/dongtai_img"
+            android:background="@drawable/ic_home_dontai_tv_bg"
+            android:paddingBottom="2dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingTop="2dp"
+            android:text="校园"
+            android:textColor="#fffeac2b"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/dongtai_title_dsc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/dongtai_title"
+            android:text="2019年华东师范大学春季孔子学…"
+            android:textColor="#ff333333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/dongtai_huodong_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dongtai_title"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@id/dongtai_img"
+            android:text="活动时间：2019-04-10"
+            android:textColor="#ff999999"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dongtai_huodong_time"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@id/dongtai_img"
+            android:text="人数：4/40"
+            android:textColor="#ff999999"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="bottom">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_schudule_item_bg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12dp"
+            android:background="@drawable/ic_home_dontai_biaoqian_bg"
+            android:paddingBottom="2dp"
+            android:paddingLeft="11dp"
+            android:paddingRight="12dp"
+            android:paddingTop="2dp"
+            android:text="报名中"
+            android:textColor="#ffffffff"
+            android:textSize="12sp" />
+    </FrameLayout>
+</LinearLayout>

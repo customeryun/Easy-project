@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:background="#ffffffff">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/home_pengyou_img"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/home_pengyou_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/com_status_img"
+            android:gravity="left"
+            android:text="林贤雅"
+            android:textColor="#D3000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/home_pengyou_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/com_status_name"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_toRightOf="@id/com_status_img"
+            android:background="@drawable/ic_home_dontai_tv_state_bg"
+            android:gravity="left"
+            android:paddingBottom="2dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="2dp"
+            android:text="学习互助"
+            android:textColor="#ffff84a7"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/home_pengyou_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="left"
+            android:text="1分钟前"
+            android:textColor="#54000000"
+            android:textSize="12dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/home_pengyou_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Vlog Vlog can't be cut out, it can't be cut out in this life, but there are some video screenshots.Vlog Vlog can't be cut out, it can't be cut out in this life, but there are some video screenshots.can't be cut out in this life, but there are some video screenshots.can't be cut outscreenshots.be cut outscreenshots.sdjj…"
+        android:textColor="#ff333333"
+        android:gravity="left"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/home_pengyou_content_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="查看全文"
+        android:textColor="#ff999999"
+        android:textSize="10dp" />
+
+    <com.android.easymanager.ui.widget.CommunityGridLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/home_pengyou_nine_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:sapcing="4dp" />
+
+</LinearLayout>

@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.android.easymanager.ui.fragment.ApplyFragment;
 import com.android.easymanager.ui.fragment.CommunityFragment;
 import com.android.easymanager.ui.fragment.HomeFragment;
+import com.android.easymanager.ui.fragment.HomeMainFragment;
 import com.android.easymanager.ui.fragment.ScheduleFragment;
 import com.android.easymanager.ui.fragment.UserFragment;
 
@@ -24,7 +25,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
         super(fm);
 
         fragments.clear();
-        fragments.add(HomeFragment.getInstance());
+        fragments.add(HomeMainFragment.getInstance());
         fragments.add(ScheduleFragment.getInstance());
         fragments.add(ApplyFragment.getInstance());
         fragments.add(CommunityFragment.getInstance());

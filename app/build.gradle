@@ -5,7 +5,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.android.easymanager"
-        minSdkVersion 26
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -85,4 +85,5 @@ dependencies {
     implementation 'com.haibin:calendarview:3.5.9'
     implementation 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
     implementation files('libs/universal-image-loader-1.9.4-with-sources.jar')
+    implementation 'com.contrarywind:Android-PickerView:4.1.8'
 }

@@ -85,7 +85,30 @@
                    android:layout_marginTop="10dp"
                    android:layout_marginLeft="15dp"
                    android:layout_below="@+id/textView"
+                   android:visibility="gone"
                    />
+               <LinearLayout
+                   android:id="@+id/rv_no_schedule"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_centerInParent="true"
+                   android:orientation="vertical">
+                   <ImageView
+                       android:layout_width="80dp"
+                       android:layout_height="80dp"
+                       android:layout_marginLeft="15dp"
+                       android:src="@drawable/ic_no_schedule"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="今日暂无日程～"
+                       android:textColor="#ff4189ff"
+                       android:layout_marginTop="@dimen/space_20dp"
+                       android:layout_gravity="center"
+                       android:gravity="center"
+                       android:textSize="14sp" />
+               </LinearLayout>
            </RelativeLayout>
        </com.haibin.calendarview.CalendarLayout>
    </LinearLayout>

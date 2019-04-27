@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="100dp">
+
+    <ImageView
+        android:id="@+id/tuijian_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_home_shuse" />
+
+    <TextView
+        android:id="@+id/tuijian_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tuijian_img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="宿舍预定"
+        android:textColor="#ff333333"
+        android:textSize="14sp" />
+</RelativeLayout>
