@@ -43,3 +43,5 @@
 42.xiaoming add 首页UI添加
 41.linmei   add 1.statusBar和actionBar显示白色背景问题处理;2.view_page底部UI调整
 42.linmei   add 1.statusBar主题适配 2.老师、学生通讯录调整
+41.xiaoming add 日程添加时间和列表界面
+42.xiaoming add 首页功能添加
