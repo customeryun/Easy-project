@@ -45,3 +45,4 @@
 42.linmei   add 1.statusBar主题适配 2.老师、学生通讯录调整
 41.xiaoming add 日程添加时间和列表界面 20190427
 42.xiaoming add 首页功能添加 20190427
+43.xiaoming add 主页添加分割线,行程界面添加右划删除
