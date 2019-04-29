@@ -43,19 +43,19 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
         ViewHolder holder = null;
         switch (viewType) {
             case TYPE_TUIJIAN:
-                holder = new TuiJianViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_tuijian_layout, null));
+                holder = new TuiJianViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_tuijian_layout, parent,false));
                 break;
             case TYPE_GONGGAO:
-                holder = new GongGaoViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_gonggao_layout, null));
+                holder = new GongGaoViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_gonggao_layout, parent,false));
                 break;
             case TYPE_XINGCHENG:
-                holder = new XingChengViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_xinghceng_layout, null));
+                holder = new XingChengViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_xinghceng_layout, parent,false));
                 break;
             case TYPE_DONGTAI:
-                holder = new DontaiViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_dongtai_layout, null));
+                holder = new DontaiViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_dongtai_layout, parent,false));
                 break;
             case TYPE_PENGYOU:
-                holder = new PengYouHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_pengyouquan_layout, null));
+                holder = new PengYouHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_pengyouquan_layout, parent,false));
                 break;
         }
         return holder;

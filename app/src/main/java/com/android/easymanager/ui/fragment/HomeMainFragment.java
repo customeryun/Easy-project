@@ -6,8 +6,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.android.easymanager.R;
+import com.android.easymanager.ui.adapter.HomeItemDecoration;
 import com.android.easymanager.ui.adapter.HomeMainAdapter;
 import com.android.easymanager.ui.adapter.HomeMainDividerItemDecoration;
+//import com.android.easymanager.ui.adapter.HomeMainDividerItemDecoration;
 
 import java.util.Arrays;
 
@@ -59,7 +61,7 @@ public class HomeMainFragment extends BaseFragment{
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
         home_list.setLayoutManager(linearLayoutManager);
         mainAdapter = new HomeMainAdapter(mContext, Arrays.asList(mUrls));
-        home_list.addItemDecoration(new DividerItemDecoration(mContext,DividerItemDecoration.HORIZONTAL));
+        home_list.addItemDecoration(new HomeItemDecoration(mContext));
         home_list.setAdapter(mainAdapter);
     }
 

@@ -76,7 +76,7 @@
         android:gravity="center"
         android:text="查看全文"
         android:textColor="#ff999999"
-        android:textSize="10dp" />
+        android:textSize="12dp" />
 
     <com.android.easymanager.ui.widget.CommunityGridLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/home_pengyou_nine_grid"
