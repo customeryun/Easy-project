@@ -1,7 +1,6 @@
 package com.android.easymanager.ui.adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
@@ -17,7 +16,6 @@ import com.android.easymanager.R;
 import com.android.easymanager.ui.widget.CommunityGridLayout;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -64,7 +62,7 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
                 holder = new GongGaoViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_gonggao_layout, parent,false));
                 break;
             case TYPE_XINGCHENG:
-                holder = new XingChengViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_xinghceng_layout, parent,false));
+                holder = new XingChengViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_xinghceng__layout, parent,false));
                 break;
             case TYPE_DONGTAI:
                 holder = new DontaiViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_dongtai_layout, parent,false));
