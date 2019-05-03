@@ -63,7 +63,7 @@ public class HomeMainFragment extends BaseFragment{
     public void init() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
         home_list.setLayoutManager(linearLayoutManager);
-        mainAdapter = new HomeMainAdapter(mContext, Arrays.asList(mUrls));
+        mainAdapter = new HomeMainAdapter(mActivity, Arrays.asList(mUrls));
         home_list.addItemDecoration(new HomeItemDecoration(mContext));
         home_list.setAdapter(mainAdapter);
 

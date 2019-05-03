@@ -14,6 +14,8 @@ import java.util.HashMap;
 import cn.jpush.im.android.api.model.Message;
 import cn.jpush.im.android.api.JMessageClient;
 import cn.jpush.im.android.api.model.UserInfo;
+import me.shaohui.shareutil.ShareConfig;
+import me.shaohui.shareutil.ShareManager;
 
 public class IxiaApplication extends com.activeandroid.app.Application{
     public static final String CONV_TITLE = "conv_title";
@@ -52,6 +54,16 @@ public class IxiaApplication extends com.activeandroid.app.Application{
         //注册Notification点击的接收器
         //new NotificationClickEventReceiver(getApplicationContext());
         initImageLoader();
+
+        // init
+        ShareConfig config = ShareConfig.instance()
+                .qqId("QQ_ID")
+                .wxId("WX_ID")
+                .weiboId("WEIBO_ID")
+                // 下面两个，如果不需要登录功能，可不填写
+                .weiboRedirectUrl("REDIRECT_URL")
+                .wxSecret("WX_ID");
+        ShareManager.init(config);
     }
 
     public static UserEntry getUserEntry() {

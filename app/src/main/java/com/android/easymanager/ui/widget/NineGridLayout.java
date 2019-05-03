@@ -1,6 +1,8 @@
 package com.android.easymanager.ui.widget;
 
 import com.android.easymanager.R;
+import com.android.easymanager.utils.DisplayUtils;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -65,7 +67,7 @@ public abstract class NineGridLayout extends ViewGroup {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         mTotalWidth = right - left;
-        mSingleWidth = (int) ((mTotalWidth - mSpacing * (3 - 1)) / 3);
+        mSingleWidth = DisplayUtils.dip2px(mContext,80);//(int) ((mTotalWidth - mSpacing * (3 - 1)) / 3);
         if (mIsFirst) {
             notifyDataSetChanged();
             mIsFirst = false;
@@ -196,8 +198,8 @@ public abstract class NineGridLayout extends ViewGroup {
      * @param showNumFlag 是否在最大值的图片上显示还有未显示的图片张数
      */
     private void layoutImageView(RatioImageView imageView, int i, String url, boolean showNumFlag) {
-        final int singleWidth = (int) ((mTotalWidth - mSpacing * (3 - 1)) / 3);
-        int singleHeight = singleWidth;
+        final int singleWidth = DisplayUtils.dip2px(mContext,80);//(int) ((mTotalWidth - mSpacing * (3 - 1)) / 3);
+        int singleHeight = DisplayUtils.dip2px(mContext,80);;
 
         int[] position = findPosition(i);
         int left = (int) ((singleWidth + mSpacing) * position[1]);

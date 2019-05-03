@@ -42,6 +42,7 @@ public class ScheduleItemLayout extends LinearLayout {
         //加载视图
         mContext = context;
         parent = (LinearLayout) LayoutInflater.from(mContext).inflate(R.layout.item_home_xinghceng_main_layout, this, true);
+        setOrientation(VERTICAL);
     }
 
     @Override

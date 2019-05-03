@@ -20,6 +20,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import me.shaohui.shareutil.ShareUtil;
+import me.shaohui.shareutil.share.ShareListener;
+import me.shaohui.shareutil.share.SharePlatform;
 
 /**
  * Created by PC-xiaoming on 2019/4/27.
@@ -43,9 +47,9 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
         mContext = context;
     }
 
-    public void addTuiJinaData(ArrayList<String> tuijianDatas){
+    public void addTuiJinaData(ArrayList<String> tuijianDatas) {
         this.mTuiJianDatas = tuijianDatas;
-        if(mTuiJianDatas.size()>0){
+        if (mTuiJianDatas.size() > 0) {
             mItemCount += 1;
             this.notifyDataSetChanged();
         }
@@ -56,19 +60,19 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
         ViewHolder holder = null;
         switch (viewType) {
             case TYPE_TUIJIAN:
-                holder = new TuiJianViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_tuijian_layout, parent,false));
+                holder = new TuiJianViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_tuijian_layout, parent, false));
                 break;
             case TYPE_GONGGAO:
-                holder = new GongGaoViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_gonggao_layout, parent,false));
+                holder = new GongGaoViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_gonggao_layout, parent, false));
                 break;
             case TYPE_XINGCHENG:
-                holder = new XingChengViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_xinghceng__layout, parent,false));
+                holder = new XingChengViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_xinghceng__layout, parent, false));
                 break;
             case TYPE_DONGTAI:
-                holder = new DontaiViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_dongtai_layout, parent,false));
+                holder = new DontaiViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_dongtai_layout, parent, false));
                 break;
             case TYPE_PENGYOU:
-                holder = new PengYouHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_pengyouquan_layout, parent,false));
+                holder = new PengYouHolder(LayoutInflater.from(mContext).inflate(R.layout.item_home_pengyouquan_layout, parent, false));
                 break;
         }
         return holder;
@@ -77,13 +81,13 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof TuiJianViewHolder) {
-            if(mTuiJianDatas!=null&&mTuiJianDatas.size()>0){
+            if (mTuiJianDatas != null && mTuiJianDatas.size() > 0) {
                 Log.d("tuijian", "onBindViewHolder TuiJianViewHolder: ");
-                RecyclerView recyclerView =((TuiJianViewHolder)holder).tuijian_list;
+                RecyclerView recyclerView = ((TuiJianViewHolder) holder).tuijian_list;
                 LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
                 layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                 recyclerView.setLayoutManager(layoutManager);
-                TuiJianAdapter adapter = new TuiJianAdapter(mContext,mTuiJianDatas);
+                TuiJianAdapter adapter = new TuiJianAdapter(mContext, mTuiJianDatas);
                 recyclerView.setAdapter(adapter);
                 //监听拖拽
                 TuiJianItemTouchCallback callback = new TuiJianItemTouchCallback(adapter);
@@ -98,8 +102,8 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
         } else if (holder instanceof DontaiViewHolder) {
 
         } else if (holder instanceof PengYouHolder) {
-            ((PengYouHolder)holder) .home_pengyou_nine_grid.setIsShowAll(true);
-            ((PengYouHolder)holder).home_pengyou_nine_grid.setUrlList(mDatas);
+            ((PengYouHolder) holder).home_pengyou_nine_grid.setIsShowAll(true);
+            ((PengYouHolder) holder).home_pengyou_nine_grid.setUrlList(mDatas);
         }
     }
 
@@ -126,9 +130,10 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
     public class TuiJianViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.tuijian_list)
         RecyclerView tuijian_list;
+
         public TuiJianViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 
@@ -158,7 +163,7 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     //朋友
     public class PengYouHolder extends RecyclerView.ViewHolder {
-
+        private int dianzhanCount;
         @BindView(R.id.home_pengyou_img)
         ImageView home_pengyou_img;
         @BindView(R.id.home_pengyou_name)
@@ -167,16 +172,48 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
         TextView home_pengyou_state;
         @BindView(R.id.home_pengyou_time)
         TextView home_pengyou_time;
-        @BindView(R.id.home_pengyou_content)
-        TextView home_pengyou_content;
-        @BindView(R.id.home_pengyou_content_more)
-        TextView home_pengyou_content_more;
         @BindView(R.id.home_pengyou_nine_grid)
         CommunityGridLayout home_pengyou_nine_grid;
+        @BindView(R.id.home_dianzhan_count)
+        TextView home_dianzhan_count;
+        @BindView(R.id.home_comment_count)
+        TextView home_comment_count;
+        @BindView(R.id.home_share)
+        TextView home_share;
 
         public PengYouHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+        }
+
+        @OnClick({R.id.home_dianzhan_count, R.id.home_comment_count, R.id.home_share})
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.home_dianzhan_count:
+                    dianzhanCount++;
+                    home_dianzhan_count.setText(""+dianzhanCount);
+                    break;
+                case R.id.home_comment_count:
+                    break;
+                case R.id.home_share:
+                    ShareUtil.shareText(mContext, SharePlatform.WX, "分享文字", new ShareListener() {
+                        @Override
+                        public void shareSuccess() {
+
+                        }
+
+                        @Override
+                        public void shareFailure(Exception e) {
+
+                        }
+
+                        @Override
+                        public void shareCancel() {
+
+                        }
+                    });
+                break;
+            }
         }
     }
 }
