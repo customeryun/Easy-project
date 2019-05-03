@@ -44,7 +44,8 @@
 41.linmei   add 1.statusBar和actionBar显示白色背景问题处理;2.view_page底部UI调整
 42.linmei   add 1.statusBar主题适配 2.老师、学生通讯录调整
 41.xiaoming add 日程添加时间和列表界面 20190427
-42.xiaoming add 首页功能添加 20190427
-43.xiaoming add 主页添加分割线,行程界面添加右划删除
-44.xiaoming add 首页推荐功能UI添加拖动和可滑动
-45.xiaoming add 主页行程控件添加
+42.xiaoming add 首页功能添加 2019042720190427
+43.xiaoming add 主页添加分割线,行程界面添加右划删除 20190503
+44.xiaoming add 首页推荐功能UI添加拖动和可滑动 20190503
+45.xiaoming add 主页行程控件添加 20190503
+46.xiaoming add 添加点赞,分享，修改主页行程列表 20190503
