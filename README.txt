@@ -46,3 +46,4 @@
 41.xiaoming add 日程添加时间和列表界面 20190427
 42.xiaoming add 首页功能添加 20190427
 43.xiaoming add 主页添加分割线,行程界面添加右划删除
+44.xiaoming add 首页推荐功能UI添加拖动和可滑动
