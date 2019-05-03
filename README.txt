@@ -47,3 +47,4 @@
 42.xiaoming add 首页功能添加 20190427
 43.xiaoming add 主页添加分割线,行程界面添加右划删除
 44.xiaoming add 首页推荐功能UI添加拖动和可滑动
+45.xiaoming add 主页行程控件添加
