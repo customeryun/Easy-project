@@ -49,3 +49,4 @@
 44.xiaoming add 首页推荐功能UI添加拖动和可滑动 20190503
 45.xiaoming add 主页行程控件添加 20190503
 46.xiaoming add 添加点赞,分享，修改主页行程列表 20190503
+47.xiaoming add 添加评论编辑界面 20190503
