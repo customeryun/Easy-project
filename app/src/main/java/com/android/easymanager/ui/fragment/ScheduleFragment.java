@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,6 +21,7 @@ import com.android.easymanager.R;
 import com.android.easymanager.ui.adapter.SchedulePopAdapter;
 import com.android.easymanager.ui.adapter.ScheduleTaskAdapter;
 import com.android.easymanager.ui.bean.ScheduleItem;
+import com.android.easymanager.utils.CommonUtils;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.CustomListener;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
@@ -126,7 +128,10 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
         final LinearLayout rvParent = contentView.findViewById(R.id.rv_schedule_pop_add);
         final FrameLayout rv_input = contentView.findViewById(R.id.rv_input);
         final ImageView imageView = contentView.findViewById(R.id.img_schedule_set_time);
+        final EditText input_content= contentView.findViewById(R.id.input_content);
         rv_input.setVisibility(View.VISIBLE);
+        CommonUtils.showSoftInput(mContext,input_content);
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

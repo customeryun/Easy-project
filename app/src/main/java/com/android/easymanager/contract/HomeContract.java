@@ -19,10 +19,17 @@ public interface HomeContract {
 
      void onSuccess();
 
+     void updateEditLayout(int type);
+
     }
 
     interface  Presenter extends BasePresenter{
         //定义访问逻辑
         void start(int type);
+
+        //show
+        void showEdit();
+        //hide
+        void hideEdit();
     }
 }

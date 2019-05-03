@@ -1,6 +1,7 @@
 package com.android.easymanager.presenter;
 
 import android.content.Context;
+import android.view.View;
 
 import com.android.easymanager.contract.HomeContract;
 import com.android.easymanager.model.HomeLoadModel;
@@ -42,6 +43,16 @@ public class HomePresenter implements HomeContract.Presenter{
                 mView.networkError();
             }
         });
+    }
+
+    @Override
+    public void showEdit() {
+        mView.updateEditLayout(View.VISIBLE);
+    }
+
+    @Override
+    public void hideEdit() {
+        mView.updateEditLayout(View.GONE);
     }
 
     @Override

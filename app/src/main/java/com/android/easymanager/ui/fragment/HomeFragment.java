@@ -165,6 +165,11 @@ public class HomeFragment extends BaseFragment<HomeContract.View,HomeContract.Pr
     }
 
     @Override
+    public void updateEditLayout(int type) {
+
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         //释放资源

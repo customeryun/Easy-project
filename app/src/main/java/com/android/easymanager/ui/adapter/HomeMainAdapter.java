@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.easymanager.R;
+import com.android.easymanager.presenter.HomePresenter;
 import com.android.easymanager.ui.widget.CommunityGridLayout;
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
     private static final int TYPE_DONGTAI = 4;
     private static final int TYPE_PENGYOU = 5;
     private int mItemCount;
+    private HomePresenter mHomePresenter;
 
     public HomeMainAdapter(Context context, List<String> list) {
         mDatas = list;
@@ -53,6 +55,10 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
             mItemCount += 1;
             this.notifyDataSetChanged();
         }
+    }
+
+    public void setPresenter(HomePresenter homePresenter){
+        this.mHomePresenter = homePresenter;
     }
 
     @Override
@@ -194,6 +200,9 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
                     home_dianzhan_count.setText(""+dianzhanCount);
                     break;
                 case R.id.home_comment_count:
+                    if(mHomePresenter!=null){
+                       mHomePresenter.showEdit();
+                    }
                     break;
                 case R.id.home_share:
                     ShareUtil.shareText(mContext, SharePlatform.WX, "分享文字", new ShareListener() {

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff0f0f0"
+    android:visibility="visible"
+    android:id="@+id/comment_edit">
+    <EditText
+        android:id="@+id/tv_eyou_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_10dp"
+        android:layout_marginRight="@dimen/space_10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/ic_home_comment_edit_bg"
+        android:hint="评论"
+        android:textColor="#ff999999"
+        android:textSize="14sp"
+        android:padding="@dimen/space_10dp"
+        />
+</LinearLayout>

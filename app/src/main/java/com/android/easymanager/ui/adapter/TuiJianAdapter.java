@@ -60,8 +60,11 @@ public class TuiJianAdapter extends RecyclerView.Adapter<TuiJianAdapter.TuijianH
                     break;
                 case 4:
                     holder.tuijian_img.setImageResource(R.drawable.ic_home_shuse);
-                    holder.tuijian_title.setText(R.string.tuijian_shuse);
+                    holder.tuijian_title.setText(R.string.tuijian_kechengbiao);
                     break;
+                case 5:
+                    holder.tuijian_img.setImageResource(R.drawable.ic_home_tuijian_add);
+                    holder.tuijian_title.setText(R.string.tuijian_add);
             }
         }
     }

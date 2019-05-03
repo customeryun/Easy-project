@@ -4,11 +4,24 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
+import com.android.easymanager.presenter.HomePresenter;
 import com.android.easymanager.R;
+import com.android.easymanager.contract.HomeContract;
 import com.android.easymanager.ui.adapter.HomeItemDecoration;
 import com.android.easymanager.ui.adapter.HomeMainAdapter;
 import com.android.easymanager.ui.adapter.HomeMainDividerItemDecoration;
+import com.android.easymanager.utils.CommonUtils;
+import com.example.zhouwei.library.CustomPopWindow;
 //import com.android.easymanager.ui.adapter.HomeMainDividerItemDecoration;
 
 import java.util.ArrayList;
@@ -20,7 +33,7 @@ import butterknife.BindView;
  * Created by PC-xiaoming on 2019/4/27.
  */
 
-public class HomeMainFragment extends BaseFragment{
+public class HomeMainFragment extends BaseFragment<HomeContract.View,HomeContract.Presenter> implements HomeContract.View{
 
     //test data
     private String[] mUrls = new String[]{"http://d.hiphotos.baidu.com/image/h%3D200/sign=201258cbcd80653864eaa313a7dca115/ca1349540923dd54e54f7aedd609b3de9c824873.jpg",
@@ -37,9 +50,6 @@ public class HomeMainFragment extends BaseFragment{
             "http://img5.imgtn.bdimg.com/it/u=1717647885,4193212272&fm=21&gp=0.jpg",
             "http://img5.imgtn.bdimg.com/it/u=2024625579,507531332&fm=21&gp=0.jpg"};
 
-    //test data
-    //private String[] mTuiJianDatas = new String[]{"S","S","S","S","S"};
-
     @BindView(R.id.home_list)
     RecyclerView home_list;
     private HomeMainAdapter mainAdapter;
@@ -50,14 +60,66 @@ public class HomeMainFragment extends BaseFragment{
     }
 
     @Override
-    public Object crateView() {
-        return null;
+    public HomeContract.View crateView() {
+        return this;
     }
 
     @Override
-    public Object createPresenter() {
-        return null;
+    public HomeContract.Presenter createPresenter() {
+        return new HomePresenter(this,mContext);
     }
+
+    @Override
+    public void showLoad() {
+
+    }
+
+    @Override
+    public void hideLoad() {
+
+    }
+
+    @Override
+    public void loadData() {
+
+    }
+
+    @Override
+    public void networkError() {
+
+    }
+
+    @Override
+    public void onError() {
+
+    }
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void updateEditLayout(int visibility) {
+        showPopWindow();
+    }
+
+    public void showPopWindow(){
+        View contentView = LayoutInflater.from(mActivity).inflate(R.layout.item_home_comment_edit,null);
+        //处理popWindow 显示内容
+        final EditText input_content= contentView.findViewById(R.id.tv_eyou_edit);
+        contentView.setVisibility(View.VISIBLE);
+        input_content.requestFocus();
+        CommonUtils.showSoftInput(mContext,input_content);
+        //创建并显示popWindow
+        new CustomPopWindow.PopupWindowBuilder(mActivity)
+                .setView(contentView)
+                .size(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT)//显示大小
+                .create()
+                .showAtLocation(contentView, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+
+    }
+
 
     @Override
     public void init() {
@@ -66,7 +128,7 @@ public class HomeMainFragment extends BaseFragment{
         mainAdapter = new HomeMainAdapter(mActivity, Arrays.asList(mUrls));
         home_list.addItemDecoration(new HomeItemDecoration(mContext));
         home_list.setAdapter(mainAdapter);
-
+        mainAdapter.setPresenter((HomePresenter) mPresenter);
         mainAdapter.addTuiJinaData(getTuiJianData());
     }
 
@@ -84,6 +146,8 @@ public class HomeMainFragment extends BaseFragment{
         temp.add("s");
         temp.add("s");
         temp.add("s");
+        temp.add("s");
         return temp;
     }
+
 }
