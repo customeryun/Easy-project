@@ -11,6 +11,7 @@ import com.android.easymanager.ui.adapter.HomeMainAdapter;
 import com.android.easymanager.ui.adapter.HomeMainDividerItemDecoration;
 //import com.android.easymanager.ui.adapter.HomeMainDividerItemDecoration;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import butterknife.BindView;
@@ -36,6 +37,8 @@ public class HomeMainFragment extends BaseFragment{
             "http://img5.imgtn.bdimg.com/it/u=1717647885,4193212272&fm=21&gp=0.jpg",
             "http://img5.imgtn.bdimg.com/it/u=2024625579,507531332&fm=21&gp=0.jpg"};
 
+    //test data
+    //private String[] mTuiJianDatas = new String[]{"S","S","S","S","S"};
 
     @BindView(R.id.home_list)
     RecyclerView home_list;
@@ -63,6 +66,8 @@ public class HomeMainFragment extends BaseFragment{
         mainAdapter = new HomeMainAdapter(mContext, Arrays.asList(mUrls));
         home_list.addItemDecoration(new HomeItemDecoration(mContext));
         home_list.setAdapter(mainAdapter);
+
+        mainAdapter.addTuiJinaData(getTuiJianData());
     }
 
     public static HomeMainFragment getInstance(){
@@ -70,5 +75,15 @@ public class HomeMainFragment extends BaseFragment{
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public ArrayList<String> getTuiJianData(){
+        ArrayList<String> temp = new ArrayList<>();
+        temp.add("s");
+        temp.add("s");
+        temp.add("s");
+        temp.add("s");
+        temp.add("s");
+        return temp;
     }
 }

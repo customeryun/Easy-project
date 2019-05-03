@@ -2,8 +2,11 @@ package com.android.easymanager.ui.adapter;
 
 import android.content.Context;
 import android.media.Image;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,7 @@ import com.android.easymanager.R;
 import com.android.easymanager.ui.widget.CommunityGridLayout;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -26,16 +30,27 @@ import butterknife.ButterKnife;
 public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<String> mDatas;
+    private ArrayList<String> mTuiJianDatas;
     private Context mContext;
     private static final int TYPE_TUIJIAN = 1;
     private static final int TYPE_GONGGAO = 2;
     private static final int TYPE_XINGCHENG = 3;
     private static final int TYPE_DONGTAI = 4;
     private static final int TYPE_PENGYOU = 5;
+    private int mItemCount;
 
     public HomeMainAdapter(Context context, List<String> list) {
         mDatas = list;
+        mItemCount = mDatas.size();
         mContext = context;
+    }
+
+    public void addTuiJinaData(ArrayList<String> tuijianDatas){
+        this.mTuiJianDatas = tuijianDatas;
+        if(mTuiJianDatas.size()>0){
+            mItemCount += 1;
+            this.notifyDataSetChanged();
+        }
     }
 
     @Override
@@ -64,7 +79,20 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof TuiJianViewHolder) {
+            if(mTuiJianDatas!=null&&mTuiJianDatas.size()>0){
+                Log.d("tuijian", "onBindViewHolder TuiJianViewHolder: ");
+                RecyclerView recyclerView =((TuiJianViewHolder)holder).tuijian_list;
+                LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+                layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                recyclerView.setLayoutManager(layoutManager);
+                TuiJianAdapter adapter = new TuiJianAdapter(mContext,mTuiJianDatas);
+                recyclerView.setAdapter(adapter);
+                //监听拖拽
+                TuiJianItemTouchCallback callback = new TuiJianItemTouchCallback(adapter);
+                ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
+                itemTouchHelper.attachToRecyclerView(recyclerView);
 
+            }
         } else if (holder instanceof GongGaoViewHolder) {
 
         } else if (holder instanceof XingChengViewHolder) {
@@ -93,14 +121,16 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mDatas.size();
+        return mItemCount;
     }
 
     //推荐
     public class TuiJianViewHolder extends RecyclerView.ViewHolder {
-
+        @BindView(R.id.tuijian_list)
+        RecyclerView tuijian_list;
         public TuiJianViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this,itemView);
         }
     }
 

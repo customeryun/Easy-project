@@ -138,4 +138,9 @@
     <string name="jmui_cancel">取消</string>
     <string name="jmui_confirm">确定</string>
 
+    <string name="tuijian_shuse">宿舍预定</string>
+    <string name="tuijian_baodao">报道</string>
+    <string name="tuijian_dingweidaka">定位打卡</string>
+    <string name="tuijian_xuanke">选课</string>
+    <string name="tuijian_kechengbiao">课程表</string>
 </resources>
