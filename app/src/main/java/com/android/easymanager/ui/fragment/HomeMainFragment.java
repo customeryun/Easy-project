@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -17,6 +18,8 @@ import android.widget.LinearLayout;
 import com.android.easymanager.presenter.HomePresenter;
 import com.android.easymanager.R;
 import com.android.easymanager.contract.HomeContract;
+import com.android.easymanager.ui.activity.CommentActivity;
+import com.android.easymanager.ui.activity.CommunityActivity;
 import com.android.easymanager.ui.adapter.HomeItemDecoration;
 import com.android.easymanager.ui.adapter.HomeMainAdapter;
 import com.android.easymanager.ui.adapter.HomeMainDividerItemDecoration;
@@ -33,8 +36,8 @@ import butterknife.BindView;
  * Created by PC-xiaoming on 2019/4/27.
  */
 
-public class HomeMainFragment extends BaseFragment<HomeContract.View,HomeContract.Presenter> implements HomeContract.View{
-
+public class HomeMainFragment extends BaseFragment<HomeContract.View,HomeContract.Presenter> implements HomeContract.View,HomeMainAdapter.OnRvItemListener{
+    private static final String TAG ="HomeMainFragment_debug";
     //test data
     private String[] mUrls = new String[]{"http://d.hiphotos.baidu.com/image/h%3D200/sign=201258cbcd80653864eaa313a7dca115/ca1349540923dd54e54f7aedd609b3de9c824873.jpg",
             "http://img3.fengniao.com/forum/attachpics/537/165/21472986.jpg",
@@ -129,6 +132,7 @@ public class HomeMainFragment extends BaseFragment<HomeContract.View,HomeContrac
         home_list.addItemDecoration(new HomeItemDecoration(mContext));
         home_list.setAdapter(mainAdapter);
         mainAdapter.setPresenter((HomePresenter) mPresenter);
+        mainAdapter.setOnRvItemListener(this);
         mainAdapter.addTuiJinaData(getTuiJianData());
     }
 
@@ -150,4 +154,11 @@ public class HomeMainFragment extends BaseFragment<HomeContract.View,HomeContrac
         return temp;
     }
 
+    @Override
+    public void onItemClick(int position, int type) {
+        Log.d(TAG, "onItemClick: "+type);
+        if(type == HomeMainAdapter.TYPE_PENGYOU){
+            CommentActivity.launchActivity(mContext);
+        }
+    }
 }

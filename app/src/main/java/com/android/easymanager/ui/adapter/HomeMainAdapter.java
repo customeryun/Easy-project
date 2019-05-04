@@ -35,18 +35,23 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
     private List<String> mDatas;
     private ArrayList<String> mTuiJianDatas;
     private Context mContext;
-    private static final int TYPE_TUIJIAN = 1;
-    private static final int TYPE_GONGGAO = 2;
-    private static final int TYPE_XINGCHENG = 3;
-    private static final int TYPE_DONGTAI = 4;
-    private static final int TYPE_PENGYOU = 5;
+    public static final int TYPE_TUIJIAN = 1;
+    public static final int TYPE_GONGGAO = 2;
+    public static final int TYPE_XINGCHENG = 3;
+    public static final int TYPE_DONGTAI = 4;
+    public static final int TYPE_PENGYOU = 5;
     private int mItemCount;
     private HomePresenter mHomePresenter;
+    private OnRvItemListener mOnRvItemListener;
 
     public HomeMainAdapter(Context context, List<String> list) {
         mDatas = list;
         mItemCount = mDatas.size();
         mContext = context;
+    }
+
+    public void setOnRvItemListener(OnRvItemListener onRvItemListener){
+        this.mOnRvItemListener = onRvItemListener;
     }
 
     public void addTuiJinaData(ArrayList<String> tuijianDatas) {
@@ -57,7 +62,7 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
-    public void setPresenter(HomePresenter homePresenter){
+    public void setPresenter(HomePresenter homePresenter) {
         this.mHomePresenter = homePresenter;
     }
 
@@ -190,6 +195,14 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
         public PengYouHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(mOnRvItemListener!=null){
+                        mOnRvItemListener.onItemClick(getAdapterPosition(),getItemViewType());
+                    }
+                }
+            });
         }
 
         @OnClick({R.id.home_dianzhan_count, R.id.home_comment_count, R.id.home_share})
@@ -197,11 +210,11 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
             switch (view.getId()) {
                 case R.id.home_dianzhan_count:
                     dianzhanCount++;
-                    home_dianzhan_count.setText(""+dianzhanCount);
+                    home_dianzhan_count.setText("" + dianzhanCount);
                     break;
                 case R.id.home_comment_count:
-                    if(mHomePresenter!=null){
-                       mHomePresenter.showEdit();
+                    if (mHomePresenter != null) {
+                        mHomePresenter.showEdit();
                     }
                     break;
                 case R.id.home_share:
@@ -221,8 +234,12 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
 
                         }
                     });
-                break;
+                    break;
             }
         }
+    }
+
+    public interface OnRvItemListener {
+        void onItemClick(int position, int type);
     }
 }

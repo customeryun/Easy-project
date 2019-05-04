@@ -97,4 +97,8 @@
         <attr name="leftSwipe" format="boolean"/>
     </declare-styleable>
 
+    <declare-styleable name="CommentListView">
+        <attr name="item_color" format="color"></attr>
+        <attr name="item_selector_color" format="color"/>
+    </declare-styleable>
 </resources>

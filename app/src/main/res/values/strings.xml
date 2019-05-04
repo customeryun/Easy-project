@@ -148,4 +148,6 @@
         Vlog Vlog cant be cut out, it cant be cut out in this life, but there are some video screenshots.Vlog Vlog cat be cut out, it cant be cut out in this life, but there are some video screenshots.cant be cut out in this life, but there are some video screenshots.cat be cut outscreenshots.be cut outscreenshots.sdj
         Vlog Vlog cant be cut out, it cant be cut out in this life, but there are some video screenshots.Vlog Vlog cat be cut out, it cant be cut out in this life, but there are some video screenshots.cant be cut out in this life, but there are some video screenshots.cat be cut outscreenshots.be cut outscreenshots.sdj
     </string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
 </resources>

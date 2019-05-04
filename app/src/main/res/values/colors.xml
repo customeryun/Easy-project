@@ -37,4 +37,8 @@
 
     <color name="text_color_one">#333333</color>
     <color name="text_color_two">#999999</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="default_clickable_color">#cccccc</color>
+    <color name="color_8290AF">#8290AF</color>
 </resources>

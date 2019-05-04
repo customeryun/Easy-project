@@ -18,5 +18,5 @@
         android:textColor="#ff999999"
         android:textSize="14sp"
         android:padding="@dimen/space_10dp"
-        />
+        android:imeOptions="actionSend"/>
 </LinearLayout>
