@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.android.easymanager.R;
@@ -79,11 +80,13 @@ public class ContactDetailActivity extends BaseActivity implements BaseRecyclerA
 //        Toast.makeText(mContext,"**position=="+position+"***"+item.getTitle(),Toast.LENGTH_LONG).show();
     }
 
-    @OnClick({R.id.btn_add})
+    @OnClick({R.id.btn_add,R.id.back})
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_add:
                 RequestFriendActivity.launchActivity(mContext);
+            case R.id.back:
+                finish();
         }
     }
 }
