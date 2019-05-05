@@ -157,6 +157,7 @@ public class FriendInfoActivity extends /*Base*/Activity {
     public void startChatActivity() {
         if (mIsFromContact || mIsAddFriend || mIsFromSearch || mFromGroup) {
             Intent intent = new Intent(this, ChatActivity.class);
+            if(mUserInfo == null) return;
             String title = mUserInfo.getNotename();
             if (TextUtils.isEmpty(title)) {
                 title = mUserInfo.getNickname();

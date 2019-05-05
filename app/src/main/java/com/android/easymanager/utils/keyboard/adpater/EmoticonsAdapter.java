@@ -79,10 +79,10 @@ public class EmoticonsAdapter<T> extends BaseAdapter {
         ViewHolder viewHolder;
         if (convertView == null) {
             viewHolder = new ViewHolder();
-//            convertView = mInflater.inflate(R.layout.item_emoticon, null);
-//            viewHolder.rootView = convertView;
-//            viewHolder.ly_root = (LinearLayout) convertView.findViewById(R.id.ly_root);
-//            viewHolder.iv_emoticon = (ImageView) convertView.findViewById(R.id.iv_emoticon);
+            convertView = mInflater.inflate(R.layout.item_emoticon, null);
+            viewHolder.rootView = convertView;
+            viewHolder.ly_root = (LinearLayout) convertView.findViewById(R.id.ly_root);
+            viewHolder.iv_emoticon = (ImageView) convertView.findViewById(R.id.iv_emoticon);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -94,9 +94,9 @@ public class EmoticonsAdapter<T> extends BaseAdapter {
     }
 
     protected void bindView(int position, ViewGroup parent, ViewHolder viewHolder) {
-//        if (mOnDisPlayListener != null) {
-//            mOnDisPlayListener.onBindView(position, parent, viewHolder, mData.get(position), position == mDelbtnPosition);
-//        }
+        if (mOnDisPlayListener != null) {
+            mOnDisPlayListener.onBindView(position, parent, viewHolder, mData.get(position), position == mDelbtnPosition);
+        }
     }
 
     protected boolean isDelBtn(int position) {

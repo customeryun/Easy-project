@@ -51,3 +51,6 @@
 46.xiaoming add 添加点赞,分享，修改主页行程列表 20190503
 47.xiaoming add 添加评论编辑界面 20190503
 48.xiaoming add 主页添加评论二级菜单界面
+49.linmei   add 对话界面，语音、表情符号和更多应用UI添加 20190505
+##### linmei add 测试账号 
+#####  用户名：aaaaaa    密码：111111

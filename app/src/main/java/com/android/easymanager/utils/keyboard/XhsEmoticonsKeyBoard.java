@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.android.easymanager.R;
+import com.android.easymanager.utils.keyboard.adpater.PageSetAdapter;
+import com.android.easymanager.utils.keyboard.data.PageSetEntity;
 import com.android.easymanager.utils.keyboard.utils.EmoticonsKeyboardUtils;
 import com.android.easymanager.utils.keyboard.widget.AutoHeightLayout;
 import com.android.easymanager.utils.keyboard.widget.EmoticonsEditText;
@@ -24,9 +26,10 @@ import com.android.easymanager.utils.keyboard.widget.EmoticonsIndicatorView;
 import com.android.easymanager.utils.keyboard.widget.EmoticonsToolBarView;
 import com.android.easymanager.utils.keyboard.widget.FuncLayout;
 import com.android.easymanager.view.RecordVoiceButton;
+import java.util.ArrayList;
 
-public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnClickListener/*, EmoticonsFuncView.OnEmoticonsPageViewListener,
-        EmoticonsToolBarView.OnToolBarItemClickListener, EmoticonsEditText.OnBackKeyClickListener,* FuncLayout.OnFuncChangeListener*/ {
+public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnClickListener, EmoticonsFuncView.OnEmoticonsPageViewListener,
+        EmoticonsToolBarView.OnToolBarItemClickListener, EmoticonsEditText.OnBackKeyClickListener, FuncLayout.OnFuncChangeListener {
 
     public static final int FUNC_TYPE_EMOTION = -1;
     public static final int FUNC_TYPE_APPPS = -2;
@@ -66,7 +69,7 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
 
     protected void initView() {
         mBtnVoiceOrText = ((ImageView) findViewById(R.id.btn_voice_or_text));
-//        mBtnVoice = ((RecordVoiceButton) findViewById(R.id.btn_voice));
+        mBtnVoice = ((RecordVoiceButton) findViewById(R.id.btn_voice));
         mEtChat = ((EmoticonsEditText) findViewById(R.id.et_chat));
         mBtnFace = ((ImageView) findViewById(R.id.btn_face));
         mRlInput = ((RelativeLayout) findViewById(R.id.rl_input));
@@ -74,10 +77,10 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
         mBtnSend = ((Button) findViewById(R.id.btn_send));
         mLyKvml = ((FuncLayout) findViewById(R.id.ly_kvml));
 
-//        mBtnVoiceOrText.setOnClickListener(this);
-//        mBtnFace.setOnClickListener(this);
-//        mBtnMultimedia.setOnClickListener(this);
-//        mEtChat.setOnBackKeyClickListener(this);
+        mBtnVoiceOrText.setOnClickListener(this);
+        mBtnFace.setOnClickListener(this);
+        mBtnMultimedia.setOnClickListener(this);
+        mEtChat.setOnBackKeyClickListener(this);
     }
 
     protected void initFuncView() {
@@ -91,9 +94,9 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
         mEmoticonsFuncView = ((EmoticonsFuncView) findViewById(R.id.view_epv));
         mEmoticonsIndicatorView = ((EmoticonsIndicatorView) findViewById(R.id.view_eiv));
         mEmoticonsToolBarView = ((EmoticonsToolBarView) findViewById(R.id.view_etv));
-//        mEmoticonsFuncView.setOnIndicatorListener(this);
-//        mEmoticonsToolBarView.setOnToolBarItemClickListener(this);
-//        mLyKvml.setOnFuncChangeListener(this);
+        mEmoticonsFuncView.setOnIndicatorListener(this);
+        mEmoticonsToolBarView.setOnToolBarItemClickListener(this);
+        mLyKvml.setOnFuncChangeListener(this);
     }
 
     protected void initEditView() {
@@ -131,17 +134,17 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
         });
     }
 
-//    public void setAdapter(PageSetAdapter pageSetAdapter) {
-//        if (pageSetAdapter != null) {
-//            ArrayList<PageSetEntity> pageSetEntities = pageSetAdapter.getPageSetEntityList();
-//            if (pageSetEntities != null) {
-//                for (PageSetEntity pageSetEntity : pageSetEntities) {
-//                    mEmoticonsToolBarView.addToolItemView(pageSetEntity);
-//                }
-//            }
-//        }
-//        mEmoticonsFuncView.setAdapter(pageSetAdapter);
-//    }
+    public void setAdapter(PageSetAdapter pageSetAdapter) {
+        if (pageSetAdapter != null) {
+            ArrayList<PageSetEntity> pageSetEntities = pageSetAdapter.getPageSetEntityList();
+            if (pageSetEntities != null) {
+                for (PageSetEntity pageSetEntity : pageSetEntities) {
+                    mEmoticonsToolBarView.addToolItemView(pageSetEntity);
+                }
+            }
+        }
+        mEmoticonsFuncView.setAdapter(pageSetAdapter);
+    }
 
     public void addFuncView(View view) {
         mLyKvml.addFuncView(FUNC_TYPE_APPPS, view);
@@ -160,11 +163,11 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
     }
 
     protected void checkVoice() {
-//        if (mBtnVoice.isShown()) {
-//            mBtnVoiceOrText.setImageResource(R.drawable.btn_voice_or_text_keyboard);
-//        } else {
-//            mBtnVoiceOrText.setImageResource(R.drawable.btn_voice_or_text);
-//        }
+        if (mBtnVoice.isShown()) {
+            mBtnVoiceOrText.setImageResource(R.drawable.btn_voice_or_text_keyboard);
+        } else {
+            mBtnVoiceOrText.setImageResource(R.drawable.btn_voice_or_text);
+        }
     }
 
     protected void showText() {
@@ -177,15 +180,15 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
         mLyKvml.toggleFuncView(key, isSoftKeyboardPop(), mEtChat);
     }
 
-//    @Override
-//    public void onFuncChange(int key) {
-//        if (FUNC_TYPE_EMOTION == key) {
-//            mBtnFace.setImageResource(R.drawable.icon_face_pop);
-//        } else {
-//            mBtnFace.setImageResource(R.drawable.icon_face_nomal);
-//        }
-//        checkVoice();
-//    }
+    @Override
+    public void onFuncChange(int key) {
+        if (FUNC_TYPE_EMOTION == key) {
+            mBtnFace.setImageResource(R.drawable.icon_face_pop);
+        } else {
+            mBtnFace.setImageResource(R.drawable.icon_face_nomal);
+        }
+        checkVoice();
+    }
 
     protected void setFuncViewHeight(int height) {
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mLyKvml.getLayoutParams();
@@ -202,7 +205,7 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
     public void OnSoftPop(int height) {
         super.OnSoftPop(height);
         mLyKvml.setVisibility(true);
-//        onFuncChange(mLyKvml.DEF_KEY);
+        onFuncChange(mLyKvml.DEF_KEY);
     }
 
     @Override
@@ -211,7 +214,7 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
         if (mLyKvml.isOnlyShowSoftKeyboard()) {
             reset();
         } else {
-//            onFuncChange(mLyKvml.getCurrentFuncKey());
+            onFuncChange(mLyKvml.getCurrentFuncKey());
         }
     }
 
@@ -219,67 +222,67 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
         mLyKvml.addOnKeyBoardListener(l);
     }
 
-//    @Override
-//    public void emoticonSetChanged(PageSetEntity pageSetEntity) {
-//        mEmoticonsToolBarView.setToolBtnSelect(pageSetEntity.getUuid());
-//    }
-//
-//    @Override
-//    public void playTo(int position, PageSetEntity pageSetEntity) {
-//        mEmoticonsIndicatorView.playTo(position, pageSetEntity);
-//    }
-//
-//    @Override
-//    public void playBy(int oldPosition, int newPosition, PageSetEntity pageSetEntity) {
-//        mEmoticonsIndicatorView.playBy(oldPosition, newPosition, pageSetEntity);
-//    }
+    @Override
+    public void emoticonSetChanged(PageSetEntity pageSetEntity) {
+        mEmoticonsToolBarView.setToolBtnSelect(pageSetEntity.getUuid());
+    }
+
+    @Override
+    public void playTo(int position, PageSetEntity pageSetEntity) {
+        mEmoticonsIndicatorView.playTo(position, pageSetEntity);
+    }
+
+    @Override
+    public void playBy(int oldPosition, int newPosition, PageSetEntity pageSetEntity) {
+        mEmoticonsIndicatorView.playBy(oldPosition, newPosition, pageSetEntity);
+    }
 
     @Override
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.btn_voice_or_text) {
-//            if (mRlInput.isShown()) {
-//                mBtnVoiceOrText.setImageResource(R.drawable.btn_voice_or_text_keyboard);
-//                showVoice();
-//            } else {
-//                showText();
-//                mBtnVoiceOrText.setImageResource(R.drawable.btn_voice_or_text);
-//                EmoticonsKeyboardUtils.openSoftKeyboard(mEtChat);
-//            }
+            if (mRlInput.isShown()) {
+                mBtnVoiceOrText.setImageResource(R.drawable.btn_voice_or_text_keyboard);
+                showVoice();
+            } else {
+                showText();
+                mBtnVoiceOrText.setImageResource(R.drawable.btn_voice_or_text);
+                EmoticonsKeyboardUtils.openSoftKeyboard(mEtChat);
+            }
         } else if (i == R.id.btn_face) {
             toggleFuncView(FUNC_TYPE_EMOTION);
         } else if (i == R.id.btn_multimedia) {
             toggleFuncView(FUNC_TYPE_APPPS);
         }
     }
-//
-//    public  void setVideoText() {
-//        if (mRlInput.isShown()) {
-//            mBtnVoiceOrText.setImageResource(R.drawable.btn_voice_or_text_keyboard);
-//            showVoice();
-//        } else {
-//            showText();
-//            mBtnVoiceOrText.setImageResource(R.drawable.btn_voice_or_text);
-//            EmoticonsKeyboardUtils.openSoftKeyboard(mEtChat);
-//        }
-//    }
-//
-//    public ImageView getVoiceOrText() {
-//        return mBtnVoiceOrText;
-//    }
-//
-//    @Override
-//    public void onToolBarItemClick(PageSetEntity pageSetEntity) {
-//        mEmoticonsFuncView.setCurrentPageSet(pageSetEntity);
-//    }
 
-//    @Override
-//    public void onBackKeyClick() {
-//        if (mLyKvml.isShown()) {
-//            mDispatchKeyEventPreImeLock = true;
-//            reset();
-//        }
-//    }
+    public  void setVideoText() {
+        if (mRlInput.isShown()) {
+            mBtnVoiceOrText.setImageResource(R.drawable.btn_voice_or_text_keyboard);
+            showVoice();
+        } else {
+            showText();
+            mBtnVoiceOrText.setImageResource(R.drawable.btn_voice_or_text);
+            EmoticonsKeyboardUtils.openSoftKeyboard(mEtChat);
+        }
+    }
+
+    public ImageView getVoiceOrText() {
+        return mBtnVoiceOrText;
+    }
+
+    @Override
+    public void onToolBarItemClick(PageSetEntity pageSetEntity) {
+        mEmoticonsFuncView.setCurrentPageSet(pageSetEntity);
+    }
+
+    @Override
+    public void onBackKeyClick() {
+        if (mLyKvml.isShown()) {
+            mDispatchKeyEventPreImeLock = true;
+            reset();
+        }
+    }
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
@@ -299,21 +302,21 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
         return super.dispatchKeyEvent(event);
     }
 
-//    @Override
-//    public boolean requestFocus(int direction, Rect previouslyFocusedRect) {
-//        if (EmoticonsKeyboardUtils.isFullScreen((Activity) getContext())) {
-//            return false;
-//        }
-//        return super.requestFocus(direction, previouslyFocusedRect);
-//    }
-//
-//    @Override
-//    public void requestChildFocus(View child, View focused) {
-//        if (EmoticonsKeyboardUtils.isFullScreen((Activity) getContext())) {
-//            return;
-//        }
-//        super.requestChildFocus(child, focused);
-//    }
+    @Override
+    public boolean requestFocus(int direction, Rect previouslyFocusedRect) {
+        if (EmoticonsKeyboardUtils.isFullScreen((Activity) getContext())) {
+            return false;
+        }
+        return super.requestFocus(direction, previouslyFocusedRect);
+    }
+
+    @Override
+    public void requestChildFocus(View child, View focused) {
+        if (EmoticonsKeyboardUtils.isFullScreen((Activity) getContext())) {
+            return;
+        }
+        super.requestChildFocus(child, focused);
+    }
 
     public boolean dispatchKeyEventInFullScreen(KeyEvent event) {
         if (event == null) {
@@ -321,10 +324,10 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
         }
         switch (event.getKeyCode()) {
             case KeyEvent.KEYCODE_BACK:
-//                if (EmoticonsKeyboardUtils.isFullScreen((Activity) getContext()) && mLyKvml.isShown()) {
-//                    reset();
-//                    return true;
-//                }
+                if (EmoticonsKeyboardUtils.isFullScreen((Activity) getContext()) && mLyKvml.isShown()) {
+                    reset();
+                    return true;
+                }
             default:
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     boolean isFocused;

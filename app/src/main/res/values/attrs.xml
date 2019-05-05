@@ -6,6 +6,11 @@
         <attr name="week_c_text_size" format="integer"/>
     </declare-styleable>
 
+    <declare-styleable name="EmoticonsIndicatorView">
+        <attr name="bmpNomal" format="reference" />
+        <attr name="bmpSelect" format="reference" />
+    </declare-styleable>
+
     <declare-styleable name="MonthCalendarView">
         <attr name="month_selected_text_color" format="color"/>
         <attr name="month_selected_circle_color" format="color"/>

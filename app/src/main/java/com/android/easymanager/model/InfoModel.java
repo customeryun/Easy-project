@@ -31,6 +31,7 @@ public class InfoModel {
     }
 
     public String getUserName() {
+        if(friendInfo == null) return "aaaaaa";
         return friendInfo.getUserName();
     }
 

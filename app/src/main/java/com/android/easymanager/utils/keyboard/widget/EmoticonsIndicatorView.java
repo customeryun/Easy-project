@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.android.easymanager.R;
 import com.android.easymanager.utils.keyboard.data.PageSetEntity;
+import com.android.easymanager.utils.keyboard.utils.EmoticonsKeyboardUtils;
 import java.util.ArrayList;
 
 public class EmoticonsIndicatorView extends LinearLayout {
@@ -21,28 +22,28 @@ public class EmoticonsIndicatorView extends LinearLayout {
 
     public EmoticonsIndicatorView(Context context, AttributeSet attrs) {
         super(context, attrs);
-//        this.mContext = context;
-//        this.setOrientation(HORIZONTAL);
-//
-//        TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
-//                R.styleable.EmoticonsIndicatorView, 0, 0);
-//
-//        try {
-//            mDrawableSelect = a.getDrawable(R.styleable.EmoticonsIndicatorView_bmpSelect);
-//            mDrawableNomal = a.getDrawable(R.styleable.EmoticonsIndicatorView_bmpNomal);
-//        } finally {
-//            a.recycle();
-//        }
-//
-//        if(mDrawableNomal == null) {
-//            mDrawableNomal = getResources().getDrawable(R.drawable.indicator_point_nomal);
-//        }
-//        if(mDrawableSelect == null) {
-//            mDrawableSelect = getResources().getDrawable(R.drawable.indicator_point_select);
-//        }
-//
-//        mLeftLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-//        mLeftLayoutParams.leftMargin = EmoticonsKeyboardUtils.dip2px(context, MARGIN_LEFT);
+        this.mContext = context;
+        this.setOrientation(HORIZONTAL);
+
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
+                R.styleable.EmoticonsIndicatorView, 0, 0);
+
+        try {
+            mDrawableSelect = a.getDrawable(R.styleable.EmoticonsIndicatorView_bmpSelect);
+            mDrawableNomal = a.getDrawable(R.styleable.EmoticonsIndicatorView_bmpNomal);
+        } finally {
+            a.recycle();
+        }
+
+        if(mDrawableNomal == null) {
+            mDrawableNomal = getResources().getDrawable(R.drawable.indicator_point_nomal);
+        }
+        if(mDrawableSelect == null) {
+            mDrawableSelect = getResources().getDrawable(R.drawable.indicator_point_select);
+        }
+
+        mLeftLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        mLeftLayoutParams.leftMargin = EmoticonsKeyboardUtils.dip2px(context, MARGIN_LEFT);
     }
 
     public void playTo(int position, PageSetEntity pageSetEntity) {

@@ -23,7 +23,8 @@ public class SearchFriendInfoActivity extends BaseActivity implements View.OnCli
         setActionbarVisible(false);
 
         InfoModel instance = InfoModel.getInstance();
-        mTv_userName.setText(instance.getUserName());
+        if(instance != null)
+            mTv_userName.setText(instance.getUserName());
     }
 
     @OnClick({R.id.btn_addFriend,R.id.return_btn})

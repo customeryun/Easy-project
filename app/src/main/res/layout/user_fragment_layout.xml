@@ -70,23 +70,29 @@
             android:layout_height="58dp"
             android:gravity="center_vertical"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="63dp"
-            android:layout_marginEnd="63dp">
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
             <TextView
                 android:id="@+id/me_class"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:gravity="start"
+                android:gravity="end"
                 android:textColor="#FFFF"
                 android:layout_weight="1"
-                android:text="汉语言190班"/>
+                android:text="专业：汉语言190班"/>
+            <View
+                android:layout_width="2dp"
+                android:layout_height="14dp"
+                android:background="#FFFFFF"
+                android:layout_marginEnd="14dp"
+                android:layout_marginStart="14dp"/>
             <TextView
                 android:id="@+id/me_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:gravity="end"
+                android:gravity="start"
                 android:textColor="#FFFF"
                 android:layout_weight="1"
                 android:text="学号：18095006"/>

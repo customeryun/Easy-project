@@ -20,6 +20,15 @@ import me.shaohui.shareutil.ShareManager;
 public class IxiaApplication extends com.activeandroid.app.Application{
     public static final String CONV_TITLE = "conv_title";
 
+    public static final int IMAGE_MESSAGE = 1;
+    public static final int TAKE_PHOTO_MESSAGE = 2;
+    public static final int TAKE_LOCATION = 3;
+    public static final int FILE_MESSAGE = 4;
+    public static final int TACK_VIDEO = 5;
+    public static final int TACK_VOICE = 6;
+    public static final int BUSINESS_CARD = 7;
+//    public static final int REQUEST_CODE_SEND_FILE = 26;
+
     public static Context context;
     public static long registerOrLogin = 1;
     private static final String JCHAT_CONFIGS = "JChat_configs";

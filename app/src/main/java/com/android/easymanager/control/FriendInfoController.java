@@ -27,6 +27,7 @@ public class FriendInfoController implements View.OnClickListener {
                 break;
             case R.id.jmui_commit_btn:
                 Intent intent = new Intent(mContext, FriendSettingActivity.class);
+                if(friendInfo == null) return;
                 intent.putExtra("userName", friendInfo.getUserName());
                 intent.putExtra("noteName", friendInfo.getNotename());
                 mContext.startActivity(intent);

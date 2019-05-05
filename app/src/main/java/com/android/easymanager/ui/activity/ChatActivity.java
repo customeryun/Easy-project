@@ -27,10 +27,12 @@ import android.widget.Toast;
 import com.android.easymanager.IxiaApplication;
 import com.android.easymanager.R;
 import com.android.easymanager.model.Constants;
+import com.android.easymanager.model.InfoModel;
 import com.android.easymanager.ui.adapter.ChattingListAdapter;
 import com.android.easymanager.ui.bean.Event;
 import com.android.easymanager.ui.bean.EventType;
 import com.android.easymanager.utils.SharePreferenceManager;
+import com.android.easymanager.utils.SimpleCommonUtils;
 import com.android.easymanager.utils.ToastUtil;
 import com.android.easymanager.utils.keyboard.XhsEmoticonsKeyBoard;
 import com.android.easymanager.utils.keyboard.data.EmoticonEntity;
@@ -40,6 +42,8 @@ import com.android.easymanager.utils.keyboard.widget.EmoticonsEditText;
 import com.android.easymanager.utils.keyboard.widget.FuncLayout;
 import com.android.easymanager.view.ChatView;
 import com.android.easymanager.view.DropDownListView;
+import com.android.easymanager.view.SimpleAppsGridView;
+import com.sj.emoji.EmojiBean;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -68,7 +72,7 @@ import cn.jpush.im.android.api.options.MessageSendingOptions;
 import cn.jpush.im.android.eventbus.EventBus;
 import cn.jpush.im.api.BasicCallback;
 
-public class ChatActivity extends /*Base*/Activity implements /*FuncLayout.OnFuncKeyBoardListener,*/ View.OnClickListener {
+public class ChatActivity extends /*Base*/Activity implements FuncLayout.OnFuncKeyBoardListener, View.OnClickListener {
     @BindView(R.id.lv_chat)
     DropDownListView lvChat;
     @BindView(R.id.ek_bar)
@@ -145,7 +149,7 @@ public class ChatActivity extends /*Base*/Activity implements /*FuncLayout.OnFun
     }
 
     private void initData() {
-        //SimpleCommonUtils.initEmoticonsEditText(ekBar.getEtChat());
+        SimpleCommonUtils.initEmoticonsEditText(ekBar.getEtChat());
         Intent intent = getIntent();
         mTargetId = intent.getStringExtra(TARGET_ID);
         mTargetAppKey = intent.getStringExtra(TARGET_APP_KEY);
@@ -286,10 +290,10 @@ public class ChatActivity extends /*Base*/Activity implements /*FuncLayout.OnFun
     }
 
     private void initEmoticonsKeyBoardBar() {
-//        ekBar.setAdapter(SimpleCommonUtils.getCommonAdapter(this, emoticonClickListener));
-//        ekBar.addOnFuncKeyBoardListener(this);
-//        SimpleAppsGridView gridView = new SimpleAppsGridView(this);
-//        ekBar.addFuncView(gridView);
+        ekBar.setAdapter(SimpleCommonUtils.getCommonAdapter(this, emoticonClickListener));
+        ekBar.addOnFuncKeyBoardListener(this);
+        SimpleAppsGridView gridView = new SimpleAppsGridView(this);
+        ekBar.addFuncView(gridView);
 
         ekBar.getEtChat().setOnSizeChangedListener(new EmoticonsEditText.OnSizeChangedListener() {
             @Override
@@ -331,16 +335,16 @@ public class ChatActivity extends /*Base*/Activity implements /*FuncLayout.OnFun
             }
         });
         //切换语音输入
-//        ekBar.getVoiceOrText().setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int i = v.getId();
-//                if (i == R.id.btn_voice_or_text) {
-//                    ekBar.setVideoText();
-//                    ekBar.getBtnVoice().initConv(mConv, mChatAdapter, mChatView);
-//                }
-//            }
-//        });
+        ekBar.getVoiceOrText().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int i = v.getId();
+                if (i == R.id.btn_voice_or_text) {
+                    ekBar.setVideoText();
+                    ekBar.getBtnVoice().initConv(mConv, mChatAdapter, mChatView);
+                }
+            }
+        });
     }
 
     @Override
@@ -398,46 +402,52 @@ public class ChatActivity extends /*Base*/Activity implements /*FuncLayout.OnFun
     }
 
     public void startChatDetailActivity(String targetId, String appKey, long groupId) {
-//        Intent intent = new Intent();
+        Intent intent = new Intent();
 //        intent.putExtra(TARGET_ID, targetId);
 //        intent.putExtra(TARGET_APP_KEY, appKey);
 //        intent.putExtra(GROUP_ID, groupId);
 //        intent.setClass(this, ChatDetailActivity.class);
 //        startActivityForResult(intent, JGApplication.REQUEST_CODE_CHAT_DETAIL);
+
+        intent.setClass(ChatActivity.this, FriendInfoActivity.class);
+        intent.putExtra("addFriend", true);
+       // intent.putExtra("targetId", InfoModel.getInstance().friendInfo.getUserName());
+        //intent.setClass(ChatActivity.this, SearchFriendInfoActivity.class);
+        startActivity(intent);
     }
 
-//    EmoticonClickListener emoticonClickListener = new EmoticonClickListener() {
-//        @Override
-//        public void onEmoticonClick(Object o, int actionType, boolean isDelBtn) {
-//
-//            if (isDelBtn) {
-//                SimpleCommonUtils.delClick(ekBar.getEtChat());
-//            } else {
-//                if (o == null) {
-//                    return;
-//                }
-//                if (actionType == Constants.EMOTICON_CLICK_BIGIMAGE) {
-//                    if (o instanceof EmoticonEntity) {
-//                        OnSendImage(((EmoticonEntity) o).getIconUri());
-//                    }
-//                } else {
-//                    String content = null;
-//                    if (o instanceof EmojiBean) {
-//                        content = ((EmojiBean) o).emoji;
-//                    } else if (o instanceof EmoticonEntity) {
-//                        content = ((EmoticonEntity) o).getContent();
-//                    }
-//
-//                    if (TextUtils.isEmpty(content)) {
-//                        return;
-//                    }
-//                    int index = ekBar.getEtChat().getSelectionStart();
-//                    Editable editable = ekBar.getEtChat().getText();
-//                    editable.insert(index, content);
-//                }
-//            }
-//        }
-//    };
+    EmoticonClickListener emoticonClickListener = new EmoticonClickListener() {
+        @Override
+        public void onEmoticonClick(Object o, int actionType, boolean isDelBtn) {
+
+            if (isDelBtn) {
+                SimpleCommonUtils.delClick(ekBar.getEtChat());
+            } else {
+                if (o == null) {
+                    return;
+                }
+                if (actionType == Constants.EMOTICON_CLICK_BIGIMAGE) {
+                    if (o instanceof EmoticonEntity) {
+                        OnSendImage(((EmoticonEntity) o).getIconUri());
+                    }
+                } else {
+                    String content = null;
+                    if (o instanceof EmojiBean) {
+                        content = ((EmojiBean) o).emoji;
+                    } else if (o instanceof EmoticonEntity) {
+                        content = ((EmoticonEntity) o).getContent();
+                    }
+
+                    if (TextUtils.isEmpty(content)) {
+                        return;
+                    }
+                    int index = ekBar.getEtChat().getSelectionStart();
+                    Editable editable = ekBar.getEtChat().getText();
+                    editable.insert(index, content);
+                }
+            }
+        }
+    };
 
 
     @Override
@@ -482,14 +492,14 @@ public class ChatActivity extends /*Base*/Activity implements /*FuncLayout.OnFun
         });
     }
 
-//    @Override
-//    public void OnFuncPop(int height) {
-//        scrollToBottom();
-//    }
-//
-//    @Override
-//    public void OnFuncClose() {
-//    }
+    @Override
+    public void OnFuncPop(int height) {
+        scrollToBottom();
+    }
+
+    @Override
+    public void OnFuncClose() {
+    }
 
     @Override
     protected void onPause() {
@@ -1131,23 +1141,23 @@ public class ChatActivity extends /*Base*/Activity implements /*FuncLayout.OnFun
 //        });
 //    }
 
-//    //发送极光熊
-//    private void OnSendImage(String iconUri) {
-//        String substring = iconUri.substring(7);
-//        File file = new File(substring);
-//        ImageContent.createImageContentAsync(file, new ImageContent.CreateImageContentCallback() {
-//            @Override
-//            public void gotResult(int responseCode, String responseMessage, ImageContent imageContent) {
-//                if (responseCode == 0) {
-//                    imageContent.setStringExtra("jiguang", "xiong");
-//                    Message msg = mConv.createSendMessage(imageContent);
-//                    handleSendMsg(msg.getId());
-//                } else {
-//                    ToastUtil.shortToast(mContext, responseMessage);
-//                }
-//            }
-//        });
-//    }
+    //发送极光熊
+    private void OnSendImage(String iconUri) {
+        String substring = iconUri.substring(7);
+        File file = new File(substring);
+        ImageContent.createImageContentAsync(file, new ImageContent.CreateImageContentCallback() {
+            @Override
+            public void gotResult(int responseCode, String responseMessage, ImageContent imageContent) {
+                if (responseCode == 0) {
+                    imageContent.setStringExtra("jiguang", "xiong");
+                    Message msg = mConv.createSendMessage(imageContent);
+                    handleSendMsg(msg.getId());
+                } else {
+                    ToastUtil.shortToast(mContext, responseMessage);
+                }
+            }
+        });
+    }
 
     /**
      * 处理发送图片，刷新界面

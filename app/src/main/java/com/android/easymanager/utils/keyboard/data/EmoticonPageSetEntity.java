@@ -1,5 +1,6 @@
 package com.android.easymanager.utils.keyboard.data;
 
+import com.android.easymanager.utils.keyboard.interfaces.PageViewInstantiateListener;
 import java.util.ArrayList;
 
 public class EmoticonPageSetEntity<T> extends PageSetEntity<EmoticonPageEntity> {
@@ -52,7 +53,7 @@ public class EmoticonPageSetEntity<T> extends PageSetEntity<EmoticonPageEntity> 
          */
         protected ArrayList<T> emoticonList;
 
-//        protected PageViewInstantiateListener pageViewInstantiateListener;
+        protected PageViewInstantiateListener pageViewInstantiateListener;
 
         public Builder() {
         }
@@ -77,10 +78,10 @@ public class EmoticonPageSetEntity<T> extends PageSetEntity<EmoticonPageEntity> 
             return this;
         }
 
-//        public Builder setIPageViewInstantiateItem(PageViewInstantiateListener pageViewInstantiateListener) {
-//            this.pageViewInstantiateListener = pageViewInstantiateListener;
-//            return this;
-//        }
+        public Builder setIPageViewInstantiateItem(PageViewInstantiateListener pageViewInstantiateListener) {
+            this.pageViewInstantiateListener = pageViewInstantiateListener;
+            return this;
+        }
 
         public Builder setShowIndicator(boolean showIndicator) {
             isShowIndicator = showIndicator;
@@ -121,7 +122,7 @@ public class EmoticonPageSetEntity<T> extends PageSetEntity<EmoticonPageEntity> 
                 emoticonPageEntity.setRow(row);
                 emoticonPageEntity.setDelBtnStatus(delBtnStatus);
                 emoticonPageEntity.setEmoticonList(emoticonList.subList(start, end));
-//                emoticonPageEntity.setIPageViewInstantiateItem(pageViewInstantiateListener);
+                emoticonPageEntity.setIPageViewInstantiateItem(pageViewInstantiateListener);
                 pageEntityList.add(emoticonPageEntity);
 
                 start = everyPageMaxSum + i * everyPageMaxSum;

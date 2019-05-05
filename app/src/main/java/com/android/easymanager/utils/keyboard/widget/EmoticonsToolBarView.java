@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.android.easymanager.R;
 import com.android.easymanager.utils.keyboard.data.PageSetEntity;
+import com.android.easymanager.utils.keyboard.utils.imageloader.ImageLoader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -31,12 +32,12 @@ public class EmoticonsToolBarView extends RelativeLayout {
 
     public EmoticonsToolBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
-//        mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        mInflater.inflate(R.layout.view_emoticonstoolbar, this);
-//        this.mContext = context;
-//        mBtnWidth = (int) context.getResources().getDimension(R.dimen.bar_tool_btn_width);
-//        hsv_toolbar = (HorizontalScrollView) findViewById(R.id.hsv_toolbar);
-//        ly_tool = (LinearLayout) findViewById(R.id.ly_tool);
+        mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mInflater.inflate(R.layout.view_emoticonstoolbar, this);
+        this.mContext = context;
+        mBtnWidth = (int) context.getResources().getDimension(R.dimen.bar_tool_btn_width);
+        hsv_toolbar = (HorizontalScrollView) findViewById(R.id.hsv_toolbar);
+        ly_tool = (LinearLayout) findViewById(R.id.ly_tool);
     }
 
     @Override
@@ -46,107 +47,107 @@ public class EmoticonsToolBarView extends RelativeLayout {
             throw new IllegalArgumentException("can host only two direct child");
         }
     }
-//
-//    public void addFixedToolItemView(View view, boolean isRight) {
-//        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
-//        LayoutParams hsvParams = (LayoutParams) hsv_toolbar.getLayoutParams();
+
+    public void addFixedToolItemView(View view, boolean isRight) {
+        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+        LayoutParams hsvParams = (LayoutParams) hsv_toolbar.getLayoutParams();
 //        if (view.getId() <= 0) {
 //            view.setId(isRight ? R.id.id_toolbar_right : R.id.id_toolbar_left);
 //        }
-//        if (isRight) {
-//            params.addRule(ALIGN_PARENT_RIGHT);
-//            hsvParams.addRule(LEFT_OF, view.getId());
-//        } else {
-//            params.addRule(ALIGN_PARENT_LEFT);
-//            hsvParams.addRule(RIGHT_OF, view.getId());
-//        }
-//        addView(view, params);
-//        hsv_toolbar.setLayoutParams(hsvParams);
-//    }
-//
-//    protected View getCommonItemToolBtn() {
-//        return mInflater == null ? null : mInflater.inflate(R.layout.item_toolbtn, null);
-//    }
-//
-//    protected void initItemToolBtn(View toolBtnView, int rec, final PageSetEntity pageSetEntity, OnClickListener onClickListener){
-//        ImageView iv_icon = (ImageView) toolBtnView.findViewById(R.id.iv_icon);
-//        if (rec > 0) {
-//            iv_icon.setImageResource(rec);
-//        }
-//        LinearLayout.LayoutParams imgParams = new LinearLayout.LayoutParams(mBtnWidth, LayoutParams.MATCH_PARENT);
-//        iv_icon.setLayoutParams(imgParams);
-//        if (pageSetEntity != null) {
-//            iv_icon.setTag(R.id.id_tag_pageset, pageSetEntity);
-//            try {
-//                ImageLoader.getInstance(mContext).displayImage(pageSetEntity.getIconUri(), iv_icon);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        toolBtnView.setOnClickListener(onClickListener != null ? onClickListener : new OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (mItemClickListeners != null && pageSetEntity != null) {
-//                    mItemClickListeners.onToolBarItemClick(pageSetEntity);
-//                }
-//            }
-//        });
-//    }
-//
-//    protected View getToolBgBtn(View parentView) {
-//        return  parentView.findViewById(R.id.iv_icon);
-//    }
-//
-//    public void addFixedToolItemView(boolean isRight, int rec, final PageSetEntity pageSetEntity, OnClickListener onClickListener) {
-//        View toolBtnView = getCommonItemToolBtn();
-//        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
-//        LayoutParams hsvParams = (LayoutParams) hsv_toolbar.getLayoutParams();
+        if (isRight) {
+            params.addRule(ALIGN_PARENT_RIGHT);
+            hsvParams.addRule(LEFT_OF, view.getId());
+        } else {
+            params.addRule(ALIGN_PARENT_LEFT);
+            hsvParams.addRule(RIGHT_OF, view.getId());
+        }
+        addView(view, params);
+        hsv_toolbar.setLayoutParams(hsvParams);
+    }
+
+    protected View getCommonItemToolBtn() {
+        return mInflater == null ? null : mInflater.inflate(R.layout.item_toolbtn, null);
+    }
+
+    protected void initItemToolBtn(View toolBtnView, int rec, final PageSetEntity pageSetEntity, OnClickListener onClickListener){
+        ImageView iv_icon = (ImageView) toolBtnView.findViewById(R.id.iv_icon);
+        if (rec > 0) {
+            iv_icon.setImageResource(rec);
+        }
+        LinearLayout.LayoutParams imgParams = new LinearLayout.LayoutParams(mBtnWidth, LayoutParams.MATCH_PARENT);
+        iv_icon.setLayoutParams(imgParams);
+        if (pageSetEntity != null) {
+            iv_icon.setTag(R.id.id_tag_pageset, pageSetEntity);
+            try {
+                ImageLoader.getInstance(mContext).displayImage(pageSetEntity.getIconUri(), iv_icon);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        toolBtnView.setOnClickListener(onClickListener != null ? onClickListener : new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mItemClickListeners != null && pageSetEntity != null) {
+                    mItemClickListeners.onToolBarItemClick(pageSetEntity);
+                }
+            }
+        });
+    }
+
+    protected View getToolBgBtn(View parentView) {
+        return  parentView.findViewById(R.id.iv_icon);
+    }
+
+    public void addFixedToolItemView(boolean isRight, int rec, final PageSetEntity pageSetEntity, OnClickListener onClickListener) {
+        View toolBtnView = getCommonItemToolBtn();
+        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+        LayoutParams hsvParams = (LayoutParams) hsv_toolbar.getLayoutParams();
 //        if (toolBtnView.getId() <= 0) {
 //            toolBtnView.setId(isRight ? R.id.id_toolbar_right : R.id.id_toolbar_left);
 //        }
-//        if (isRight) {
-//            params.addRule(ALIGN_PARENT_RIGHT);
-//            hsvParams.addRule(LEFT_OF, toolBtnView.getId());
-//        } else {
-//            params.addRule(ALIGN_PARENT_LEFT);
-//            hsvParams.addRule(RIGHT_OF, toolBtnView.getId());
-//        }
-//        addView(toolBtnView, params);
-//        hsv_toolbar.setLayoutParams(hsvParams);
-//        initItemToolBtn(toolBtnView, rec, pageSetEntity, onClickListener);
-//    }
-//
-//    public void addToolItemView(PageSetEntity pageSetEntity) {
-//        addToolItemView(0, pageSetEntity, null);
-//    }
-//
-//    public void addToolItemView(int rec, OnClickListener onClickListener) {
-//        addToolItemView(rec, null, onClickListener);
-//    }
-//
-//    public void addToolItemView(int rec, final PageSetEntity pageSetEntity, OnClickListener onClickListener) {
-//        View toolBtnView = getCommonItemToolBtn();
-//        initItemToolBtn(toolBtnView, rec, pageSetEntity, onClickListener);
-//        ly_tool.addView(toolBtnView);
-//        mToolBtnList.add(getToolBgBtn(toolBtnView));
-//    }
-//
-//    public void setToolBtnSelect(String uuid) {
-//        if (TextUtils.isEmpty(uuid)) {
-//            return;
-//        }
-//        int select = 0;
-//        for (int i = 0; i < mToolBtnList.size(); i++) {
-//            Object object = mToolBtnList.get(i).getTag(R.id.id_tag_pageset);
-//            if (object != null && object instanceof PageSetEntity && uuid.equals(((PageSetEntity) object).getUuid())) {
-//                mToolBtnList.get(i).setBackgroundColor(getResources().getColor(R.color.toolbar_btn_select));
-//                select = i;
-//            } else {
-//                mToolBtnList.get(i).setBackgroundResource(R.drawable.btn_toolbtn_bg);
-//            }
-//        }
-//        scrollToBtnPosition(select);
-//    }
+        if (isRight) {
+            params.addRule(ALIGN_PARENT_RIGHT);
+            hsvParams.addRule(LEFT_OF, toolBtnView.getId());
+        } else {
+            params.addRule(ALIGN_PARENT_LEFT);
+            hsvParams.addRule(RIGHT_OF, toolBtnView.getId());
+        }
+        addView(toolBtnView, params);
+        hsv_toolbar.setLayoutParams(hsvParams);
+        initItemToolBtn(toolBtnView, rec, pageSetEntity, onClickListener);
+    }
+
+    public void addToolItemView(PageSetEntity pageSetEntity) {
+        addToolItemView(0, pageSetEntity, null);
+    }
+
+    public void addToolItemView(int rec, OnClickListener onClickListener) {
+        addToolItemView(rec, null, onClickListener);
+    }
+
+    public void addToolItemView(int rec, final PageSetEntity pageSetEntity, OnClickListener onClickListener) {
+        View toolBtnView = getCommonItemToolBtn();
+        initItemToolBtn(toolBtnView, rec, pageSetEntity, onClickListener);
+        ly_tool.addView(toolBtnView);
+        mToolBtnList.add(getToolBgBtn(toolBtnView));
+    }
+
+    public void setToolBtnSelect(String uuid) {
+        if (TextUtils.isEmpty(uuid)) {
+            return;
+        }
+        int select = 0;
+        for (int i = 0; i < mToolBtnList.size(); i++) {
+            Object object = mToolBtnList.get(i).getTag(R.id.id_tag_pageset);
+            if (object != null && object instanceof PageSetEntity && uuid.equals(((PageSetEntity) object).getUuid())) {
+                mToolBtnList.get(i).setBackgroundColor(getResources().getColor(R.color.toolbar_btn_select));
+                select = i;
+            } else {
+                mToolBtnList.get(i).setBackgroundResource(R.drawable.btn_toolbtn_bg);
+            }
+        }
+        scrollToBtnPosition(select);
+    }
 
     protected void scrollToBtnPosition(final int position) {
         int childCount = ly_tool.getChildCount();
