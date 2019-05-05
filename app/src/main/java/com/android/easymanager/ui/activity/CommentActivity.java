@@ -17,10 +17,12 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.easymanager.MainActivity;
 import com.android.easymanager.R;
 import com.android.easymanager.ui.adapter.CommentExpandAdapter;
 import com.android.easymanager.ui.bean.CommentBean;
 import com.android.easymanager.ui.bean.CommentDetailBean;
+import com.android.easymanager.ui.widget.CommentEditTextDialog;
 import com.android.easymanager.ui.widget.CommentExpandableListView;
 import com.android.easymanager.utils.CommonUtils;
 import com.example.zhouwei.library.CustomPopWindow;
@@ -125,63 +127,20 @@ public class CommentActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.comment_count:
-                showPopWindow();
+                //showPopWindow();
+                showDialog();
                 break;
         }
     }
 
-    public void showPopWindow() {
-        View contentView = LayoutInflater.from(CommentActivity.this).inflate(R.layout.item_home_comment_edit, null);
-        //处理popWindow 显示内容
-        final EditText input_content = contentView.findViewById(R.id.tv_eyou_edit);
-        contentView.setVisibility(View.VISIBLE);
-        input_content.requestFocus();
-        CommonUtils.showSoftInput(mContext, input_content);
-        //创建并显示popWindow
-        final CustomPopWindow popWindow = new CustomPopWindow.PopupWindowBuilder(CommentActivity.this)
-                .setView(contentView)
-                .size(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)//显示大小
-                .create()
-                .showAtLocation(contentView, Gravity.CENTER_HORIZONTAL, 0, 0);
-        contentView.setOnKeyListener(new View.OnKeyListener() {
+    public void showDialog(){
+        new CommentEditTextDialog(mContext).initView().setSendClickListener(new CommentEditTextDialog.SendClickListener() {
             @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if (KeyEvent.KEYCODE_BACK == keyEvent.getKeyCode()) {
-                    popWindow.dissmiss();
-                }
-                return false;
+            public void sendClick(CommentDetailBean detailBean) {
+                adapter.addTheCommentData(detailBean);
             }
-        });
-        input_content.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
-        input_content.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (actionId == EditorInfo.IME_ACTION_SEND) {
-                     /*隐藏软键盘*/
-                    InputMethodManager imm = (InputMethodManager) textView
-                            .getContext().getSystemService(
-                                    Context.INPUT_METHOD_SERVICE);
-                    if (imm.isActive()) {
-                        imm.hideSoftInputFromWindow(
-                                textView.getApplicationWindowToken(), 0);
-                    }
-                    popWindow.dissmiss();
-                    String commentContent = input_content.getText().toString().trim();
-                    if (!TextUtils.isEmpty(commentContent)) {
-                        CommentDetailBean detailBean = new CommentDetailBean("小明", commentContent, "刚刚");
-                        adapter.addTheCommentData(detailBean);
-                        Toast.makeText(CommentActivity.this, "评论成功", Toast.LENGTH_SHORT).show();
-
-                    } else {
-                        Toast.makeText(CommentActivity.this, "评论内容不能为空", Toast.LENGTH_SHORT).show();
-                    }
-                    return true;
-                }
-                return false;
-            }
-        });
+        }).showDialog();
     }
-
 
     public void initView() {
         commentsList = generateTestData();

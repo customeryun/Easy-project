@@ -23,6 +23,8 @@ import com.android.easymanager.ui.activity.CommunityActivity;
 import com.android.easymanager.ui.adapter.HomeItemDecoration;
 import com.android.easymanager.ui.adapter.HomeMainAdapter;
 import com.android.easymanager.ui.adapter.HomeMainDividerItemDecoration;
+import com.android.easymanager.ui.bean.CommentDetailBean;
+import com.android.easymanager.ui.widget.CommentEditTextDialog;
 import com.android.easymanager.utils.CommonUtils;
 import com.example.zhouwei.library.CustomPopWindow;
 //import com.android.easymanager.ui.adapter.HomeMainDividerItemDecoration;
@@ -104,7 +106,17 @@ public class HomeMainFragment extends BaseFragment<HomeContract.View,HomeContrac
 
     @Override
     public void updateEditLayout(int visibility) {
-        showPopWindow();
+        //showPopWindow();
+        showDialog();
+    }
+
+    public void showDialog(){
+        new CommentEditTextDialog(mActivity).initView().setSendClickListener(new CommentEditTextDialog.SendClickListener() {
+            @Override
+            public void sendClick(CommentDetailBean detailBean) {
+                //adapter.addTheCommentData(detailBean);
+            }
+        }).showDialog();
     }
 
     public void showPopWindow(){
