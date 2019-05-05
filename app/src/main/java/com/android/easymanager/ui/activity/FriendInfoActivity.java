@@ -110,7 +110,7 @@ public class FriendInfoActivity extends /*Base*/Activity {
                     mFriendInfoView.initInfo(info);
                 } else {
                    // HandleResponseCode.onHandle(FriendInfoActivity.this, responseCode, false);
-                    ToastUtil.shortToast(FriendInfoActivity.this,"updateUserInfo 失败：responseCode=="+responseCode+"**responseMessage=="+responseMessage);
+                    //ToastUtil.shortToast(FriendInfoActivity.this,"updateUserInfo 失败：responseCode=="+responseCode+"**responseMessage=="+responseMessage);
                 }
             }
         });

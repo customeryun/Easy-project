@@ -52,5 +52,6 @@
 47.xiaoming add 添加评论编辑界面 20190503
 48.xiaoming add 主页添加评论二级菜单界面
 49.linmei   add 对话界面，语音、表情符号和更多应用UI添加 20190505
-##### linmei add 测试账号 
-#####  用户名：aaaaaa    密码：111111
+#####  测试账号 
+#####  用户名：aaaaaa/bbbbbb    密码：111111
+50.linmei   add 我的消息/联系人头像显示相关UI调整;Toast显示隐藏 20190505

@@ -15,6 +15,7 @@ import com.android.easymanager.ui.adapter.ContactDetailAdapter;
 import com.android.easymanager.ui.bean.ListItemEntry;
 import java.util.ArrayList;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MeDetailActivity extends BaseActivity implements BaseRecyclerAdapter.OnItemClickListener{
 
@@ -68,6 +69,14 @@ public class MeDetailActivity extends BaseActivity implements BaseRecyclerAdapte
     @Override
     public void onItemClick(int position, Object entry) {
         ListItemEntry item = (ListItemEntry)entry;
-        Toast.makeText(mContext,"**position=="+position+"***"+item.getTitle(),Toast.LENGTH_LONG).show();
+//        Toast.makeText(mContext,"**position=="+position+"***"+item.getTitle(),Toast.LENGTH_LONG).show();
+    }
+
+    @OnClick({R.id.itemlayout_icon})
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.itemlayout_icon:
+                UserInfoActivity.launchActivity(mContext);
+        }
     }
 }

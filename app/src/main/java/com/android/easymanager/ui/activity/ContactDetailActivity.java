@@ -76,7 +76,7 @@ public class ContactDetailActivity extends BaseActivity implements BaseRecyclerA
     @Override
     public void onItemClick(int position, Object data) {
         ListItemEntry item = (ListItemEntry)data;
-        Toast.makeText(mContext,"**position=="+position+"***"+item.getTitle(),Toast.LENGTH_LONG).show();
+//        Toast.makeText(mContext,"**position=="+position+"***"+item.getTitle(),Toast.LENGTH_LONG).show();
     }
 
     @OnClick({R.id.btn_add})

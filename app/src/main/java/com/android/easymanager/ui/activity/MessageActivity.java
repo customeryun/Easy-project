@@ -67,7 +67,7 @@ public class MessageActivity extends BaseActivity implements BaseRecyclerAdapter
 
     @Override
     public void onItemClick(int position, Object entry) {
-        Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
+//        Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
     }
 
 }

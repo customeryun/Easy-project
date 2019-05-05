@@ -54,7 +54,7 @@ public class TeacherGroupActivity extends BaseActivity implements BaseRecyclerAd
 
     @Override
     public void onItemClick(int position, Object entry) {
-        Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
+//        Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
         //进入child列表页面
         TeacherChildActivity.launchActivity(mContext,(ContactGroupEntry)entry);
     }

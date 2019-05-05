@@ -54,7 +54,7 @@ public class StudentContactGroupActivity extends BaseActivity implements BaseRec
 
     @Override
     public void onItemClick(int position, Object entry) {
-        Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
+//        Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
         //进入学生child列表页面
         StudentChildActivity.launchActivity(mContext,(ContactGroupEntry)entry);
     }

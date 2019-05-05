@@ -19,8 +19,8 @@
             android:layout_height="33dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_launcher"
-            />
+            android:src="@drawable/jmui_loading" />
+        <!--android:src="@drawable/ic_launcher"-->
 
         <TextView
             android:id="@+id/jmui_loading_txt"

@@ -66,7 +66,7 @@ public class StudentChildActivity extends BaseActivity implements BaseRecyclerAd
 
     @Override
     public void onItemClick(int position, Object entry) {
-        Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
+//        Toast.makeText(mContext,"**position=="+position,Toast.LENGTH_LONG).show();
         ContactDetailActivity.launchActivity(mContext,false);
     }
 
