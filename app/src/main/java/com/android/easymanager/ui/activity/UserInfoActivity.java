@@ -46,7 +46,7 @@ public class UserInfoActivity extends BaseActivity{
         String appKey = intent.getStringExtra("appkey");
         String userName = intent.getStringExtra("username");
         String platform = "a";
-        tvUserName.setText("用户名: " + userName);
+        tvUserName.setText(userName);
         Gson gson = new Gson();
         User user = new User(appKey, userName, platform);
 

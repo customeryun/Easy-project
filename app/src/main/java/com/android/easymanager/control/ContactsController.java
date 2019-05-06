@@ -71,7 +71,7 @@ public class ContactsController implements View.OnClickListener{
             @Override
             public void gotResult(int responseCode, String responseMessage, List<UserInfo> userInfoList) {
 //                mContactsView.dismissLoadingHeader();
-                Log.i("linmei","****responseCode=="+responseCode+"**responseMessage=="+responseMessage);
+//                Log.i("linmei","****responseCode=="+responseCode+"**responseMessage=="+responseMessage);
                 if (responseCode == 0) {
                     if (userInfoList.size() != 0) {
 //                        mContactsView.dismissLine();

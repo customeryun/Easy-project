@@ -45,16 +45,17 @@
         app:show_right_arrow="false"
         />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:text="我的好友"
-        android:textSize="14dp"
-        android:textStyle="bold"
-        android:layout_marginStart="8dp"
-        android:gravity="center_vertical"
-        android:textColor="#101010"/>
-    <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#DBDADA"/>
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="我的好友"
+        android:textSize="16sp"
+        android:background="#FFFFFF"
+        android:layout_marginStart="15dp"
+        android:gravity="center_vertical"
+        android:textColor="#2E2E2E"/>
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="#DBDADA"/>-->
 </LinearLayout>

@@ -16,6 +16,7 @@
         android:id="@+id/phone_modify"
         android:layout_width="match_parent"
         android:layout_height="42dp"
+        app:right_text="18566298899"
         app:left_text="更改手机号"/>
     <com.android.easymanager.ui.widget.settings.ItemView
         android:id="@+id/password_modify"

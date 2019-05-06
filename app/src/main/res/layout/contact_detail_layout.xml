@@ -35,7 +35,7 @@
 
     <RelativeLayout
         android:id="@+id/layout_head"
-        android:background="@color/user_bg_color"
+        android:background="@drawable/me_background"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:paddingEnd="8dp"
