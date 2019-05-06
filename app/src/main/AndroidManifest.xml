@@ -104,6 +104,7 @@
         <activity android:name=".ui.activity.ChatActivity" />
         <activity android:name=".ui.activity.SchoolAnnouncementActivity" />
         <activity android:name=".ui.activity.CommentActivity"/>
+        <activity android:name=".ui.activity.CommonScanActivity"/>
 
         <provider
             android:name="com.activeandroid.content.ContentProvider"

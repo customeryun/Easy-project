@@ -46,4 +46,6 @@
     <color name="toolbar_btn_nomal">@color/white</color>
     <color name="toolbar_spilt_line">#CDCDCD</color>
     <color name="black">#000000</color>
+
+    <color name="scan_bg">#7f000000</color>
 </resources>

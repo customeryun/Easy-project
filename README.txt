@@ -55,5 +55,8 @@
 #####  测试账号 
 #####  用户名：aaaaaa/bbbbbb    密码：111111
 50.linmei   add 我的消息/联系人头像显示相关UI调整;Toast显示隐藏 20190505
-51.xiaoming add 修复评论界面顶部被遮挡
-52.xiaoming add 修复评论界面对话框
+51.linmei   add Login界面UI调整 20190505
+52.xiaoming add 修复评论界面顶部被遮挡
+53.xiaoming add 修复评论界面对话框
+54.linmei   add 1.扫一扫加好友UI界面添加；2.添加好友actionbar弹框选择；3.我的模块其他UI调整 20190506
+

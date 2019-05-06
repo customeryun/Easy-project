@@ -152,4 +152,6 @@
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
 
     <string name="btn_text_speak">按住录音</string>
+    <string name="scan_qrcode_title">返回</string>
+    <string name="scan_qrcode_hint">将取景框对准二维码，即可自动扫描</string>
 </resources>

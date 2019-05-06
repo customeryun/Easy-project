@@ -64,6 +64,7 @@
                     android:layout_width="@dimen/title_bar_height"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
+                    android:visibility="gone"
                     android:background="@drawable/jmui_back_btn_bg"
                     android:src="@drawable/ic_meau_add_friend"/>
             </RelativeLayout>

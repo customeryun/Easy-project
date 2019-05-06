@@ -2,12 +2,17 @@ package com.android.easymanager.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import com.android.easymanager.model.Constant;
 import com.android.easymanager.IxiaApplication;
 import com.android.easymanager.R;
 import com.android.easymanager.control.ContactsController;
@@ -39,7 +44,7 @@ public class ContactActivity extends BaseActivity {
 
     @Override
     public void init() {
-        setTitle("校园通讯录");
+        setTitle("我的好友");
         setAddIconVisible(true);
         setAddIconRes(R.drawable.ic_meau_add_friend);
         setAddIconListener(mAddOnClickListener);
@@ -76,9 +81,43 @@ public class ContactActivity extends BaseActivity {
     View.OnClickListener mAddOnClickListener = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
-            ContactAddActivity.launchActivity(mContext);
+            //ContactAddActivity.launchActivity(mContext);
+            showPopWindow();
         }
     };
+
+    public void showPopWindow() {
+        View mMenuView = getLayoutInflater().inflate(R.layout.drop_down_menu, null);
+        LinearLayout menuItem_add_friend = (LinearLayout)mMenuView.findViewById(R.id.menuitem_add_friend);
+        LinearLayout menuItem_scan = (LinearLayout)mMenuView.findViewById(R.id.menuitem_scan);
+        PopupWindow mMenuPopWindow = new PopupWindow(mMenuView, WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT, true);
+        mMenuPopWindow.setTouchable(true);
+        mMenuPopWindow.setOutsideTouchable(true);
+        mMenuPopWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+        if (mMenuPopWindow.isShowing()) {
+            mMenuPopWindow.dismiss();
+        } else {
+            mMenuPopWindow.showAsDropDown(findViewById(R.id.iv_add), -200, 20);
+        }
+
+        menuItem_add_friend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContactAddActivity.launchActivity(mContext);
+            }
+        });
+
+        menuItem_scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {//扫描二维码
+                Intent intent = new Intent(mContext, CommonScanActivity.class);
+                intent.putExtra(Constant.REQUEST_SCAN_MODE, Constant.REQUEST_SCAN_MODE_QRCODE_MODE);
+                mContext.startActivity(intent);
+            }
+        });
+
+    }
 
     @Override
     protected void onResume() {

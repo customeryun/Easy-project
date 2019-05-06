@@ -51,6 +51,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15.67dp"
+            android:visibility="gone"
             android:background="@drawable/more_doc"/>
     </RelativeLayout>
 
