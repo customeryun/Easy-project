@@ -4,30 +4,30 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import com.android.easymanager.R;
-import com.android.easymanager.ui.widget.settings.ItemView;
+import com.android.easymanager.ui.widget.settings.SettingsItemView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class UserSettingsActivity extends BaseActivity {
 
     @BindView(R.id.item_account)
-    ItemView item_account;
+    SettingsItemView item_account;
     @BindView(R.id.item_message_notification)
-    ItemView item_message_notification;
+    SettingsItemView item_message_notification;
     @BindView(R.id.item_privacy)
-    ItemView iitem_privacy;
+    SettingsItemView iitem_privacy;
     @BindView(R.id.item_clean)
-    ItemView item_clean;
+    SettingsItemView item_clean;
     @BindView(R.id.item_language)
-    ItemView item_language;
+    SettingsItemView item_language;
     @BindView(R.id.item_about)
-    ItemView item_about;
+    SettingsItemView item_about;
     @BindView(R.id.item_share)
-    ItemView item_share;
+    SettingsItemView item_share;
     @BindView(R.id.item_comment)
-    ItemView iitem_comment;
+    SettingsItemView iitem_comment;
     @BindView(R.id.item_suggestion)
-    ItemView item_suggestion;
+    SettingsItemView item_suggestion;
 
     @Override
     public int getLayout() {

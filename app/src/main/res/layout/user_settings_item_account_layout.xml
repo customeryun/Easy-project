@@ -3,30 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical">
 
     <include layout="@layout/activity_title_layout"/>
 
-    <com.android.easymanager.ui.widget.settings.ItemView
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/phone_bind"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        app:left_text="绑定手机号"/>
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="50dp"
+        app:item_left_text="绑定手机号"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"/>
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/phone_modify"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        app:right_text="18566298899"
-        app:left_text="更改手机号"/>
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="50dp"
+        app:item_show_right_text="true"
+        app:item_right_text="18566298899"
+        app:item_left_text="更改手机号"
+        app:right_text_color="@color/settings_itemview_right_textcolor"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"/>
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/password_modify"
         android:layout_width="match_parent"
         android:layout_height="42dp"
-        app:left_text="更改密码"/>
-    <com.android.easymanager.ui.widget.settings.ItemView
-        android:id="@+id/password_reset"
+        app:item_left_text="更改密码"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"/>
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
+        android:id="@+id/password_forget"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        app:left_text="重置密码"/>
+        android:layout_height="50dp"
+        app:item_left_text="忘记密码"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"/>
 
 </LinearLayout>

@@ -87,6 +87,7 @@
         <activity android:name=".ui.activity.ApprovalHistoryActivity" />
         <activity android:name=".ui.activity.ApprovalLeaveActivity" />
         <activity android:name=".ui.activity.PasswordModifyActivity" />
+        <activity android:name=".ui.activity.PasswordForgetActivity"/>
         <activity android:name=".ui.activity.PhoneNumberModifyActivity" />
         <activity android:name=".ui.activity.RequestFriendActivity" />
         <activity android:name=".ui.activity.FinishRegisterActivity" />

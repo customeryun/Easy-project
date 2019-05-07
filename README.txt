@@ -60,3 +60,4 @@
 53.xiaoming add 修复评论界面对话框
 54.linmei   add 1.扫一扫加好友UI界面添加；2.添加好友actionbar弹框选择；3.我的模块其他UI调整 20190506
 55.linmei   add actionbar和我的模块UI细节调整1
+56.linmei   add 我的设置UI细节调整和页面补充

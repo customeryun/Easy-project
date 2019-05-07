@@ -8,60 +8,69 @@
 
     <include layout="@layout/activity_title_layout"/>
 
-    <com.android.easymanager.ui.widget.settings.ItemView
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_account"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        app:show_bottom_line="false"
-        app:left_text="账号与安全"/>
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="50dp"
+        app:item_show_bottom_line="false"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"
+        app:item_left_text="账号与安全"/>
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_message_notification"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_marginTop="8dp"
-        app:show_top_line="false"
-        app:left_text="新消息通知"/>
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        app:item_show_top_line="false"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"
+        app:item_left_text="新消息通知"/>
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_privacy"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        app:show_bottom_line="false"
-        app:left_text="隐私"/>
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="50dp"
+        app:item_show_bottom_line="false"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"
+        app:item_left_text="隐私"/>
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_clean"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:paddingTop="8dp"
-        app:show_top_line="false"
-        app:left_text="清除缓存"/>
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="50dp"
+        android:paddingTop="10dp"
+        app:item_show_top_line="false"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"
+        app:item_left_text="清除缓存"/>
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_language"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        app:show_bottom_line="false"
-        app:left_text="语言切换"/>
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="50dp"
+        app:item_show_bottom_line="false"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"
+        app:item_left_text="语言切换"/>
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_about"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:paddingTop="8dp"
-        app:show_top_line="false"
-        app:left_text="关于我们"/>
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="50dp"
+        android:paddingTop="10dp"
+        app:item_show_top_line="false"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"
+        app:item_left_text="关于我们"/>
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_share"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        app:left_text="分享App"/>
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="50dp"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"
+        app:item_left_text="分享App"/>
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_comment"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        app:left_text="评价我们"/>
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="50dp"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"
+        app:item_left_text="评价我们"/>
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_suggestion"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        app:left_text="意见反馈"/>
+        android:layout_height="50dp"
+        app:left_text_color="@color/settings_itemview_lefe_textcolor"
+        app:item_left_text="意见反馈"/>
 
     <View
         android:layout_width="match_parent"

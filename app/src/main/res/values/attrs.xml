@@ -64,6 +64,19 @@
         <attr name="show_top_line" format="boolean"/>//是否显示上划线
     </declare-styleable>
 
+    <declare-styleable name="SettingsItemView">
+        <!--<attr name="left_icon" format="integer"/>-->
+        <!--<attr name="show_left_icon" format="boolean"/>-->
+        <attr name="item_left_text" format="string"/>
+        <attr name="item_right_text" format="string"/>
+        <attr name="item_show_right_text" format="boolean"/>
+        <attr name="item_show_right_arrow" format="boolean"/>
+        <attr name="item_show_bottom_line" format="boolean"/>
+        <attr name="item_show_top_line" format="boolean"/>
+        <attr name="left_text_color" format="color"/>
+        <attr name="right_text_color" format="color"/>
+    </declare-styleable>
+
     <declare-styleable name="ProgressWheel">
         <attr name="matProg_progressIndeterminate" format="boolean" />
         <attr name="matProg_barColor" format="color" />
