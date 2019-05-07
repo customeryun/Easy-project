@@ -21,10 +21,10 @@ import butterknife.OnClick;
 
 public class ContactDetailActivity extends BaseActivity implements BaseRecyclerAdapter.OnItemClickListener{
 
-    @BindView(R.id.recyclerView)
-    RecyclerView recycle_view;
-    @BindView(R.id.layout_bottom)
-    LinearLayout layout_bottom;
+//    @BindView(R.id.recyclerView)
+//    RecyclerView recycle_view;
+//    @BindView(R.id.layout_bottom)
+//    LinearLayout layout_bottom;
     @BindView(R.id.btn_add)
     Button btn_add;
 
@@ -32,15 +32,16 @@ public class ContactDetailActivity extends BaseActivity implements BaseRecyclerA
 
     @Override
     public int getLayout() {
-        return R.layout.contact_detail_layout;
+        //return R.layout.contact_detail_layout;
+        return R.layout.activity_student_detail_layout;
     }
 
     @Override
     public void init() {
         setActionbarVisible(false);
-        initRecycleView();
+//        initRecycleView();
         isFrident = getIntent().getBooleanExtra("isfrident",true);
-        layout_bottom.setVisibility(isFrident? View.GONE:View.VISIBLE);
+//        layout_bottom.setVisibility(isFrident? View.GONE:View.VISIBLE);
 
     }
 
@@ -55,24 +56,24 @@ public class ContactDetailActivity extends BaseActivity implements BaseRecyclerA
         context.startActivity(intent);
     }
 
-    public void initRecycleView() {
-        ContactDetailAdapter adapter = new ContactDetailAdapter();
-        adapter.addDatas(buildItems());
-        adapter.setOnItemClickListener(this);
-        recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
-        recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
-        recycle_view.setAdapter(adapter);
-    }
-
-    public ArrayList<ListItemEntry> buildItems() {
-        ArrayList<ListItemEntry> managerEntries = new ArrayList<>();
-        managerEntries.add(new ListItemEntry("英文姓名:AAAAAAA",""));
-        managerEntries.add(new ListItemEntry("国籍：中国",""));
-        managerEntries.add(new ListItemEntry("班级：112",""));
-        managerEntries.add(new ListItemEntry("专业：计算机",""));
-        managerEntries.add(new ListItemEntry("院系：电信学院",""));
-        return managerEntries;
-    }
+//    public void initRecycleView() {
+//        ContactDetailAdapter adapter = new ContactDetailAdapter();
+//        adapter.addDatas(buildItems());
+//        adapter.setOnItemClickListener(this);
+//        recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
+//        recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+//        recycle_view.setAdapter(adapter);
+//    }
+//
+//    public ArrayList<ListItemEntry> buildItems() {
+//        ArrayList<ListItemEntry> managerEntries = new ArrayList<>();
+//        managerEntries.add(new ListItemEntry("英文姓名:AAAAAAA",""));
+//        managerEntries.add(new ListItemEntry("国籍：中国",""));
+//        managerEntries.add(new ListItemEntry("班级：112",""));
+//        managerEntries.add(new ListItemEntry("专业：计算机",""));
+//        managerEntries.add(new ListItemEntry("院系：电信学院",""));
+//        return managerEntries;
+//    }
 
     @Override
     public void onItemClick(int position, Object data) {
@@ -80,12 +81,12 @@ public class ContactDetailActivity extends BaseActivity implements BaseRecyclerA
 //        Toast.makeText(mContext,"**position=="+position+"***"+item.getTitle(),Toast.LENGTH_LONG).show();
     }
 
-    @OnClick({R.id.btn_add,R.id.back})
+    @OnClick({R.id.btn_add,R.id.return_btn})
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_add:
                 RequestFriendActivity.launchActivity(mContext);
-            case R.id.back:
+            case R.id.return_btn:
                 finish();
         }
     }

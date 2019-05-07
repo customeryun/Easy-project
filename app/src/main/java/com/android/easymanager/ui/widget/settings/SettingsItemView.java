@@ -59,7 +59,7 @@ public class SettingsItemView extends LinearLayout {
         bottomLine = (View)findViewById(R.id.bottom_line);
         bottomLine.setVisibility(isShowBottomLine ? View.VISIBLE : View.GONE);//设置底部图标是否显示
         rightArrow = (ImageView)findViewById(R.id.right_arrow);
-        rightArrow.setVisibility(isShowRightArrow ? View.VISIBLE : View.INVISIBLE);//设置右侧箭头图标是否显示
+        rightArrow.setVisibility(isShowRightArrow ? View.VISIBLE : View.GONE);//设置右侧箭头图标是否显示
 
         array.recycle();
     }

@@ -14,24 +14,35 @@
         android:id="@+id/layout_head"
         android:background="@drawable/me_background"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:paddingEnd="8dp"
-        android:paddingStart="8dp"
-        android:paddingBottom="16dp"
-        android:paddingTop="16dp">
-        <ImageView
-            android:id="@+id/return_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/ic_back"/>
+        android:layout_height="177dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center_vertical"
+            android:layout_alignParentTop="true">
+            <ImageView
+                android:id="@+id/return_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_back"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_centerInParent="true"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"
+                android:text="华中师范大学"/>
+        </RelativeLayout>
         <ImageView
             android:id="@+id/iv_friendPhoto"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
             android:layout_centerInParent="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="26.67dp"
             android:src="@drawable/rc_default_portrait"
             android:scaleType="centerCrop"/>
         <TextView
@@ -39,9 +50,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@+id/iv_friendPhoto"
             android:textColor="#FFFFFF"
+            android:textSize="18sp"
             android:text="AAAAAA"/>
         <ImageView
             android:id="@+id/jmui_commit_btn"
@@ -58,13 +70,12 @@
     <TextView
         android:id="@+id/tv_additionalMsg"
         android:layout_width="wrap_content"
-        android:layout_height="46.67dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginRight="14dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:text="附加信息："
         android:ellipsize="end"
         android:gravity="center"
-        android:maxLines="2"
         android:textColor="#999999"
         android:textSize="14sp"/>
     <View
@@ -75,51 +86,50 @@
         android:layout_marginRight="14dp"
         android:background="#E8EDF3"/>
 
-    <com.android.easymanager.ui.widget.settings.ItemView
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_english_name"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        app:show_right_arrow="false"
-        app:left_text="英文名字："
+        android:layout_height="55dp"
+        app:item_show_right_arrow="false"
+        app:item_left_text="英文名字：   Android"
         />
-    <com.android.easymanager.ui.widget.settings.ItemView
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_country"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        app:show_right_arrow="false"
-        app:left_text="国籍：" />
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="55dp"
+        app:item_show_right_arrow="false"
+        app:item_left_text="国籍：   中国" />
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_class"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        app:show_right_arrow="false"
-        app:left_text="班级：" />
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="55dp"
+        app:item_show_right_arrow="false"
+        app:item_left_text="班级：   计算机001班" />
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_major"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        app:show_right_arrow="false"
-        app:left_text="专业：" />
-    <com.android.easymanager.ui.widget.settings.ItemView
+        android:layout_height="55dp"
+        app:item_show_right_arrow="false"
+        app:item_left_text="专业：   电子信息" />
+    <com.android.easymanager.ui.widget.settings.SettingsItemView
         android:id="@+id/item_college"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        app:show_right_arrow="false"
-        app:left_text="院系：" />
-
+        android:layout_height="55dp"
+        app:item_show_right_arrow="false"
+        app:item_left_text="院系：   电信学院" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#E8EDF3">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="bottom">
         <Button
             android:id="@+id/btn_refusal"
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
-            android:layout_marginTop="20dp"
             android:background="@drawable/white_btn_selector"
             android:textColor="@drawable/white_text_selector"
             android:gravity="center"
@@ -129,10 +139,9 @@
             android:id="@+id/btn_agree"
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
-            android:layout_marginTop="20dp"
             android:background="@drawable/blue_btn_selector"
             android:textColor="@drawable/blue_text_selector"
             android:gravity="center"

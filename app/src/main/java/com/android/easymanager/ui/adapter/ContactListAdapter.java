@@ -46,7 +46,7 @@ public class ContactListAdapter extends BaseRecyclerAdapter<FriendEntry> {
         if (viewHolder instanceof ContactHolder) {
             ContactHolder holder = (ContactHolder) viewHolder;
             holder.mTextView.setText(data.username);
-            holder.mTextView_class.setText("***班级");
+            holder.mTextView_class.setText("汉语言01级");
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

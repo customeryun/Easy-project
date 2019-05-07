@@ -8,7 +8,7 @@
     android:background="#fff"
     android:orientation="vertical">
 
-    <!--<include layout="@layout/activity_title_layout"/>-->
+    <include layout="@layout/activity_title_layout"/>
 
     <RelativeLayout
         android:id="@+id/layout_head"
@@ -106,11 +106,11 @@
         android:layout_weight="1"
         android:gravity="bottom">
         <Button
-            android:id="@+id/btn_goToChat"
+            android:id="@+id/btn_add"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="发消息"
+            android:text="添加好友"
             android:textColor="#FFFFFF"
             android:background="#4189FF"
             android:textSize="18sp"/>

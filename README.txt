@@ -61,3 +61,4 @@
 54.linmei   add 1.扫一扫加好友UI界面添加；2.添加好友actionbar弹框选择；3.我的模块其他UI调整 20190506
 55.linmei   add actionbar和我的模块UI细节调整1
 56.linmei   add 我的设置UI细节调整和页面补充
+57.linmei   add 个人信息列表和联系人详情列表，字段显示和UI调整 20190507

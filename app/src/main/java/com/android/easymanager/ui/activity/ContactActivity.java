@@ -37,6 +37,8 @@ public class ContactActivity extends BaseActivity {
     private LinearLayoutManager layoutManager;
     private ContactsController mContactsController;
 
+    PopupWindow mMenuPopWindow;
+
     @Override
     public int getLayout() {
         return R.layout.contact_manager_layout;
@@ -90,7 +92,7 @@ public class ContactActivity extends BaseActivity {
         View mMenuView = getLayoutInflater().inflate(R.layout.drop_down_menu, null);
         LinearLayout menuItem_add_friend = (LinearLayout)mMenuView.findViewById(R.id.menuitem_add_friend);
         LinearLayout menuItem_scan = (LinearLayout)mMenuView.findViewById(R.id.menuitem_scan);
-        PopupWindow mMenuPopWindow = new PopupWindow(mMenuView, WindowManager.LayoutParams.WRAP_CONTENT,
+        mMenuPopWindow = new PopupWindow(mMenuView, WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT, true);
         mMenuPopWindow.setTouchable(true);
         mMenuPopWindow.setOutsideTouchable(true);
@@ -123,6 +125,10 @@ public class ContactActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         mContactsController.refreshContact();
+
+        if(mMenuPopWindow!=null && mMenuPopWindow.isShowing()){
+            mMenuPopWindow.dismiss();
+        }
     }
 
     @Override
