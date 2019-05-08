@@ -21,9 +21,9 @@
             android:id="@+id/home_pengyou_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/com_status_img"
+            android:layout_toRightOf="@id/home_pengyou_img"
             android:gravity="left"
             android:text="林贤雅"
             android:textColor="#333333"
@@ -41,10 +41,10 @@
             android:id="@+id/home_pengyou_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/com_status_name"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_toRightOf="@id/com_status_img"
+            android:layout_below="@+id/home_pengyou_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/home_pengyou_img"
             android:background="@drawable/ic_home_dontai_tv_state_bg"
             android:gravity="left"
             android:paddingBottom="2dp"
@@ -62,6 +62,7 @@
             android:layout_alignParentRight="true"
             android:gravity="left"
             android:text="1分钟前"
+            android:layout_alignBaseline="@+id/home_pengyou_state"
             android:textColor="#999999"
             android:textSize="12sp" />
     </RelativeLayout>
@@ -98,12 +99,11 @@
     <FrameLayout
         android:id="@+id/foot_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_20dp">
+        android:layout_height="50dp">
         <TextView
             android:id="@+id/home_dianzhan_count"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:drawableLeft="@drawable/ic_home_dianzhan_press"
             android:drawablePadding="@dimen/space_10dp"
             android:layout_marginRight="137dp"
@@ -116,7 +116,7 @@
         <TextView
             android:id="@+id/home_comment_count"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:drawableLeft="@drawable/ic_home_comment"
             android:drawablePadding="@dimen/space_10dp"
             android:layout_marginRight="71dp"
@@ -129,7 +129,7 @@
         <TextView
             android:id="@+id/home_share"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:drawableLeft="@drawable/ic_home_share"
             android:layout_marginRight="24dp"
             android:layout_gravity="right"

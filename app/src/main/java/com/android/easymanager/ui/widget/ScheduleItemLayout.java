@@ -24,7 +24,7 @@ public class ScheduleItemLayout extends LinearLayout {
     private LinearLayout mItemParent;
     private View itemView;
     private Button button;
-    private String[] items = {"汉语言课程", "Electronic Science and Technology C…", "中国绘画"};
+    private String[] items = {"汉语言课程", "电子科学与技术", "中国绘画"};
 
     public ScheduleItemLayout(Context context) {
         this(context, null);

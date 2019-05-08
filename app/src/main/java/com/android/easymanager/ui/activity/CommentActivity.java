@@ -20,15 +20,19 @@ import android.widget.Toast;
 import com.android.easymanager.MainActivity;
 import com.android.easymanager.R;
 import com.android.easymanager.ui.adapter.CommentExpandAdapter;
+import com.android.easymanager.ui.adapter.HomeMainAdapter;
 import com.android.easymanager.ui.bean.CommentBean;
 import com.android.easymanager.ui.bean.CommentDetailBean;
+import com.android.easymanager.ui.fragment.HomeMainFragment;
 import com.android.easymanager.ui.widget.CommentEditTextDialog;
 import com.android.easymanager.ui.widget.CommentExpandableListView;
+import com.android.easymanager.ui.widget.CommunityGridLayout;
 import com.android.easymanager.utils.CommonUtils;
 import com.example.zhouwei.library.CustomPopWindow;
 import com.google.gson.Gson;
 import com.sina.weibo.sdk.api.share.Base;
 
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -46,6 +50,9 @@ public class CommentActivity extends BaseActivity {
     CommentExpandableListView expandableListView;
     @BindView(R.id.comment_count)
     TextView comment_count;
+    @BindView(R.id.comment_pengyou_nine_grid)
+    CommunityGridLayout home_pengyou_nine_grid;
+
 
     private CommentExpandAdapter adapter;
     private CommentBean commentBean;
@@ -123,12 +130,17 @@ public class CommentActivity extends BaseActivity {
         initView();
     }
 
-    @OnClick({R.id.comment_count})
+    @OnClick({R.id.comment_count,R.id.home_pengyou_img})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.comment_count:
                 //showPopWindow();
                 showDialog();
+                break;
+            case R.id.home_pengyou_img:
+                Intent intent = new Intent(mContext, FriendInfoActivity.class);
+                intent.putExtra("fromContact", true);
+                mContext.startActivity(intent);
                 break;
         }
     }
@@ -145,6 +157,8 @@ public class CommentActivity extends BaseActivity {
     public void initView() {
         commentsList = generateTestData();
         initExpandableListView(commentsList);
+        home_pengyou_nine_grid.setIsShowAll(true);
+        home_pengyou_nine_grid.setUrlList(Arrays.asList(HomeMainFragment.mUrls));
     }
 
     private List<CommentDetailBean> generateTestData() {

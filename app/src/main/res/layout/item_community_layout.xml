@@ -2,106 +2,69 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="113dp"
         android:orientation="horizontal">
 
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/school_announcement"
-            android:layout_width="0dp"
-            android:layout_height="92dp"
-            android:layout_weight="1">
+            style="@style/community_item_layout_style">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_launcher" />
+                style="@style/community_item_image_style"
+                android:src="@drawable/ic_communtity_notification" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="校园公告"
-                android:textColor="#000000" />
-        </FrameLayout>
+                style="@style/community_item_text_style"
+                android:text="校园公告"/>
+        </LinearLayout>
 
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/school_activity"
-            android:layout_width="0dp"
-            android:layout_height="92dp"
-            android:layout_weight="1">
+            style="@style/community_item_layout_style">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_launcher" />
+                style="@style/community_item_image_style"
+                android:src="@drawable/ic_communtity_cup" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="校园活动"
-                android:textColor="#000000" />
-        </FrameLayout>
+                style="@style/community_item_text_style"
+                android:text="校园活动"/>
+        </LinearLayout>
 
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/school_society"
-            android:layout_width="0dp"
-            android:layout_height="92dp"
-            android:layout_weight="1">
+            style="@style/community_item_layout_style">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_launcher" />
+                style="@style/community_item_image_style"
+                android:src="@drawable/ic_communtity_leadership" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="社团"
-                android:textColor="#000000" />
-        </FrameLayout>
+                style="@style/community_item_text_style"
+                android:text="社团" />
+        </LinearLayout>
 
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/school_learn_help"
-            android:layout_width="0dp"
-            android:layout_height="92dp"
-            android:layout_weight="1">
+            style="@style/community_item_layout_style">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_launcher" />
+                style="@style/community_item_image_style"
+                android:src="@drawable/ic_communtity_friendship" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="学习互助"
-                android:textColor="#000000" />
-        </FrameLayout>
+                style="@style/community_item_text_style"
+                android:text="学习互助" />
+        </LinearLayout>
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@android:color/black" />
+        android:layout_height="10dp"
+        android:background="#F0F0F0" />
 </LinearLayout>

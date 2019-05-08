@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.android.easymanager.R;
 import com.android.easymanager.ui.activity.SchoolAnnouncementActivity;
@@ -83,13 +84,13 @@ public class CommunityGirdAdapter extends RecyclerView.Adapter<ViewHolder> {
     public class HeaderHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.school_announcement)
-        FrameLayout school_announcement;
+        LinearLayout school_announcement;
         @BindView(R.id.school_activity)
-        FrameLayout school_activity;
+        LinearLayout school_activity;
         @BindView(R.id.school_society)
-        FrameLayout school_society;
+        LinearLayout school_society;
         @BindView(R.id.school_learn_help)
-        FrameLayout school_learn_help;
+        LinearLayout school_learn_help;
 
         public HeaderHolder(View itemView) {
             super(itemView);
