@@ -34,7 +34,7 @@ public class SchoolAnnouncementActivity extends BaseActivity{
 
     @Override
     public void init() {
-        setTitle("校园公告");
+        setTitle("校园公告/活动");
         initRecycleView();
     }
 

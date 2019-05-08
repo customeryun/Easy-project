@@ -18,10 +18,10 @@ public class MainActivity extends BaseActivity {
 
     public static final String TAG = "App_main";
 
-    @BindView(R.id.bottom_navigation)
-    AHBottomNavigation bottom_navigation;
-    @BindView(R.id.view_page)
-    AHBottomNavigationViewPager view_page;
+    //@BindView(R.id.bottom_navigation)
+    public static AHBottomNavigation bottom_navigation;
+//    @BindView(R.id.view_page)
+   public static AHBottomNavigationViewPager view_page;
 
     @Override
     public int getLayout() {
@@ -35,6 +35,8 @@ public class MainActivity extends BaseActivity {
     }
 
     public void initView(){
+        bottom_navigation = (AHBottomNavigation)findViewById(R.id.bottom_navigation);
+        view_page = (AHBottomNavigationViewPager)findViewById(R.id.view_page);
         initBottomNavigation();
         initViewPage();
     }
@@ -94,6 +96,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        //super.onBackPressed();
+    }
+
+    public static void goToPageById(int position){
+        view_page.setCurrentItem(position,false);
+        bottom_navigation.setCurrentItem(position);
     }
 }

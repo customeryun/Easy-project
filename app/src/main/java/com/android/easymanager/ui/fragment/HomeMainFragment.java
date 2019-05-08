@@ -14,12 +14,12 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.android.easymanager.presenter.HomePresenter;
 import com.android.easymanager.R;
 import com.android.easymanager.contract.HomeContract;
 import com.android.easymanager.ui.activity.CommentActivity;
 import com.android.easymanager.ui.activity.CommunityActivity;
+import com.android.easymanager.ui.activity.ConversationListActivity;
 import com.android.easymanager.ui.adapter.HomeItemDecoration;
 import com.android.easymanager.ui.adapter.HomeMainAdapter;
 import com.android.easymanager.ui.adapter.HomeMainDividerItemDecoration;
@@ -28,11 +28,10 @@ import com.android.easymanager.ui.widget.CommentEditTextDialog;
 import com.android.easymanager.utils.CommonUtils;
 import com.example.zhouwei.library.CustomPopWindow;
 //import com.android.easymanager.ui.adapter.HomeMainDividerItemDecoration;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by PC-xiaoming on 2019/4/27.
@@ -46,13 +45,13 @@ public class HomeMainFragment extends BaseFragment<HomeContract.View,HomeContrac
             "http://d.hiphotos.baidu.com/image/h%3D200/sign=ea218b2c5566d01661199928a729d498/a08b87d6277f9e2fd4f215e91830e924b999f308.jpg",
             "http://img4.imgtn.bdimg.com/it/u=3445377427,2645691367&fm=21&gp=0.jpg",
             "http://img4.imgtn.bdimg.com/it/u=2644422079,4250545639&fm=21&gp=0.jpg",
-            "http://img5.imgtn.bdimg.com/it/u=1444023808,3753293381&fm=21&gp=0.jpg",
-            "http://img4.imgtn.bdimg.com/it/u=882039601,2636712663&fm=21&gp=0.jpg",
-            "http://img4.imgtn.bdimg.com/it/u=4119861953,350096499&fm=21&gp=0.jpg",
-            "http://img5.imgtn.bdimg.com/it/u=2437456944,1135705439&fm=21&gp=0.jpg",
-            "http://img2.imgtn.bdimg.com/it/u=3251359643,4211266111&fm=21&gp=0.jpg",
-            "http://img4.duitang.com/uploads/item/201506/11/20150611000809_yFe5Z.jpeg",
-            "http://img5.imgtn.bdimg.com/it/u=1717647885,4193212272&fm=21&gp=0.jpg",
+//            "http://img5.imgtn.bdimg.com/it/u=1444023808,3753293381&fm=21&gp=0.jpg",
+//            "http://img4.imgtn.bdimg.com/it/u=882039601,2636712663&fm=21&gp=0.jpg",
+//            "http://img4.imgtn.bdimg.com/it/u=4119861953,350096499&fm=21&gp=0.jpg",
+//            "http://img5.imgtn.bdimg.com/it/u=2437456944,1135705439&fm=21&gp=0.jpg",
+//            "http://img2.imgtn.bdimg.com/it/u=3251359643,4211266111&fm=21&gp=0.jpg",
+//            "http://img4.duitang.com/uploads/item/201506/11/20150611000809_yFe5Z.jpeg",
+//            "http://img5.imgtn.bdimg.com/it/u=1717647885,4193212272&fm=21&gp=0.jpg",
             "http://img5.imgtn.bdimg.com/it/u=2024625579,507531332&fm=21&gp=0.jpg"};
 
     @BindView(R.id.home_list)
@@ -171,6 +170,15 @@ public class HomeMainFragment extends BaseFragment<HomeContract.View,HomeContrac
         Log.d(TAG, "onItemClick: "+type);
         if(type == HomeMainAdapter.TYPE_PENGYOU){
             CommentActivity.launchActivity(mContext);
+        }
+    }
+
+    @OnClick({R.id.iv_home_message})
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.iv_home_message:
+                ConversationListActivity.launchActivity(mContext);
+                break;
         }
     }
 }

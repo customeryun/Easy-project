@@ -9,17 +9,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="@dimen/space_10dp"
+        android:layout_marginTop="7dp"
         android:gravity="left"
         android:text="推荐功能"
         android:textColor="#ff333333"
-        android:textSize="12sp" />
+        android:textSize="16sp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/tuijian_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp">
+        android:layout_marginLeft="0dp">
 
     </android.support.v7.widget.RecyclerView>
 </LinearLayout>

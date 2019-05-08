@@ -15,7 +15,7 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_alignParentLeft="true"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/home_top_04" />
 
         <TextView
             android:id="@+id/home_pengyou_name"
@@ -26,8 +26,16 @@
             android:layout_toRightOf="@id/com_status_img"
             android:gravity="left"
             android:text="林贤雅"
-            android:textColor="#D3000000"
-            android:textSize="12dp" />
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sex_women"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/home_pengyou_name"/>
 
         <TextView
             android:id="@+id/home_pengyou_state"
@@ -35,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/com_status_name"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="30dp"
             android:layout_toRightOf="@id/com_status_img"
             android:background="@drawable/ic_home_dontai_tv_state_bg"
             android:gravity="left"
@@ -45,7 +53,7 @@
             android:paddingTop="2dp"
             android:text="学习互助"
             android:textColor="#ffff84a7"
-            android:textSize="12dp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/home_pengyou_time"
@@ -54,21 +62,32 @@
             android:layout_alignParentRight="true"
             android:gravity="left"
             android:text="1分钟前"
-            android:textColor="#54000000"
-            android:textSize="12dp" />
+            android:textColor="#999999"
+            android:textSize="12sp" />
     </RelativeLayout>
 
-    <com.lcodecore.extextview.ExpandTextView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <!--<com.lcodecore.extextview.ExpandTextView xmlns:app="http://schemas.android.com/apk/res-auto"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:text="@string/dongtai_test"-->
+        <!--android:textColor="#333333"-->
+        <!--android:textSize="14sp"-->
+        <!--app:arrowAlign="center"-->
+        <!--app:arrowPadding="8dp"-->
+        <!--app:expandDrawable="@null"-->
+        <!--app:arrowPosition="below"-->
+        <!--app:maxCollapsedLines="4" />-->
+    <TextView
+        android:id="@+id/tv_c"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="@string/dongtai_test"
-        android:textColor="#666666"
-        android:textSize="16sp"
-        app:arrowAlign="center"
-        app:arrowPadding="8dp"
-        app:arrowPosition="below"
-        app:maxCollapsedLines="4" />
+        android:textColor="#333333"
+        android:textSize="14sp"
+        android:ellipsize="end"
+        android:maxLines="4"/>
 
     <com.android.easymanager.ui.widget.CommunityGridLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/home_pengyou_nine_grid"

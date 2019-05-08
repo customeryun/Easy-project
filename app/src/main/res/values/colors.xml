@@ -51,4 +51,7 @@
 
     <color name="settings_itemview_lefe_textcolor">#2E2E2E</color>
     <color name="settings_itemview_right_textcolor">#999999</color>
+
+    <color name="text_color_default">#333333</color>
+    <color name="text_color_default_second">#999999</color>
 </resources>

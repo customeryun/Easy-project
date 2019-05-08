@@ -1,6 +1,7 @@
 package com.android.easymanager.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
@@ -11,14 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.android.easymanager.MainActivity;
 import com.android.easymanager.R;
 import com.android.easymanager.presenter.HomePresenter;
+import com.android.easymanager.ui.activity.FriendInfoActivity;
+import com.android.easymanager.ui.activity.SchoolAnnouncementActivity;
 import com.android.easymanager.ui.widget.CommunityGridLayout;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -150,25 +151,53 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     //公告
     public class GongGaoViewHolder extends RecyclerView.ViewHolder {
-
+        @OnClick({R.id.tv_more})
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.tv_more:
+                    SchoolAnnouncementActivity.launchActivity(mContext);
+                    break;
+            }
+        }
         public GongGaoViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 
     //行程
     public class XingChengViewHolder extends RecyclerView.ViewHolder {
-
+        @OnClick({R.id.layout_more})
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.layout_more:
+                    MainActivity.goToPageById(1);//跳转到日程页
+                    break;
+            }
+        }
         public XingChengViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this,itemView);
         }
     }
 
     //动态
     public class DontaiViewHolder extends RecyclerView.ViewHolder {
+        @OnClick({R.id.tv_more,R.id.layout_activities})
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.tv_more:
+                    MainActivity.goToPageById(3);//跳转到社区页
+                    break;
+                case R.id.layout_activities:
+                    SchoolAnnouncementActivity.launchActivity(mContext);//跳转到活动页
+                    break;
+            }
+        }
 
         public DontaiViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 
@@ -205,7 +234,7 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
             });
         }
 
-        @OnClick({R.id.home_dianzhan_count, R.id.home_comment_count, R.id.home_share})
+        @OnClick({R.id.home_dianzhan_count, R.id.home_comment_count, R.id.home_share,R.id.home_pengyou_img})
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.home_dianzhan_count:
@@ -234,6 +263,11 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
 
                         }
                     });
+                    break;
+                case R.id.home_pengyou_img:
+                    Intent intent = new Intent(mContext, FriendInfoActivity.class);
+                    intent.putExtra("fromContact", true);
+                    mContext.startActivity(intent);
                     break;
             }
         }

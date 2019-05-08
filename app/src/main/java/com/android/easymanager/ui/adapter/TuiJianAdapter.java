@@ -8,13 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.android.easymanager.MainActivity;
 import com.android.easymanager.R;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -91,6 +89,12 @@ public class TuiJianAdapter extends RecyclerView.Adapter<TuiJianAdapter.TuijianH
         public TuijianHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MainActivity.goToPageById(2);//跳转到应用页
+                }
+            });
         }
     }
 }

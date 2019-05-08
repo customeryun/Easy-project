@@ -62,3 +62,4 @@
 55.linmei   add actionbar和我的模块UI细节调整1
 56.linmei   add 我的设置UI细节调整和页面补充
 57.linmei   add 个人信息列表和联系人详情列表，字段显示和UI调整 20190507
+58.linmei   add 首页UI细节调整和交互补充 20190508
