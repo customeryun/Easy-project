@@ -3,21 +3,25 @@ package com.android.easymanager.ui.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
+import android.util.Log;
 import com.android.easymanager.R;
+import com.android.easymanager.contract.HomeContract;
+import com.android.easymanager.presenter.HomePresenter;
+import com.android.easymanager.ui.activity.CommentActivity;
 import com.android.easymanager.ui.adapter.CommunityGirdAdapter;
-
+import com.android.easymanager.ui.adapter.HomeMainAdapter;
+import com.android.easymanager.ui.bean.CommentDetailBean;
+import com.android.easymanager.ui.widget.CommentEditTextDialog;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import butterknife.BindView;
 
 /**
  * Created by PC-xiaoming on 2019/4/23.
  */
 
-public class CommunityFragment extends BaseFragment{
+public class CommunityFragment extends BaseFragment implements HomeContract.View,HomeMainAdapter.OnRvItemListener{
 
     //test data
     private String[] mUrls = new String[]{"http://d.hiphotos.baidu.com/image/h%3D200/sign=201258cbcd80653864eaa313a7dca115/ca1349540923dd54e54f7aedd609b3de9c824873.jpg",
@@ -57,9 +61,59 @@ public class CommunityFragment extends BaseFragment{
         return null;
     }
 
+//    @Override
+//    public Object createPresenter() {
+//        return null;
+//    }
     @Override
-    public Object createPresenter() {
-        return null;
+    public HomeContract.Presenter createPresenter() {
+        return new HomePresenter(this,mContext);
+    }
+
+
+    @Override
+    public void showLoad() {
+
+    }
+
+    @Override
+    public void hideLoad() {
+
+    }
+
+    @Override
+    public void loadData() {
+
+    }
+
+    @Override
+    public void networkError() {
+
+    }
+
+    @Override
+    public void onError() {
+
+    }
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void updateEditLayout(int visibility) {
+        //showPopWindow();
+        showDialog();
+    }
+
+    public void showDialog(){
+        new CommentEditTextDialog(mActivity).initView().setSendClickListener(new CommentEditTextDialog.SendClickListener() {
+            @Override
+            public void sendClick(CommentDetailBean detailBean) {
+                //adapter.addTheCommentData(detailBean);
+            }
+        }).showDialog();
     }
 
     @Override
@@ -76,6 +130,15 @@ public class CommunityFragment extends BaseFragment{
         //ArrayList<String> paths = (ArrayList<String>) Arrays.asList(mUrls);
         List<String> paths = Arrays.asList(mUrls);
         mAdapter = new CommunityGirdAdapter(paths,mContext);
+        mAdapter.setPresenter((HomePresenter) mPresenter);
+        mAdapter.setOnRvItemListener(this);
         community_list.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onItemClick(int position, int type) {
+        if(type == CommunityGirdAdapter.LIST_TYP){
+            CommentActivity.launchActivity(mContext);
+        }
     }
 }

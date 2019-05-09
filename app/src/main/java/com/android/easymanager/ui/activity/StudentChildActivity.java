@@ -55,12 +55,12 @@ public class StudentChildActivity extends BaseActivity implements BaseRecyclerAd
 
     public ArrayList<StudentItem> buildItems() {
         ArrayList<StudentItem> managerEntries = new ArrayList<>();
-        managerEntries.add(new StudentItem(0,"张三","男","中国", "20190409001"));
-        managerEntries.add(new StudentItem(0,"李四","男","美国", "20190409021"));
-        managerEntries.add(new StudentItem(0,"王五","女","中国", "20190409001"));
-        managerEntries.add(new StudentItem(0,"赵六","男","美国", "20190409021"));
-        managerEntries.add(new StudentItem(0,"张三","男","中国", "20190409001"));
-        managerEntries.add(new StudentItem(0,"李七","男","美国", "20190409021"));
+        managerEntries.add(new StudentItem(0,"张三",0,"中国", "20190409001"));
+        managerEntries.add(new StudentItem(0,"李四",0,"美国", "20190409021"));
+        managerEntries.add(new StudentItem(0,"王五",1,"中国", "20190409001"));
+        managerEntries.add(new StudentItem(0,"赵六",1,"美国", "20190409021"));
+        managerEntries.add(new StudentItem(0,"张三",0,"中国", "20190409001"));
+        managerEntries.add(new StudentItem(0,"李七",0,"美国", "20190409021"));
         return managerEntries;
     }
 

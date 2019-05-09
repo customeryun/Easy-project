@@ -72,11 +72,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:textColor="#333333"
+        android:textSize="14sp"
+        android:ellipsize="end"
         android:text="Vlog Vlog can't be cut out, it can't be cut out in this life, but there are some video screenshots."/>
     <com.android.easymanager.ui.widget.CommunityGridLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/layout_nine_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="8dp"
         app:sapcing="4dp" />
     <FrameLayout

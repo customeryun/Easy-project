@@ -23,7 +23,7 @@ public class StudentItemAdapter extends BaseRecyclerAdapter<StudentItem> {
         if(viewHolder instanceof MyHolder) {
             MyHolder holder = (MyHolder)viewHolder;
             holder.tv_name.setText(item.getName());
-            holder.img_sex.setImageResource(0);
+            holder.img_sex.setImageResource(item.getSex()==0 ? R.drawable.sex_man :R.drawable.sex_women);
             holder.tv_country.setText("国籍："+item.getCountry());
             holder.tv_number.setText("学号："+item.getStudengNumber());
         }

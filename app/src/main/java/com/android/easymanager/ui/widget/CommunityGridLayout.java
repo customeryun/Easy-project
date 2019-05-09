@@ -15,7 +15,7 @@ import java.util.List;
 
 public class CommunityGridLayout extends NineGridLayout {
 
-    protected static final int MAX_W_H_RATIO = 3;
+    protected static final int MAX_W_H_RATIO = 2;
 
     public CommunityGridLayout(Context context) {
         super(context);

@@ -7,14 +7,14 @@
     <LinearLayout
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
         android:layout_height="44dp"
         android:gravity="center_vertical"
         android:background="#FFFFFF">
         <ImageView
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_communtity_me"/>
         <TextView
             android:id="@+id/today"
@@ -27,7 +27,9 @@
             android:text="社区"/>
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
             android:src="@drawable/ic_communtity_edit"/>
     </LinearLayout>
     <android.support.v7.widget.RecyclerView

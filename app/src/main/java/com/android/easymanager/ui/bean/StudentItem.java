@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class StudentItem implements Serializable {
     private int id;
     private String name;
-    private String sex;
+    private int sex; //0:man 1:woman
     private String country;
     private String studengNumber;
 
-    public StudentItem(int mId, String mName,String mSex, String mCountry,String number) {
+    public StudentItem(int mId, String mName,int mSex, String mCountry,String number) {
         id = mId;
         name = mName;
         sex = mSex;
@@ -33,11 +33,11 @@ public class StudentItem implements Serializable {
         this.name = name;
     }
 
-    public String getSex() {
+    public int getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(int sex) {
         this.sex = sex;
     }
 

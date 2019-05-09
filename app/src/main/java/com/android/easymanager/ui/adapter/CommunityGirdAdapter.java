@@ -1,6 +1,7 @@
 package com.android.easymanager.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,17 +9,20 @@ import android.view.ViewGroup;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-
+import android.widget.TextView;
 import com.android.easymanager.R;
+import com.android.easymanager.presenter.HomePresenter;
+import com.android.easymanager.ui.activity.FriendInfoActivity;
 import com.android.easymanager.ui.activity.SchoolAnnouncementActivity;
 import com.android.easymanager.ui.widget.CommunityGridLayout;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import me.shaohui.shareutil.ShareUtil;
+import me.shaohui.shareutil.share.ShareListener;
+import me.shaohui.shareutil.share.SharePlatform;
 
 /**
  * Created by PC-xiaoming on 2019/4/23.
@@ -28,14 +32,19 @@ public class CommunityGirdAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<String> mDatas = new ArrayList<>();
     private Context mContext;
-    private final static int HEADER_TYPE = 1;
-    private final static int LIST_TYP = 2;
+    public final static int HEADER_TYPE = 1;
+    public final static int LIST_TYP = 2;
+    private HomeMainAdapter.OnRvItemListener mOnRvItemListener;
+    private HomePresenter mHomePresenter;
 
     public CommunityGirdAdapter(List<String> datas, Context context) {
         this.mDatas = datas;
         this.mContext = context;
     }
 
+    public void setOnRvItemListener(HomeMainAdapter.OnRvItemListener onRvItemListener){
+        this.mOnRvItemListener = onRvItemListener;
+    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -72,12 +81,67 @@ public class CommunityGirdAdapter extends RecyclerView.Adapter<ViewHolder> {
         return mDatas.size();
     }
 
+    public void setPresenter(HomePresenter homePresenter) {
+        this.mHomePresenter = homePresenter;
+    }
+
     public class ListViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.layout_nine_grid)
         CommunityGridLayout layout;
+        @BindView(R.id.comment_dianzhan_count)
+        TextView comment_dianzhan_count;
+
+        private int dianzhanCount;
 
         public ListViewHolder(View itemView) {
             super(itemView);
-            layout = (CommunityGridLayout) itemView.findViewById(R.id.layout_nine_grid);
+            ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(mOnRvItemListener!=null){
+                        mOnRvItemListener.onItemClick(getAdapterPosition(),getItemViewType());
+                    }
+                }
+            });
+        }
+
+        @OnClick({R.id.comment_dianzhan_count, R.id.comment_count, R.id.comment_share,R.id.home_pengyou_img})
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.comment_dianzhan_count:
+                    dianzhanCount++;
+                    comment_dianzhan_count.setText("" + dianzhanCount);
+                    break;
+                case R.id.comment_count:
+                    if (mHomePresenter != null) {
+                        mHomePresenter.showEdit();
+                    }
+                    break;
+                case R.id.comment_share:
+                    ShareUtil.shareText(mContext, SharePlatform.WX, "·ÖÏíÎÄ×Ö", new ShareListener() {
+                        @Override
+                        public void shareSuccess() {
+
+                        }
+
+                        @Override
+                        public void shareFailure(Exception e) {
+
+                        }
+
+                        @Override
+                        public void shareCancel() {
+
+                        }
+                    });
+                    break;
+                case R.id.home_pengyou_img:
+                    Intent intent = new Intent(mContext, FriendInfoActivity.class);
+                    intent.putExtra("fromContact", true);
+                    mContext.startActivity(intent);
+                    break;
+            }
         }
     }
 
@@ -115,5 +179,9 @@ public class CommunityGirdAdapter extends RecyclerView.Adapter<ViewHolder> {
                     break;
             }
         }
+    }
+
+    public interface OnRvItemListener {
+        void onItemClick(int position, int type);
     }
 }
