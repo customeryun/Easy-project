@@ -92,7 +92,7 @@ public class TuiJianAdapter extends RecyclerView.Adapter<TuiJianAdapter.TuijianH
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    MainActivity.goToPageById(2);//跳转到应用页
+                    MainActivity.goToPageById(2);
                 }
             });
         }

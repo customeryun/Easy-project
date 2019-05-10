@@ -1,6 +1,9 @@
 package com.android.easymanager.ui.widget;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.android.easymanager.R;
+import com.android.easymanager.ui.adapter.BaseRecyclerAdapter;
 
 public class ScheduleItemLayout extends LinearLayout {
     private static final String TAG = "ScheduleLayout";
@@ -51,7 +55,7 @@ public class ScheduleItemLayout extends LinearLayout {
         Log.d(TAG, "onFinishInflate: ");
         mItemParent = parent.findViewById(R.id.rv_layout);
         setData(Arrays.asList(items));
-        setOnclickListener();
+//        setOnclickListener();
     }
 
     /**
@@ -77,7 +81,7 @@ public class ScheduleItemLayout extends LinearLayout {
         mItemParent.addView(itemView, params);
     }
 
-    public void setOnclickListener() {
+    public void setOnclickListener(final OnItemClickListener mListener) {
         int count = mItemParent.getChildCount();
         for (int i = 0; i < count; i++) {
             View view = mItemParent.getChildAt(i);
@@ -86,9 +90,14 @@ public class ScheduleItemLayout extends LinearLayout {
                 @Override
                 public void onClick(View v) {
                     Log.d(TAG, "onClick: " + index);
-                    Toast.makeText(mContext, "点击了" + index, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(mContext, "点击了" + index, Toast.LENGTH_LONG).show();
+                    mListener.onItemClick(index);
                 }
             });
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
     }
 }

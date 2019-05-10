@@ -154,4 +154,6 @@
     <string name="btn_text_speak">按住录音</string>
     <string name="scan_qrcode_title">返回</string>
     <string name="scan_qrcode_hint">将取景框对准二维码，即可自动扫描</string>
+
+    <string name="share_text">分享文字</string>
 </resources>

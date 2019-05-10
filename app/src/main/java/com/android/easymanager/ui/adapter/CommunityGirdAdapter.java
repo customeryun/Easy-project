@@ -119,7 +119,7 @@ public class CommunityGirdAdapter extends RecyclerView.Adapter<ViewHolder> {
                     }
                     break;
                 case R.id.comment_share:
-                    ShareUtil.shareText(mContext, SharePlatform.WX, "·ÖÏíÎÄ×Ö", new ShareListener() {
+                    ShareUtil.shareText(mContext, SharePlatform.WX, mContext.getResources().getString(R.string.share_text), new ShareListener() {
                         @Override
                         public void shareSuccess() {
 

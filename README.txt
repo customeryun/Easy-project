@@ -66,3 +66,4 @@
 59.linmei   add 首页动态详情+社区首页UI调整 20190509
 60.linmei   add 社区UI交互补充+导航栏遮挡Bug 20190509
 61.linmei   add 日程模块筛选弹框和添加日程功能add 20190510
+62.linmei   add 首页日程item显示详情；日程首页UI细节调整 20190511

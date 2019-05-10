@@ -1,5 +1,8 @@
 package com.android.easymanager.ui.fragment;
 
+import android.app.AlertDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -170,6 +173,11 @@ public class HomeMainFragment extends BaseFragment<HomeContract.View,HomeContrac
         Log.d(TAG, "onItemClick: "+type);
         if(type == HomeMainAdapter.TYPE_PENGYOU){
             CommentActivity.launchActivity(mContext);
+//        }else if(type == HomeMainAdapter.TYPE_XINGCHENG){
+//            View view = LayoutInflater.from(mActivity).inflate(R.layout.schedule_dialog_s1_layout,null,false);
+//            final AlertDialog dialog = new AlertDialog.Builder(mActivity).setView(view).create();
+//            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//            dialog.show();
         }
     }
 

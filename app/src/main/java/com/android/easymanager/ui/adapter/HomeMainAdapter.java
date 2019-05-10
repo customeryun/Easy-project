@@ -1,7 +1,10 @@
 package com.android.easymanager.ui.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
@@ -18,6 +21,8 @@ import com.android.easymanager.presenter.HomePresenter;
 import com.android.easymanager.ui.activity.FriendInfoActivity;
 import com.android.easymanager.ui.activity.SchoolAnnouncementActivity;
 import com.android.easymanager.ui.widget.CommunityGridLayout;
+import com.android.easymanager.ui.widget.ScheduleItemLayout;
+import com.android.easymanager.utils.ToastUtil;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
@@ -178,6 +183,17 @@ public class HomeMainAdapter extends RecyclerView.Adapter<ViewHolder> {
         public XingChengViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
+
+            ((ScheduleItemLayout)itemView).setOnclickListener(new ScheduleItemLayout.OnItemClickListener() {
+                @Override
+                public void onItemClick(int position) {
+                    ToastUtil.shortToast(mContext,"****position=="+position+"*****");
+                    View view = LayoutInflater.from(mContext).inflate(R.layout.schedule_dialog_s1_layout,null,false);
+                    final AlertDialog dialog = new AlertDialog.Builder(mContext).setView(view).create();
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    dialog.show();
+                }
+            });
         }
     }
 

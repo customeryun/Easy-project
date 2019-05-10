@@ -13,27 +13,38 @@
        <RelativeLayout
            android:id="@+id/title"
            android:layout_width="match_parent"
-           android:layout_height="40dp"
+           android:layout_height="44dp"
            android:layout_gravity="top"
            android:background="@color/calendar_bg_color">
-           <TextView
-               android:id="@+id/today"
+           <LinearLayout
                android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_gravity="center"
+               android:layout_height="match_parent"
                android:gravity="center"
-               android:layout_centerInParent="true"
-               android:textColor="#FF333333"
-               android:textSize="18sp"
-               android:text="03月30日"/>
+               android:layout_centerInParent="true">
+               <TextView
+                   android:id="@+id/today"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:textColor="#FF333333"
+                   android:textSize="18sp"
+                   android:text="03月30日"/>
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:paddingStart="10dp"
+                   android:paddingEnd="10dp"
+                   android:layout_toEndOf="@+id/today"
+                   android:src="@drawable/ic_group"/>
+           </LinearLayout>
            <ImageView
                android:id="@+id/icon_meun"
                android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
+               android:layout_height="match_parent"
                android:layout_alignParentEnd="true"
                android:paddingEnd="15dp"
                android:paddingStart="15dp"
-               android:src="@drawable/icon_add_nomal"/>
+               android:src="@drawable/icon_menu_select"/>
 
        </RelativeLayout>
        <com.haibin.calendarview.CalendarLayout
@@ -89,7 +100,7 @@
                <View
                    android:id="@+id/bg"
                    android:layout_width="match_parent"
-                   android:layout_height="15dp"
+                   android:layout_height="10dp"
                    android:background="#fff0f0f0"/>
                <TextView
                    android:text="今日日程"
@@ -99,6 +110,7 @@
                    android:layout_marginTop="15dp"
                    android:layout_marginLeft="15dp"
                    android:textColor="#333333"
+                   android:textSize="16sp"
                    android:layout_below="@id/bg"
                    android:id="@+id/textView" />
 

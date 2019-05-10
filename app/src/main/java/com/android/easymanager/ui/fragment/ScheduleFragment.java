@@ -110,7 +110,7 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
     @Override
     public void onItemClick(int position, ScheduleItem item) {
         if(position%2 == 0){
-            buildS1Dialog();
+            buildS2Dialog();
         }else{
             buildS1Dialog();
         }
@@ -143,7 +143,7 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
         if (mMenuPopWindow.isShowing()) {
             mMenuPopWindow.dismiss();
         } else {
-            mMenuPopWindow.showAsDropDown(getActivity().findViewById(R.id.icon_meun), -150, 20);
+            mMenuPopWindow.showAsDropDown(getActivity().findViewById(R.id.icon_meun), -200, 10);
         }
         select_cource.setOnClickListener(new View.OnClickListener() {
             @Override
