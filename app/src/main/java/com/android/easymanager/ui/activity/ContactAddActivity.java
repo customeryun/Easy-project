@@ -31,12 +31,13 @@ public class ContactAddActivity extends BaseActivity{
         context.startActivity(intent);
     }
 
-    @OnClick({R.id.contact_show_code,R.id.search_for_add_friend,R.id.search_for_scan})
+    @OnClick({R.id.contact_show_code,R.id.search_for_add_friend,R.id.search_for_scan,R.id.search_view})
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.contact_show_code:
                 UserInfoActivity.launchActivity(mContext);
                 break;
+            case R.id.search_view:
             case R.id.search_for_add_friend:
                 SearchForAddFriendActivity.launchActivity(mContext);
                 break;

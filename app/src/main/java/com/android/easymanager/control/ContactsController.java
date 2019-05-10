@@ -45,10 +45,10 @@ public class ContactsController implements View.OnClickListener{
     public void onClick(View v) {
         Intent intent = new Intent();
         switch (v.getId()) {
-            case R.id.search_view://查找
+//            case R.id.search_view://查找
 //                intent.setClass(mContext, SearchContactsActivity.class);
 //                mContext.startActivity(intent);
-                break;
+//                break;
             case R.id.contact_new:
                 FriendRecommendActivity.launchActivity(mContext);
                 break;
@@ -126,7 +126,7 @@ public class ContactsController implements View.OnClickListener{
                     mAdapter.addDatas(mList);
                     View layout = LayoutInflater.from(mContext).inflate(R.layout.contact_manager_head_layout,null);
                     ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    ((EditText)layout.findViewById(R.id.search_view)).setOnClickListener(ContactsController.this);
+//                    ((EditText)layout.findViewById(R.id.search_view)).setOnClickListener(ContactsController.this);
                     ((ItemView)layout.findViewById(R.id.contact_new)).setOnClickListener(ContactsController.this);
                     ((ItemView)layout.findViewById(R.id.contact_teacher)).setOnClickListener(ContactsController.this);
                     ((ItemView)layout.findViewById(R.id.contact_student)).setOnClickListener(ContactsController.this);
@@ -147,7 +147,7 @@ public class ContactsController implements View.OnClickListener{
         mAdapter.addDatas(mList);
         View layout = LayoutInflater.from(mContext).inflate(R.layout.contact_manager_head_layout,null);
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        ((EditText)layout.findViewById(R.id.search_view)).setOnClickListener(ContactsController.this);
+//        ((EditText)layout.findViewById(R.id.search_view)).setOnClickListener(ContactsController.this);
         ((ItemView)layout.findViewById(R.id.contact_new)).setOnClickListener(ContactsController.this);
         ((ItemView)layout.findViewById(R.id.contact_teacher)).setOnClickListener(ContactsController.this);
         ((ItemView)layout.findViewById(R.id.contact_student)).setOnClickListener(ContactsController.this);

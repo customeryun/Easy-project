@@ -3,36 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F9F9"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <include layout="@layout/activity_title_layout"/>
 
+    <include layout="@layout/view_search_layout"/>
+
     <com.android.easymanager.ui.widget.settings.ItemView
         android:id="@+id/search_for_add_friend"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="55dp"
         app:left_text="输入用户名搜索"
         app:show_left_icon="true"
+        app:left_icon="@drawable/ic_search"
         app:show_top_line="true"
+        android:visibility="gone"
         android:showDividers="middle"
         app:show_right_arrow="false"
         /><!--app:left_text="输入学号搜索"-->
     <com.android.easymanager.ui.widget.settings.ItemView
         android:id="@+id/search_for_scan"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="55dp"
         app:left_text="扫一扫加好友"
         app:show_left_icon="true"
+        app:left_icon="@drawable/scan_search"
         app:show_right_arrow="false"
         />
     <com.android.easymanager.ui.widget.settings.ItemView
         android:id="@+id/contact_show_code"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="55dp"
         app:left_text="我的二维码"
         app:show_left_icon="true"
         app:show_right_arrow="false"
+        app:left_icon="@drawable/code_search"
         />
 
 </LinearLayout>

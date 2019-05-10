@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 import com.android.easymanager.R;
 import com.android.easymanager.ui.adapter.BaseRecyclerAdapter;
+import com.android.easymanager.ui.adapter.IconAdapter;
 import com.android.easymanager.ui.adapter.StudentGroupAdapter;
 import com.android.easymanager.ui.bean.ContactGroupEntry;
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public class TeacherGroupActivity extends BaseActivity implements BaseRecyclerAd
 
     @BindView(R.id.recyclerView)
     RecyclerView recycle_view;
+    @BindView(R.id.recyclerView_icon)
+    RecyclerView recycle_icon;
 
     @Override
     public int getLayout() {
@@ -42,6 +45,23 @@ public class TeacherGroupActivity extends BaseActivity implements BaseRecyclerAd
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         recycle_view.setAdapter(adapter);
+
+        IconAdapter iconAdapter = new IconAdapter(this);
+        iconAdapter.setOnItemClickListener(this);
+        iconAdapter.addDatas(buildIconItems());
+        recycle_icon.setLayoutManager(new LinearLayoutManager(mContext));
+        //recycle_icon.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        recycle_icon.setAdapter(iconAdapter);
+
+
+    }
+
+    public ArrayList<String> buildIconItems() {
+        ArrayList<String> managerEntries = new ArrayList<>();
+        managerEntries.add("s");
+        managerEntries.add("s");
+        managerEntries.add("s");
+        return managerEntries;
     }
 
     public ArrayList<ContactGroupEntry> buildItems() {

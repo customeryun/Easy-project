@@ -2,19 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical">
 
     <include layout="@layout/activity_title_layout"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:hint="搜索"
-        android:textSize="14dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+    <include layout="@layout/view_search_layout"/>
+
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="38dp"-->
+        <!--android:hint="搜索"-->
+        <!--android:textSize="14dp"-->
+        <!--android:paddingTop="4dp"-->
+        <!--android:paddingBottom="4dp"-->
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_marginEnd="16dp"/>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
