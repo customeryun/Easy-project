@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.LinearLayout;
 import com.android.easymanager.R;
 import com.android.easymanager.ui.bean.ScheduleItem;
 
@@ -34,6 +34,11 @@ public class ScheduleTaskAdapter extends RecyclerView.Adapter<ScheduleTaskAdapte
         this.rvOnItemListener = rvOnItemListener;
     }
 
+    public void addData(ScheduleItem item){
+        this.scheduleItems.add(item);
+        notifyDataSetChanged();
+    }
+
     @Override
     public ScheduleHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.schedule_item_layout,parent,false);
@@ -57,6 +62,8 @@ public class ScheduleTaskAdapter extends RecyclerView.Adapter<ScheduleTaskAdapte
 
         @BindView(R.id.rv_left)
         ImageView rv_left;
+        @BindView(R.id.rv_right)
+        LinearLayout rv_right;
         @BindView(R.id.rv_title)
         TextView rv_title;
         @BindView(R.id.rv_time)
@@ -65,7 +72,7 @@ public class ScheduleTaskAdapter extends RecyclerView.Adapter<ScheduleTaskAdapte
         public ScheduleHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
-            itemView.setOnClickListener(new View.OnClickListener() {
+            /*itemView*/rv_right.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if(rvOnItemListener!=null){

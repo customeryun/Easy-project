@@ -1,23 +1,31 @@
 package com.android.easymanager.ui.fragment;
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
-
 import com.android.easymanager.R;
+import com.android.easymanager.model.Constant;
+import com.android.easymanager.ui.activity.CommonScanActivity;
+import com.android.easymanager.ui.activity.ContactAddActivity;
 import com.android.easymanager.ui.adapter.SchedulePopAdapter;
 import com.android.easymanager.ui.adapter.ScheduleTaskAdapter;
 import com.android.easymanager.ui.bean.ScheduleItem;
@@ -45,6 +53,15 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
     RecyclerView recycle_view;
     @BindView(R.id.schedule_add)
     FrameLayout schedule_add;
+    @BindView(R.id.icon_meun)
+    ImageView img_menu;
+    PopupWindow mMenuPopWindow;
+    EditText editTv_content;
+    CustomPopWindow mAddSchedulePopWindow;
+    TimePickerView pvCustomTime = null;
+    String mSeletedDateString = "08:10-12:00";
+    ScheduleTaskAdapter adapter;
+
 
     public static ScheduleFragment getInstance(){
         ScheduleFragment fragment = new ScheduleFragment();
@@ -74,7 +91,7 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
     }
 
     public void loadRecyclerView(){
-        ScheduleTaskAdapter adapter = new ScheduleTaskAdapter(mContext,buildItems(),this);
+        adapter = new ScheduleTaskAdapter(mContext,buildItems(),this);
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.setAdapter(adapter);
     }
@@ -84,9 +101,9 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
         items.add(new ScheduleItem(R.drawable.ic_course_done,"汉语言课程","8:10 - 12:10"));
         items.add(new ScheduleItem(R.drawable.ic_social_activity,"体育活动课程","8:10 - 12:10"));
         items.add(new ScheduleItem(R.drawable.ic_course_done,"材料力学课程","8:10 - 12:10"));
-        items.add(new ScheduleItem(R.drawable.ic_social_activity,"社团活动","8:10 - 12:10"));
-        items.add(new ScheduleItem(R.drawable.ic_course_done,"看电影","8:10 - 12:10"));
-        items.add(new ScheduleItem(R.drawable.ic_social_activity,"翻译实践课程","8:10 - 12:10"));
+//        items.add(new ScheduleItem(R.drawable.ic_social_activity,"社团活动","8:10 - 12:10"));
+//        items.add(new ScheduleItem(R.drawable.ic_course_done,"看电影","8:10 - 12:10"));
+//        items.add(new ScheduleItem(R.drawable.ic_social_activity,"翻译实践课程","8:10 - 12:10"));
         return items;
     }
 
@@ -99,13 +116,53 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
         }
     }
 
-    @OnClick({R.id.schedule_add})
+    @OnClick({R.id.schedule_add,R.id.icon_meun,R.id.icon_expand})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.schedule_add:
                 showPopWindow();
                 break;
+            case R.id.icon_meun:
+                showMenuPopWindow();
+                break;
+            case R.id.icon_expand:
+                break;
         }
+    }
+
+    private void showMenuPopWindow(){
+        View mMenuView = getLayoutInflater().inflate(R.layout.schedule_drop_down_menu, null);
+        LinearLayout select_cource = (LinearLayout)mMenuView.findViewById(R.id.menuitem_select_course);
+        LinearLayout select_activity = (LinearLayout)mMenuView.findViewById(R.id.menuitem_select_activity);
+        LinearLayout select_customize = (LinearLayout)mMenuView.findViewById(R.id.menuitem_select_customize);
+        mMenuPopWindow = new PopupWindow(mMenuView, WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT, true);
+        mMenuPopWindow.setTouchable(true);
+        mMenuPopWindow.setOutsideTouchable(true);
+        mMenuPopWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+        if (mMenuPopWindow.isShowing()) {
+            mMenuPopWindow.dismiss();
+        } else {
+            mMenuPopWindow.showAsDropDown(getActivity().findViewById(R.id.icon_meun), -150, 20);
+        }
+        select_cource.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("linmei","**列表按课程排序**");
+            }
+        });
+        select_activity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("linmei","**列表按活动排序**");
+            }
+        });
+        select_customize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("linmei","**列表自定义排序**");
+            }
+        });
     }
 
     public void buildS1Dialog(){
@@ -126,7 +183,8 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
         View contentView = LayoutInflater.from(mActivity).inflate(R.layout.schedule_pop_add_layout,null);
         //处理popWindow 显示内容
         final LinearLayout rvParent = contentView.findViewById(R.id.rv_schedule_pop_add);
-        final FrameLayout rv_input = contentView.findViewById(R.id.rv_input);
+        final LinearLayout rv_input = contentView.findViewById(R.id.rv_input);
+        editTv_content = contentView.findViewById(R.id.input_content);
         final ImageView imageView = contentView.findViewById(R.id.img_schedule_set_time);
         final EditText input_content= contentView.findViewById(R.id.input_content);
         rv_input.setVisibility(View.VISIBLE);
@@ -135,16 +193,16 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rv_input.setVisibility(View.GONE);
+//                rv_input.setVisibility(View.GONE);
                 initCustomTimePicker(rvParent);
             }
         });
         //创建并显示popWindow
-        new CustomPopWindow.PopupWindowBuilder(mActivity)
+        mAddSchedulePopWindow = new CustomPopWindow.PopupWindowBuilder(mActivity)
                 .setView(contentView)
                 .size(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT)//显示大小
-                .create()
-                .showAtLocation(contentView, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+                .create();
+        mAddSchedulePopWindow.showAtLocation(contentView, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
 
     }
 
@@ -159,16 +217,17 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
          * 2.因为系统Calendar的月份是从0-11的,所以如果是调用Calendar的set方法来设置时间,月份的范围也要是从0-11
          * setRangDate方法控制起始终止时间(如果不设置范围，则使用默认时间1900-2100年，此段代码可注释)
          */
-        Calendar selectedDate = Calendar.getInstance();//系统当前时间
+        final Calendar selectedDate = Calendar.getInstance();//系统当前时间
         Calendar startDate = Calendar.getInstance();
         startDate.set(2014, 1, 23);
         Calendar endDate = Calendar.getInstance();
         endDate.set(2027, 2, 28);
         //时间选择器 ，自定义布局
-        TimePickerView pvCustomTime = new TimePickerBuilder(mActivity, new OnTimeSelectListener() {
+        pvCustomTime = new TimePickerBuilder(mActivity, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {//选中事件回调
-               // btn_CustomTime.setText(getTime(date));
+//                btn_CustomTime.setText(getTime(date));
+                mSeletedDateString = date.toLocaleString();
             }
         })
                 /*.setType(TimePickerView.Type.ALL)//default is all
@@ -200,14 +259,22 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
                         tvSubmit.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                //pvCustomTime.returnData();
-                                //pvCustomTime.dismiss();
+                                pvCustomTime.returnData();
+                                pvCustomTime.dismiss();
+                                mAddSchedulePopWindow.dissmiss();
+                                //添加一天日程数据，刷新列表
+                                int[] resourceIds = {R.drawable.ic_social_activity,R.drawable.ic_course_done};
+                                int idex = (int) (Math.random()*(resourceIds.length));
+                                String title = editTv_content.getText().toString();
+                                ScheduleItem item = new ScheduleItem(resourceIds[idex],title,mSeletedDateString);
+                                adapter.addData(item);
                             }
                         });
                         ivCancel.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                //pvCustomTime.dismiss();
+                                pvCustomTime.dismiss();
+                                mAddSchedulePopWindow.dissmiss();
                             }
                         });
                     }
