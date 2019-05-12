@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -22,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
 import com.android.easymanager.R;
 import com.android.easymanager.model.Constant;
 import com.android.easymanager.ui.activity.CommonScanActivity;
@@ -35,6 +37,7 @@ import com.bigkoo.pickerview.listener.CustomListener;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.example.zhouwei.library.CustomPopWindow;
+import com.haibin.calendarview.CalendarLayout;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -47,7 +50,7 @@ import butterknife.OnClick;
  * Created by PC-xiaoming on 2019/4/4.
  */
 
-public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapter.RvOnItemListener{
+public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapter.RvOnItemListener {
 
     @BindView(R.id.recycle_view)
     RecyclerView recycle_view;
@@ -55,6 +58,11 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
     FrameLayout schedule_add;
     @BindView(R.id.icon_meun)
     ImageView img_menu;
+    @BindView(R.id.calendarLayout)
+    CalendarLayout calendarLayout;
+    @BindView(R.id.iv_expand)
+    ImageView iv_expand;
+
     PopupWindow mMenuPopWindow;
     EditText editTv_content;
     CustomPopWindow mAddSchedulePopWindow;
@@ -63,7 +71,7 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
     ScheduleTaskAdapter adapter;
 
 
-    public static ScheduleFragment getInstance(){
+    public static ScheduleFragment getInstance() {
         ScheduleFragment fragment = new ScheduleFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -88,19 +96,29 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
     @Override
     public void init() {
         loadRecyclerView();
+        initCalendarLayout();
     }
 
-    public void loadRecyclerView(){
-        adapter = new ScheduleTaskAdapter(mContext,buildItems(),this);
+    public void loadRecyclerView() {
+        adapter = new ScheduleTaskAdapter(mContext, buildItems(), this);
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
         recycle_view.setAdapter(adapter);
     }
 
-    public ArrayList<ScheduleItem> buildItems(){
+    public void initCalendarLayout(){
+        calendarLayout.setListener(new CalendarLayout.StateChangeListener() {
+            @Override
+            public void onStateChange(boolean expand) {
+                iv_expand.setRotation(expand?180:360);
+            }
+        });
+    }
+
+    public ArrayList<ScheduleItem> buildItems() {
         ArrayList<ScheduleItem> items = new ArrayList<>();
-        items.add(new ScheduleItem(R.drawable.ic_course_done,"汉语言课程","8:10 - 12:10"));
-        items.add(new ScheduleItem(R.drawable.ic_social_activity,"体育活动课程","8:10 - 12:10"));
-        items.add(new ScheduleItem(R.drawable.ic_course_done,"材料力学课程","8:10 - 12:10"));
+        items.add(new ScheduleItem(R.drawable.ic_course_done, "汉语言课程", "8:10 - 12:10"));
+        items.add(new ScheduleItem(R.drawable.ic_social_activity, "体育活动课程", "8:10 - 12:10"));
+        items.add(new ScheduleItem(R.drawable.ic_course_done, "材料力学课程", "8:10 - 12:10"));
 //        items.add(new ScheduleItem(R.drawable.ic_social_activity,"社团活动","8:10 - 12:10"));
 //        items.add(new ScheduleItem(R.drawable.ic_course_done,"看电影","8:10 - 12:10"));
 //        items.add(new ScheduleItem(R.drawable.ic_social_activity,"翻译实践课程","8:10 - 12:10"));
@@ -109,32 +127,41 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
 
     @Override
     public void onItemClick(int position, ScheduleItem item) {
-        if(position%2 == 0){
+        if (position % 2 == 0) {
             buildS2Dialog();
-        }else{
+        } else {
             buildS1Dialog();
         }
     }
 
-    @OnClick({R.id.schedule_add,R.id.icon_meun,R.id.icon_expand})
-    public void onClick(View view){
-        switch (view.getId()){
+    @OnClick({R.id.schedule_add, R.id.icon_meun, R.id.iv_expand})
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.schedule_add:
                 showPopWindow();
                 break;
             case R.id.icon_meun:
                 showMenuPopWindow();
                 break;
-            case R.id.icon_expand:
+            case R.id.iv_expand:
+                expand();
                 break;
         }
     }
 
-    private void showMenuPopWindow(){
+    public void expand(){
+        if(calendarLayout.isExpand()){
+            calendarLayout.shrink();
+        }else {
+            calendarLayout.expand();
+        }
+    }
+
+    private void showMenuPopWindow() {
         View mMenuView = getLayoutInflater().inflate(R.layout.schedule_drop_down_menu, null);
-        LinearLayout select_cource = (LinearLayout)mMenuView.findViewById(R.id.menuitem_select_course);
-        LinearLayout select_activity = (LinearLayout)mMenuView.findViewById(R.id.menuitem_select_activity);
-        LinearLayout select_customize = (LinearLayout)mMenuView.findViewById(R.id.menuitem_select_customize);
+        LinearLayout select_cource = (LinearLayout) mMenuView.findViewById(R.id.menuitem_select_course);
+        LinearLayout select_activity = (LinearLayout) mMenuView.findViewById(R.id.menuitem_select_activity);
+        LinearLayout select_customize = (LinearLayout) mMenuView.findViewById(R.id.menuitem_select_customize);
         mMenuPopWindow = new PopupWindow(mMenuView, WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT, true);
         mMenuPopWindow.setTouchable(true);
@@ -148,47 +175,47 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
         select_cource.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("linmei","**列表按课程排序**");
+                Log.i("linmei", "**列表按课程排序**");
             }
         });
         select_activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("linmei","**列表按活动排序**");
+                Log.i("linmei", "**列表按活动排序**");
             }
         });
         select_customize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("linmei","**列表自定义排序**");
+                Log.i("linmei", "**列表自定义排序**");
             }
         });
     }
 
-    public void buildS1Dialog(){
-       View view = LayoutInflater.from(mActivity).inflate(R.layout.schedule_dialog_s1_layout,null,false);
-       final AlertDialog dialog = new AlertDialog.Builder(mActivity).setView(view).create();
-       dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-       dialog.show();
-    }
-
-    public void buildS2Dialog(){
-        View view = LayoutInflater.from(mActivity).inflate(R.layout.schedule_dialog_s2_layout,null,false);
+    public void buildS1Dialog() {
+        View view = LayoutInflater.from(mActivity).inflate(R.layout.schedule_dialog_s1_layout, null, false);
         final AlertDialog dialog = new AlertDialog.Builder(mActivity).setView(view).create();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
     }
 
-    public void showPopWindow(){
-        View contentView = LayoutInflater.from(mActivity).inflate(R.layout.schedule_pop_add_layout,null);
+    public void buildS2Dialog() {
+        View view = LayoutInflater.from(mActivity).inflate(R.layout.schedule_dialog_s2_layout, null, false);
+        final AlertDialog dialog = new AlertDialog.Builder(mActivity).setView(view).create();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+    }
+
+    public void showPopWindow() {
+        View contentView = LayoutInflater.from(mActivity).inflate(R.layout.schedule_pop_add_layout, null);
         //处理popWindow 显示内容
         final LinearLayout rvParent = contentView.findViewById(R.id.rv_schedule_pop_add);
         final LinearLayout rv_input = contentView.findViewById(R.id.rv_input);
         editTv_content = contentView.findViewById(R.id.input_content);
         final ImageView imageView = contentView.findViewById(R.id.img_schedule_set_time);
-        final EditText input_content= contentView.findViewById(R.id.input_content);
+        final EditText input_content = contentView.findViewById(R.id.input_content);
         rv_input.setVisibility(View.VISIBLE);
-        CommonUtils.showSoftInput(mContext,input_content);
+        CommonUtils.showSoftInput(mContext, input_content);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,9 +227,9 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
         //创建并显示popWindow
         mAddSchedulePopWindow = new CustomPopWindow.PopupWindowBuilder(mActivity)
                 .setView(contentView)
-                .size(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT)//显示大小
+                .size(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)//显示大小
                 .create();
-        mAddSchedulePopWindow.showAtLocation(contentView, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+        mAddSchedulePopWindow.showAtLocation(contentView, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
 
     }
 
@@ -263,10 +290,10 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
                                 pvCustomTime.dismiss();
                                 mAddSchedulePopWindow.dissmiss();
                                 //添加一天日程数据，刷新列表
-                                int[] resourceIds = {R.drawable.ic_social_activity,R.drawable.ic_course_done};
-                                int idex = (int) (Math.random()*(resourceIds.length));
+                                int[] resourceIds = {R.drawable.ic_social_activity, R.drawable.ic_course_done};
+                                int idex = (int) (Math.random() * (resourceIds.length));
                                 String title = editTv_content.getText().toString();
-                                ScheduleItem item = new ScheduleItem(resourceIds[idex],title,mSeletedDateString);
+                                ScheduleItem item = new ScheduleItem(resourceIds[idex], title, mSeletedDateString);
                                 adapter.addData(item);
                             }
                         });
@@ -289,10 +316,11 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
                 .setDecorView((ViewGroup) parent)
                 .isDialog(false)
                 .build();
-                pvCustomTime.show();
+        pvCustomTime.show();
 
     }
-    public ArrayList<String> buildPopItems(){
+
+    public ArrayList<String> buildPopItems() {
         ArrayList<String> data = new ArrayList<>();
         data.add("ss");
         data.add("ss");

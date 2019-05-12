@@ -1,159 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff0f0f0"
     android:orientation="vertical">
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical">
-       <RelativeLayout
-           android:id="@+id/title"
-           android:layout_width="match_parent"
-           android:layout_height="44dp"
-           android:layout_gravity="top"
-           android:background="@color/calendar_bg_color">
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:gravity="center"
-               android:layout_centerInParent="true">
-               <TextView
-                   android:id="@+id/today"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:textColor="#FF333333"
-                   android:textSize="18sp"
-                   android:text="03月30日"/>
-               <ImageView
-                   android:layout_width="wrap_content"
-                   android:layout_height="match_parent"
-                   android:paddingStart="10dp"
-                   android:paddingEnd="10dp"
-                   android:layout_toEndOf="@+id/today"
-                   android:src="@drawable/ic_group"/>
-           </LinearLayout>
-           <ImageView
-               android:id="@+id/icon_meun"
-               android:layout_width="wrap_content"
-               android:layout_height="match_parent"
-               android:layout_alignParentEnd="true"
-               android:paddingEnd="15dp"
-               android:paddingStart="15dp"
-               android:src="@drawable/icon_menu_select"/>
 
-       </RelativeLayout>
-       <com.haibin.calendarview.CalendarLayout
-           android:id="@+id/calendarLayout"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="vertical"
-           app:default_status="shrink"
-           app:calendar_content_view_id="@+id/rl_schedule">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-           <com.haibin.calendarview.CalendarView
-               android:id="@+id/calendarView"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:background="#ffffffff"
-               app:calendar_padding="0dp"
-               app:current_month_lunar_text_color="#CFCFCF"
-               app:current_month_text_color="#333333"
-               app:current_day_lunar_text_color="#FF333333"
-               app:current_day_text_color="#FF333333"
-               app:max_year="2020"
-               app:min_year="2004"
-               app:month_view="com.android.easymanager.ui.widget.ScheduleMonthView"
-               app:month_view_show_mode="mode_fix"
-               app:other_month_lunar_text_color="#FF999999"
-               app:other_month_text_color="#FF999999"
-               app:selected_theme_color="#ffcccccc"
-               app:scheme_text="假"
-               app:week_background="#ffffffff"
-               app:week_start_with="mon"
-               app:week_text_color="#FF999999"
-               app:week_text_size="16dp"
-               app:week_view="com.android.easymanager.ui.widget.ScheduleWeekView" />
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:gravity="center_horizontal"
-               android:visibility="gone"
-               android:background="#ffffffff">
-               <ImageView
-                   android:id="@+id/icon_expand"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center_horizontal"
-                   android:src="@drawable/ic_expand_small_holo_light"
-                   android:padding="3dp"/>
-           </LinearLayout>
-           <RelativeLayout
-               android:id="@+id/rl_schedule"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:background="#ffffffff">
-               <View
-                   android:id="@+id/bg"
-                   android:layout_width="match_parent"
-                   android:layout_height="10dp"
-                   android:background="#fff0f0f0"/>
-               <TextView
-                   android:text="今日日程"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_alignParentLeft="true"
-                   android:layout_marginTop="15dp"
-                   android:layout_marginLeft="15dp"
-                   android:textColor="#333333"
-                   android:textSize="16sp"
-                   android:layout_below="@id/bg"
-                   android:id="@+id/textView" />
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_gravity="top"
+            android:background="@color/calendar_bg_color">
 
-               <android.support.v7.widget.RecyclerView
-                   android:id="@+id/recycle_view"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_marginTop="10dp"
-                   android:layout_marginLeft="15dp"
-                   android:layout_below="@+id/textView"
-                   />
-               <LinearLayout
-                   android:id="@+id/rv_no_schedule"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_centerInParent="true"
-                   android:orientation="vertical"
-                   android:visibility="gone">
-                   <ImageView
-                       android:layout_width="80dp"
-                       android:layout_height="80dp"
-                       android:layout_marginLeft="15dp"
-                       android:src="@drawable/ic_no_schedule"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center">
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="今日暂无日程～"
-                       android:textColor="#ff4189ff"
-                       android:layout_marginTop="@dimen/space_20dp"
-                       android:layout_gravity="center"
-                       android:gravity="center"
-                       android:textSize="14sp" />
-               </LinearLayout>
-           </RelativeLayout>
-       </com.haibin.calendarview.CalendarLayout>
-   </LinearLayout>
+                <TextView
+                    android:id="@+id/today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="03月30日"
+                    android:textColor="#FF333333"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@+id/today"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:src="@drawable/ic_group" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/icon_meun"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:paddingEnd="15dp"
+                android:paddingStart="15dp"
+                android:src="@drawable/icon_menu_select" />
+
+        </RelativeLayout>
+
+        <com.haibin.calendarview.CalendarLayout
+            android:id="@+id/calendarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:calendar_content_view_id="@+id/rl_schedule"
+            app:default_status="shrink">
+
+            <com.haibin.calendarview.CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffffff"
+                app:calendar_padding="0dp"
+                app:current_day_lunar_text_color="#FF333333"
+                app:current_day_text_color="#FF333333"
+                app:current_month_lunar_text_color="#CFCFCF"
+                app:current_month_text_color="#333333"
+                app:max_year="2020"
+                app:min_year="2004"
+                app:month_view="com.android.easymanager.ui.widget.ScheduleMonthView"
+                app:month_view_show_mode="mode_fix"
+                app:other_month_lunar_text_color="#FF999999"
+                app:other_month_text_color="#FF999999"
+                app:scheme_text="假"
+                app:selected_theme_color="#ffcccccc"
+                app:week_background="#ffffffff"
+                app:week_start_with="mon"
+                app:week_text_color="#FF999999"
+                app:week_text_size="16dp"
+                app:week_view="com.android.easymanager.ui.widget.ScheduleWeekView" />
+
+            <RelativeLayout
+                android:id="@+id/rl_schedule"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffffff">
+
+                <LinearLayout
+                    android:id="@+id/lv_expand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffffff"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/iv_expand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_expand_small_holo_light" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_below="@id/lv_expand"
+                    android:background="#fff0f0f0" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/bg"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="今日日程"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycle_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/textView"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp" />
+
+                <LinearLayout
+                    android:id="@+id/rv_no_schedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/ic_no_schedule" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/space_20dp"
+                        android:gravity="center"
+                        android:text="今日暂无日程～"
+                        android:textColor="#ff4189ff"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </com.haibin.calendarview.CalendarLayout>
+    </LinearLayout>
+
     <FrameLayout
         android:id="@+id/schedule_add"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="right|bottom"
         android:layout_marginBottom="0dp"
-        android:background="@drawable/ic_schedule_add">
-    </FrameLayout>
+        android:background="@drawable/ic_schedule_add"></FrameLayout>
 </FrameLayout>

@@ -3,16 +3,22 @@
 buildscript {
     
     repositories {
+        maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven { url "https://jitpack.io" }
         maven {
             url 'https://maven.google.com/'
             name 'Google'
         }
         google()
-        jcenter()
+        //jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        
+        //noinspection GradleDependency
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        //noinspection GradleDependency
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -21,6 +27,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         mavenCentral()
         maven {
             url "https://oss.sonatype.org/content/repositories/snapshots/"
@@ -31,7 +38,7 @@ allprojects {
             name 'Google'
         }
         google()
-        jcenter()
+        //jcenter()
     }
 }
 

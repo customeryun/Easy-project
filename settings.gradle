@@ -1,1 +1,1 @@
-include ':app',':reclib-testemoticons'
+include ':app', ':reclib-testemoticons', ':calendarview'
