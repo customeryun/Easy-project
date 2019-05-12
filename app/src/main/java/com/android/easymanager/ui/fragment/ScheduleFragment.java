@@ -38,10 +38,13 @@ import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.example.zhouwei.library.CustomPopWindow;
 import com.haibin.calendarview.CalendarLayout;
+import com.haibin.calendarview.CalendarView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -62,6 +65,8 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
     CalendarLayout calendarLayout;
     @BindView(R.id.iv_expand)
     ImageView iv_expand;
+    @BindView(R.id.calendarView)
+    CalendarView calendarView;
 
     PopupWindow mMenuPopWindow;
     EditText editTv_content;
@@ -97,6 +102,7 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
     public void init() {
         loadRecyclerView();
         initCalendarLayout();
+        initData();
     }
 
     public void loadRecyclerView() {
@@ -123,6 +129,39 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
 //        items.add(new ScheduleItem(R.drawable.ic_course_done,"看电影","8:10 - 12:10"));
 //        items.add(new ScheduleItem(R.drawable.ic_social_activity,"翻译实践课程","8:10 - 12:10"));
         return items;
+    }
+
+    protected void initData() {
+
+        Map<String, com.haibin.calendarview.Calendar> map = new HashMap<>();
+        for (int y = 2010; y < 2030; y++) {
+            for (int m = 1; m <= 12; m++) {
+                map.put(getSchemeCalendar(y, m, 1, 0xFF40db25, "假").toString(),
+                        getSchemeCalendar(y, m, 1, 0xFF40db25, "假"));
+                map.put(getSchemeCalendar(y, m, 3, 0xFFdf1356, "事").toString(),
+                        getSchemeCalendar(y, m, 3, 0xFFdf1356, "事"));
+                map.put(getSchemeCalendar(y, m, 5, 0xFFbc13f0, "驾").toString(),
+                        getSchemeCalendar(y, m, 5, 0xFFbc13f0, "驾"));
+                map.put(getSchemeCalendar(y, m, 7, 0xFF4a4bd2, "会").toString(),
+                        getSchemeCalendar(y, m, 7, 0xFF4a4bd2, "会"));
+                map.put(getSchemeCalendar(y, m, 9, 0xFF542261, "考").toString(),
+                        getSchemeCalendar(y, m, 9, 0xFF542261, "考"));
+
+            }
+        }
+
+        //28560 数据量增长不会影响UI响应速度，请使用这个API替换
+        calendarView.setSchemeDate(map);
+    }
+
+    private com.haibin.calendarview.Calendar getSchemeCalendar(int year, int month, int day, int color, String text) {
+        com.haibin.calendarview.Calendar calendar = new com.haibin.calendarview.Calendar();
+        calendar.setYear(year);
+        calendar.setMonth(month);
+        calendar.setDay(day);
+        calendar.setSchemeColor(color);//如果单独标记颜色、则会使用这个颜色
+        calendar.setScheme(text);
+        return calendar;
     }
 
     @Override
