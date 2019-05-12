@@ -6,8 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.android.easymanager.R;
+import com.android.easymanager.ui.activity.SchoolAnnouncementDetailActivity;
 
 import java.util.ArrayList;
 
@@ -46,6 +46,12 @@ public class SchoolAnnouncementAdapter extends RecyclerView.Adapter<SchoolAnnoun
 
         public ContentHodler(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    SchoolAnnouncementDetailActivity.launchActivity(mContext);
+                }
+            });
         }
     }
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title_layout"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="19sp"
+        android:textColor="#333333"
+        android:layout_gravity="center"
+        android:text="关于2019年春季学期的通知"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="12sp"
+        android:textColor="#999999"
+        android:layout_gravity="right"
+        android:text="时间栏:2019-00-00 08:00"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="164dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/me_background"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="15sp"
+        android:textColor="#333333"
+        android:text="为培养合格的汉语教师，促进汉语国际推广和中国文化传播，孔子学院总部/国家汉办（以下简称汉办）设立孔子学院奖学金，
+        委托孔子学院、独立设置的孔子课堂、部分汉语考试考点（以下简称推荐机构）推荐优秀学生和在职汉语教师到中国大学（以下简称接收院校）学习。
+        \n\n一、资助对象 \n\n1．非中国籍人士。 \n\n2．身心健康，品学兼优。 \n\n3．有志于从事汉语教育、教学及汉语国际推广相关工作。
+        \n\n4．年龄为16-35周岁（统一以2019年9月1日计）。在职..."
+        />
+</LinearLayout>

@@ -110,7 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_schudule_item_bg" />
+            android:src="@drawable/me_background" />
 
         <TextView
             android:layout_width="wrap_content"

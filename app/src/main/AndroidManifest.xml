@@ -106,6 +106,7 @@
         <activity android:name=".ui.activity.SchoolAnnouncementActivity" />
         <activity android:name=".ui.activity.CommentActivity"/>
         <activity android:name=".ui.activity.CommonScanActivity"/>
+        <activity android:name=".ui.activity.SchoolAnnouncementDetailActivity"/>
 
         <provider
             android:name="com.activeandroid.content.ContentProvider"

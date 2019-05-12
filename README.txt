@@ -70,3 +70,4 @@
 63.linmei   add 组织架构UI调整；搜索框UI
 64.xiaoming add 添加日程按钮增加展开和收起功能
 65.xiaoming add 添加日程小圆点显示
+66.linmei   add 校园公告/活动详情界面add 20190512
