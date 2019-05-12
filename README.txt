@@ -69,3 +69,4 @@
 62.linmei   add 首页日程item显示详情；日程首页UI细节调整 20190511
 63.linmei   add 组织架构UI调整；搜索框UI
 64.xiaoming add 添加日程按钮增加展开和收起功能
+65.xiaoming add 添加日程小圆点显示
