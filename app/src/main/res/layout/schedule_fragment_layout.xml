@@ -117,23 +117,11 @@
                     android:layout_below="@id/lv_expand"
                     android:background="#fff0f0f0" />
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@id/bg"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:text="今日日程"
-                    android:textColor="#333333"
-                    android:textSize="16sp" />
-
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycle_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/textView"
+                    android:layout_below="@+id/bg"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp" />
 

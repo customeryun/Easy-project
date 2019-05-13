@@ -28,8 +28,10 @@ import com.android.easymanager.R;
 import com.android.easymanager.model.Constant;
 import com.android.easymanager.ui.activity.CommonScanActivity;
 import com.android.easymanager.ui.activity.ContactAddActivity;
+import com.android.easymanager.ui.adapter.ScheduleListAdapter;
 import com.android.easymanager.ui.adapter.SchedulePopAdapter;
 import com.android.easymanager.ui.adapter.ScheduleTaskAdapter;
+import com.android.easymanager.ui.bean.ScheduleGroupEntry;
 import com.android.easymanager.ui.bean.ScheduleItem;
 import com.android.easymanager.utils.CommonUtils;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
@@ -41,6 +43,7 @@ import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -74,7 +77,7 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
     TimePickerView pvCustomTime = null;
     String mSeletedDateString = "08:10-12:00";
     ScheduleTaskAdapter adapter;
-
+    private ScheduleListAdapter mGroupAdapter;
 
     public static ScheduleFragment getInstance() {
         ScheduleFragment fragment = new ScheduleFragment();
@@ -106,9 +109,17 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
     }
 
     public void loadRecyclerView() {
-        adapter = new ScheduleTaskAdapter(mContext, buildItems(), this);
+        //adapter = new ScheduleTaskAdapter(mContext, buildItems(), this);
+        mGroupAdapter = new ScheduleListAdapter(mContext,getGroups());
         recycle_view.setLayoutManager(new LinearLayoutManager(mContext));
-        recycle_view.setAdapter(adapter);
+        recycle_view.setAdapter(mGroupAdapter);
+    }
+
+    public  ArrayList<ScheduleGroupEntry> getGroups() {
+        ArrayList<ScheduleGroupEntry> groups = new ArrayList<>();
+        groups.add(new ScheduleGroupEntry("今日行程","",buildItems()));
+        groups.add(new ScheduleGroupEntry("完成","",buildDoneItems()));
+        return groups;
     }
 
     public void initCalendarLayout(){
@@ -121,6 +132,17 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
     }
 
     public ArrayList<ScheduleItem> buildItems() {
+        ArrayList<ScheduleItem> items = new ArrayList<>();
+        items.add(new ScheduleItem(R.drawable.ic_course_done, "汉语言课程", "8:10 - 12:10"));
+        items.add(new ScheduleItem(R.drawable.ic_social_activity, "体育活动课程", "8:10 - 12:10"));
+        items.add(new ScheduleItem(R.drawable.ic_course_done, "材料力学课程", "8:10 - 12:10"));
+//        items.add(new ScheduleItem(R.drawable.ic_social_activity,"社团活动","8:10 - 12:10"));
+//        items.add(new ScheduleItem(R.drawable.ic_course_done,"看电影","8:10 - 12:10"));
+//        items.add(new ScheduleItem(R.drawable.ic_social_activity,"翻译实践课程","8:10 - 12:10"));
+        return items;
+    }
+
+    public ArrayList<ScheduleItem> buildDoneItems(){
         ArrayList<ScheduleItem> items = new ArrayList<>();
         items.add(new ScheduleItem(R.drawable.ic_course_done, "汉语言课程", "8:10 - 12:10"));
         items.add(new ScheduleItem(R.drawable.ic_social_activity, "体育活动课程", "8:10 - 12:10"));
@@ -333,7 +355,8 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
                                 int idex = (int) (Math.random() * (resourceIds.length));
                                 String title = editTv_content.getText().toString();
                                 ScheduleItem item = new ScheduleItem(resourceIds[idex], title, mSeletedDateString);
-                                adapter.addData(item);
+                                mGroupAdapter.addItem(item);
+                                //adapter.addData(item);
                             }
                         });
                         ivCancel.setOnClickListener(new View.OnClickListener() {
@@ -359,15 +382,4 @@ public class ScheduleFragment extends BaseFragment implements ScheduleTaskAdapte
 
     }
 
-    public ArrayList<String> buildPopItems() {
-        ArrayList<String> data = new ArrayList<>();
-        data.add("ss");
-        data.add("ss");
-        data.add("ss");
-        data.add("ss");
-        data.add("ss");
-        data.add("ss");
-        data.add("ss");
-        return data;
-    }
 }
