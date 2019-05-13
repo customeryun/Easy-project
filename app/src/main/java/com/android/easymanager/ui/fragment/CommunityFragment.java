@@ -4,10 +4,15 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+
 import com.android.easymanager.R;
 import com.android.easymanager.contract.HomeContract;
 import com.android.easymanager.presenter.HomePresenter;
 import com.android.easymanager.ui.activity.CommentActivity;
+import com.android.easymanager.ui.activity.CreateCommunitityActivity;
+import com.android.easymanager.ui.activity.MyCommunitityActivity;
 import com.android.easymanager.ui.adapter.CommunityGirdAdapter;
 import com.android.easymanager.ui.adapter.HomeMainAdapter;
 import com.android.easymanager.ui.bean.CommentDetailBean;
@@ -16,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by PC-xiaoming on 2019/4/23.
@@ -41,6 +47,10 @@ public class CommunityFragment extends BaseFragment implements HomeContract.View
 
     @BindView(R.id.community_list)
     RecyclerView community_list;
+    @BindView(R.id.menu_communtity_me)
+    ImageView menu_communtity_me;
+    @BindView(R.id.menu_communtity_create)
+    ImageView menu_communtity_create;
 
     CommunityGirdAdapter mAdapter;
 
@@ -139,6 +149,18 @@ public class CommunityFragment extends BaseFragment implements HomeContract.View
     public void onItemClick(int position, int type) {
         if(type == CommunityGirdAdapter.LIST_TYP){
             CommentActivity.launchActivity(mContext);
+        }
+    }
+
+    @OnClick({R.id.menu_communtity_me,R.id.menu_communtity_create})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.menu_communtity_me:
+                MyCommunitityActivity.launchActivity(mContext);
+                break;
+            case R.id.menu_communtity_create:
+                CreateCommunitityActivity.launchActivity(mContext);
+                break;
         }
     }
 }

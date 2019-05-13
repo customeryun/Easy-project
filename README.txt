@@ -71,3 +71,4 @@
 64.xiaoming add 添加日程按钮增加展开和收起功能
 65.xiaoming add 添加日程小圆点显示
 66.linmei   add 校园公告/活动详情界面add 20190512
+67.linmei   add 社区-我的互动和发布动态UI添加 20190513
