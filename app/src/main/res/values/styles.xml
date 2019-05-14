@@ -9,6 +9,11 @@
         <item name="android:windowLightStatusBar">true</item><!--statusBar �׵׺�������-->
     </style>
 
+    <style name="WelcomeStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--<item name="android:windowBackground">@drawable/loading</item>-->
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
     <style name="AppTheme_BlueStatusBar" parent="AppTheme">
         <item name="colorPrimaryDark">@color/colorAccent</item>
         <item name="android:windowLightStatusBar">false</item>

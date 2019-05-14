@@ -51,11 +51,9 @@
             android:name="AA_DB_VERSION"
             android:value="4" />
 
+        <activity android:name=".WelconmeActivity"/>
+        <activity android:name=".LoginActivity2"/>
         <activity android:name=".MainActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
