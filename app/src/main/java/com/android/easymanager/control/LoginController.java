@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import com.android.easymanager.IxiaApplication;
 import com.android.easymanager.LoginActivity;
+import com.android.easymanager.LoginActivity2;
 import com.android.easymanager.MainActivity;
 import com.android.easymanager.R;
 import com.android.easymanager.database.UserEntry;
@@ -20,9 +21,9 @@ import cn.jpush.im.api.BasicCallback;
 
 public class LoginController implements View.OnClickListener {
 
-    private LoginActivity mContext;
+    private LoginActivity2 mContext;
 
-    public LoginController(LoginActivity loginActivity) {
+    public LoginController(LoginActivity2 loginActivity) {
         this.mContext = loginActivity;
     }
 
@@ -80,37 +81,37 @@ public class LoginController implements View.OnClickListener {
                     });
                     //注册
                 } else {
-                    JMessageClient.register(userId, password, new BasicCallback() {
-                        @Override
-                        public void gotResult(int i, String s) {
-                            if (i == 0) {
-                                SharePreferenceManager.setRegisterName(userId);
-                                SharePreferenceManager.setRegistePass(password);
-                                mContext.startActivity(new Intent(mContext, FinishRegisterActivity.class));
-                                ToastUtil.shortToast(mContext, "注册成功");
-                            } else {
-                                //HandleResponseCode.onHandle(mContext, i, false);
-                                ToastUtil.shortToast(mContext, "注册失败:"+s);
-                            }
-                        }
-                    });
+//                    JMessageClient.register(userId, password, new BasicCallback() {
+//                        @Override
+//                        public void gotResult(int i, String s) {
+//                            if (i == 0) {
+//                                SharePreferenceManager.setRegisterName(userId);
+//                                SharePreferenceManager.setRegistePass(password);
+//                                mContext.startActivity(new Intent(mContext, FinishRegisterActivity.class));
+//                                ToastUtil.shortToast(mContext, "注册成功");
+//                            } else {
+//                                //HandleResponseCode.onHandle(mContext, i, false);
+//                                ToastUtil.shortToast(mContext, "注册失败:"+s);
+//                            }
+//                        }
+//                    });
                 }
                 break;
-            case R.id.login_register:
-                mContext.mLogin_passWord.setText("");
-                IxiaApplication.registerOrLogin++;
-                if (IxiaApplication.registerOrLogin % 2 == 0) {
-                    mContext.mBtn_login.setText("注册");
-                    mContext.mLogin_register.setText("立即登陆");
-                    mContext.mLogin_desc.setText("已有账号? ");
-                    mContext.mLogin_forget.setVisibility(View.GONE);
-                } else {
-                    mContext.mBtn_login.setText("登录");
-                    mContext.mLogin_register.setText("立即注册");
-                    mContext.mLogin_desc.setText("还没有账号? ");
-                    mContext.mLogin_forget.setVisibility(View.VISIBLE);
-                }
-                break;
+//            case R.id.login_register:
+//                mContext.mLogin_passWord.setText("");
+//                IxiaApplication.registerOrLogin++;
+//                if (IxiaApplication.registerOrLogin % 2 == 0) {
+//                    mContext.mBtn_login.setText("注册");
+//                    mContext.mLogin_register.setText("立即登陆");
+//                    mContext.mLogin_desc.setText("已有账号? ");
+//                    mContext.mLogin_forget.setVisibility(View.GONE);
+//                } else {
+//                    mContext.mBtn_login.setText("登录");
+//                    mContext.mLogin_register.setText("立即注册");
+//                    mContext.mLogin_desc.setText("还没有账号? ");
+//                    mContext.mLogin_forget.setVisibility(View.VISIBLE);
+//                }
+//                break;
         }
     }
 }

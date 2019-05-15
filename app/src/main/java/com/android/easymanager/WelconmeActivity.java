@@ -22,10 +22,11 @@ public class WelconmeActivity extends AppCompatActivity {
         //检测账号是否登陆
         UserInfo myInfo = JMessageClient.getMyInfo();
         if (myInfo == null) {
-            goToRegisterAndLoginActivity();
+            goToRegisterAndLoginActivity(0);
             //注册界面
         }else {
-            //goToMainActivity();
+            goToRegisterAndLoginActivity(1);
+//            goToMainActivity();
             //登陆界面
         }
     }
@@ -35,8 +36,10 @@ public class WelconmeActivity extends AppCompatActivity {
         finish();
     }
 
-    private void goToRegisterAndLoginActivity() {
-        startActivity(new Intent(mContext, LoginActivity2.class));
+    private void goToRegisterAndLoginActivity(int flag) {
+        Intent intent = new Intent(mContext, LoginActivity2.class);
+        intent.putExtra("flag",1);//1:登录; 0：注册
+        startActivity(intent);
         finish();
     }
 }

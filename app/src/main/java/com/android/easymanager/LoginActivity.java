@@ -33,8 +33,8 @@ public class LoginActivity extends BaseActivity {
     public void init() {
         setActionbarVisible(false);
 
-        mBtn_login.setOnClickListener(new LoginController(this));
-        mLogin_register.setOnClickListener(new LoginController(this));
+//        mBtn_login.setOnClickListener(new LoginController(this));
+//        mLogin_register.setOnClickListener(new LoginController(this));
     }
 	
 	public String getUserId() {

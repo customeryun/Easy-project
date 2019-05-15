@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/home_top_01"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_resgister_group"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/tab_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="#4189FF"
+                android:textSize="17sp"
+                android:text="邮箱注册"/>
+            <TextView
+                android:id="@+id/tab_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:gravity="center_horizontal"
+                android:textColor="#333333"
+                android:textSize="17sp"
+                android:text="手机注册"/>
+        </LinearLayout>
+        
+        <android.support.v4.view.ViewPager
+            android:id="@+id/resgister_viewpage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="#68C85D"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:text="注册"/>
+            <Button
+                android:id="@+id/btn_goto_login"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="#68C85D"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                android:layout_gravity="center_horizontal"
+                android:text="登录"/>
+        </LinearLayout>
+
+        <!--<include layout="@layout/login_layout_resginster"/>-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_login_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_weight="1">
+
+        <include layout="@layout/login_layout_login"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="38dp"
+        android:layout_marginBottom="9dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="登录注册表示同意"
+            android:textColor="#999999"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="《Super Link服务协议》"
+            android:textColor="#4189FF"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

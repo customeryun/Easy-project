@@ -73,3 +73,4 @@
 66.linmei   add 校园公告/活动详情界面add 20190512
 67.linmei   add 社区-我的互动和发布动态UI添加 20190513
 68.linmei   add 登陆注册UI添加1
+69.linmei   add 登录注册功能交互处理 20190515
