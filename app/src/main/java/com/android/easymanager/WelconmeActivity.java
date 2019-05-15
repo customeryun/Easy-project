@@ -38,7 +38,7 @@ public class WelconmeActivity extends AppCompatActivity {
 
     private void goToRegisterAndLoginActivity(int flag) {
         Intent intent = new Intent(mContext, LoginActivity2.class);
-        intent.putExtra("flag",1);//1:登录; 0：注册
+        intent.putExtra("flag",flag);//1:登录; 0：注册
         startActivity(intent);
         finish();
     }
