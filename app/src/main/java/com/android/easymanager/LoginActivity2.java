@@ -1,5 +1,6 @@
 package com.android.easymanager;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.android.easymanager.control.LoginController;
+import com.android.easymanager.ui.activity.LanguageSettingsActivity;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
@@ -36,11 +38,13 @@ public class LoginActivity2 extends AppCompatActivity{
     public EditText mLogin_userName;
     @BindView(R.id.userpassword)
     public EditText mLogin_passWord;
+    @BindView(R.id.tv_language)
+    TextView tv_language;
 
     private List<View> mTabs = new ArrayList<View>();
     private PagerAdapter mAdpater;
 
-    @OnClick({R.id.btn_goto_login,R.id.btn_register,R.id.btn_goto_resgister,R.id.btn_login,R.id.tab_email,R.id.tab_phone})
+    @OnClick({R.id.btn_goto_login,R.id.btn_register,R.id.btn_goto_resgister,R.id.btn_login,R.id.tab_email,R.id.tab_phone,R.id.layout_language})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_goto_login:
@@ -57,6 +61,18 @@ public class LoginActivity2 extends AppCompatActivity{
             case R.id.tab_phone:
                 mViewPager.setCurrentItem(1);
                 break;
+            case R.id.layout_language:
+//                LanguageSettingsActivity.launchActivity(this);
+                startActivityForResult(new Intent(this, LanguageSettingsActivity.class), 1);
+                break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == RESULT_OK && data!=null){
+            String result = data.getExtras().getString("selected_language");
+            tv_language.setText(result);
         }
     }
 

@@ -55,12 +55,15 @@
         <activity android:name=".LoginActivity2"/>
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".WelconmeActivity">
+        <activity android:name=".WelconmeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/WelcomeStyle">
             <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.LanguageSettingsActivity"/>
         <activity android:name=".ui.activity.StudentManagerActivity" />
         <activity android:name=".ui.activity.UserInfoActivity" />
         <activity android:name=".ui.activity.UserSettingsActivity" />

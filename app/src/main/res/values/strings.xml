@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">LinkLink</string>
+    <string name="app_name" translatable="false">Super Link</string>
     <string name="bottom_navigation_item_home">首页</string>
     <string name="bottom_navigation_item_schedule">日程</string>
     <string name="bottom_navigation_item_application">应用</string>
