@@ -110,6 +110,7 @@
         <activity android:name=".ui.activity.SchoolAnnouncementDetailActivity"/>
         <activity android:name=".ui.activity.CreateCommunitityActivity"/>
         <activity android:name=".ui.activity.MyCommunitityActivity"/>
+        <activity android:name=".ui.activity.SchoolSocietyActivity"/>
 
         <provider
             android:name="com.activeandroid.content.ContentProvider"

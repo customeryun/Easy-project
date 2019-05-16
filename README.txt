@@ -75,3 +75,4 @@
 68.linmei   add 登陆注册UI添加1
 69.linmei   add 登录注册功能交互处理 20190515
 70.linmei   add 登陆界面语言切换模块添加
+71.linmei   add 社团UI增加
