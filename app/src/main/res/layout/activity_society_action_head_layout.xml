@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F0F0F0"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/me_background"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="15dp"
+        android:text="社团介绍性文本：社团介绍性文本社团介绍性文本社团介绍性文本社团介绍性文本社团介绍性文本社团介绍性文本社团介绍性文本社团介绍性文本社团介绍性文本社团介绍性文本社团介绍性文本社团介绍性文本社团介绍性文本社团介绍性文本社团介绍性文本"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="15dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/home_top_04" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_title"
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@id/image"
+            android:textSize="14sp"
+            android:drawableStart="@drawable/menu_add_friend"
+            android:drawablePadding="10dp"
+            android:textColor="#999999"
+            android:text="团长姓名"/>
+
+        <TextView
+            android:id="@+id/tv_signature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@id/image"
+            android:layout_marginTop="10dp"
+            android:textSize="14sp"
+            android:textColor="#999999"
+            android:text="团长签名：DDDDDDdfdgfgrgfg"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:padding="15dp"
+        android:background="#FFFFFF">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="社团成员"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="社团成员列表...."/>
+    </LinearLayout>
+
+</LinearLayout>

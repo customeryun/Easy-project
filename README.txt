@@ -76,3 +76,4 @@
 69.linmei   add 登录注册功能交互处理 20190515
 70.linmei   add 登陆界面语言切换模块添加
 71.linmei   add 社团UI增加
+72.linmei   add 1.登录也忘记密码UI 2.社团列表、动态UI增加

@@ -63,6 +63,7 @@
             <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.LoginPasswordForgetActivity"/>
         <activity android:name=".ui.activity.LanguageSettingsActivity"/>
         <activity android:name=".ui.activity.StudentManagerActivity" />
         <activity android:name=".ui.activity.UserInfoActivity" />
@@ -110,7 +111,9 @@
         <activity android:name=".ui.activity.SchoolAnnouncementDetailActivity"/>
         <activity android:name=".ui.activity.CreateCommunitityActivity"/>
         <activity android:name=".ui.activity.MyCommunitityActivity"/>
-        <activity android:name=".ui.activity.SchoolSocietyActivity"/>
+        <activity android:name=".ui.activity.MySchoolSocietyActivity"/>
+        <activity android:name=".ui.activity.SchoolSocietyListActivity"/>
+        <activity android:name=".ui.activity.SocietyActionListActivity"/>
 
         <provider
             android:name="com.activeandroid.content.ContentProvider"

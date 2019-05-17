@@ -14,7 +14,7 @@ import com.android.easymanager.R;
 import com.android.easymanager.presenter.HomePresenter;
 import com.android.easymanager.ui.activity.FriendInfoActivity;
 import com.android.easymanager.ui.activity.SchoolAnnouncementActivity;
-import com.android.easymanager.ui.activity.SchoolSocietyActivity;
+import com.android.easymanager.ui.activity.MySchoolSocietyActivity;
 import com.android.easymanager.ui.widget.CommunityGridLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -175,7 +175,7 @@ public class CommunityGirdAdapter extends RecyclerView.Adapter<ViewHolder> {
                     SchoolAnnouncementActivity.launchActivity(mContext);
                     break;
                 case  R.id.school_society:
-                    SchoolSocietyActivity.launchActivity(mContext);
+                    MySchoolSocietyActivity.launchActivity(mContext);
                     break;
                 case R.id.school_learn_help:
                     break;

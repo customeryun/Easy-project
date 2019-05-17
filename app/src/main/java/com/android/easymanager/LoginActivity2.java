@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.android.easymanager.control.LoginController;
 import com.android.easymanager.ui.activity.LanguageSettingsActivity;
+import com.android.easymanager.ui.activity.LoginPasswordForgetActivity;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
@@ -40,11 +41,13 @@ public class LoginActivity2 extends AppCompatActivity{
     public EditText mLogin_passWord;
     @BindView(R.id.tv_language)
     TextView tv_language;
+    @BindView(R.id.tv_password_forget)
+    TextView tv_password_forget;
 
     private List<View> mTabs = new ArrayList<View>();
     private PagerAdapter mAdpater;
 
-    @OnClick({R.id.btn_goto_login,R.id.btn_register,R.id.btn_goto_resgister,R.id.btn_login,R.id.tab_email,R.id.tab_phone,R.id.layout_language})
+    @OnClick({R.id.btn_goto_login,R.id.btn_register,R.id.btn_goto_resgister,R.id.btn_login,R.id.tab_email,R.id.tab_phone,R.id.layout_language,R.id.tv_password_forget})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_goto_login:
@@ -64,6 +67,9 @@ public class LoginActivity2 extends AppCompatActivity{
             case R.id.layout_language:
 //                LanguageSettingsActivity.launchActivity(this);
                 startActivityForResult(new Intent(this, LanguageSettingsActivity.class), 1);
+                break;
+            case R.id.tv_password_forget:
+                LoginPasswordForgetActivity.launchActivity(this);
                 break;
         }
     }

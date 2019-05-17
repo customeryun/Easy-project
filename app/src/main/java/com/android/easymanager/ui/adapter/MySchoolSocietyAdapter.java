@@ -5,17 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.android.easymanager.R;
 import com.android.easymanager.ui.bean.SocietyBean;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SchoolSocietyAdapter extends BaseRecyclerAdapter<SocietyBean>{
+public class MySchoolSocietyAdapter extends BaseRecyclerAdapter<SocietyBean>{
     @Override
     public RecyclerView.ViewHolder onCreate(ViewGroup parent, int viewType) {
-        View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.society_list_item_layout, parent, false);
+        View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_my_society_item_layout, parent, false);
         return new SocietyHolder(layout);
     }
 
@@ -24,12 +22,18 @@ public class SchoolSocietyAdapter extends BaseRecyclerAdapter<SocietyBean>{
         if(viewHolder instanceof SocietyHolder){
             SocietyHolder holder = (SocietyHolder)viewHolder;
             holder.tv_name.setText(data.getName());
+            holder.tv_type.setText(data.getType());
+            holder.tv_status.setVisibility(data.getStatus()==0 ? View.GONE : View.VISIBLE);
         }
     }
 
     public class SocietyHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.name)
         TextView tv_name;
+        @BindView(R.id.type)
+        TextView tv_type;
+        @BindView(R.id.status)
+        TextView tv_status;
         public SocietyHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
